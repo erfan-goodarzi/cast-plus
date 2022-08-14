@@ -3,7 +3,7 @@ import React from 'react';
 
 const Nav = () => {
   return (
-    <Grid.Container gap={3} css={{ justifyContent: 'space-around' }}>
+    <Grid.Container gap={3} css={{ justifyContent: 'space-around', height: '100px' }}>
       <Grid xs={4}>
         {' '}
         <Text
