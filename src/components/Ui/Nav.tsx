@@ -1,9 +1,13 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeadphonesSimple } from '@fortawesome/free-solid-svg-icons';
 import { Button, Grid, Link, Text } from '@nextui-org/react';
 import React from 'react';
 
 const Nav = () => {
   return (
-    <Grid.Container gap={3} css={{ justifyContent: 'space-around', height: '100px' }}>
+    <Grid.Container
+      gap={3}
+      css={{ justifyContent: 'space-around', height: '100px' }}>
       <Grid xs={4}>
         {' '}
         <Text
@@ -44,6 +48,7 @@ const Nav = () => {
       <Grid xs={2}>
         <Button
           bordered
+          iconRight={<FontAwesomeIcon icon={faHeadphonesSimple} />}
           shadow
           css={{ color: '#fff', borderColor: '#fff', borderRadius: 3 }}
           auto>
