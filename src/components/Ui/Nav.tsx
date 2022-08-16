@@ -25,7 +25,7 @@ const Nav = () => {
           h1
           size={28}
           css={{
-            color: '$yellow600',
+            color: '#FFD60A',
           }}
           weight='bold'>
           +

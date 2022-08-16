@@ -9,10 +9,10 @@ const Header = () => {
       xl
       css={{
         background:
-          'linear-gradient(rgba(20, 33, 61 ,0.9), rgba(252, 163, 17, .6)), url(https://nowthisiswhatiwouldcallmusic.files.wordpress.com/2020/01/man-wearing-headphones.jpg?w=1440)',
+          'linear-gradient(rgba(0, 29, 61 ,0.9), rgba(255, 214, 10, .5)), url(https://nowthisiswhatiwouldcallmusic.files.wordpress.com/2020/01/man-wearing-headphones.jpg?w=1440)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        height: '102vh',
+        height: '106vh',
       }}>
       <Nav />
       <Spacer y={5} />
