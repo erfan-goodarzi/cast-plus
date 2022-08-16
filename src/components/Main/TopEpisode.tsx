@@ -11,8 +11,11 @@ import {
   Tooltip,
 } from '@nextui-org/react';
 import React from 'react';
+import { getTopEpisode } from '../../api/podcasts/getTopEpisode';
 
 const TopEpisode = () => {
+  getTopEpisode();
+
   return (
     <Container
       xl
