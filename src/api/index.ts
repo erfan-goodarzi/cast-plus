@@ -4,7 +4,7 @@ const baseURL = 'https://api.podchaser.com/graphql';
 export const httpClient = (query: string) => {
   const graphQLClient = new GraphQLClient(baseURL, {
     headers: {
-      authorization: `Bearer ACCESSTOKEN`,
+      authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
     },
   });
 
