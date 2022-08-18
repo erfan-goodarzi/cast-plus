@@ -2,7 +2,6 @@
   "name": "cast-plus",
   "private": true,
   "version": "0.0.0",
-  
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -19,6 +18,7 @@
     "process": "^0.11.10",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-query": "^3.39.2",
     "react-script": "^2.0.5",
     "react-scripts": "^5.0.1"
   },

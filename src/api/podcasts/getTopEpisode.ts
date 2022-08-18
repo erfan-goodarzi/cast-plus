@@ -1,18 +1,21 @@
 import { gql } from 'graphql-request';
 import { httpClient } from '..';
+import { useQuery } from 'react-query';
 
-export const getTopEpisode = () => {
+const getTopEpisode = (): Promise<TopEpisode> => {
   const query = gql`
-    {
-      podcasts(searchTerm: "بی پلاس") {
+    query {
+      episodes(sort: { sortBy: TRENDING }) {
         data {
-          id
           title
-          description
           imageUrl
         }
       }
     }
   `;
-  httpClient(query).then((res) => console.log(res));
+  return httpClient(query);
+};
+
+export const useGetTopEpisode = () => {
+  return useQuery<TopEpisode>(`episode`, async () => await getTopEpisode());
 };

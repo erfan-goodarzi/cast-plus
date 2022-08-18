@@ -2,19 +2,23 @@ import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Button,
-  Card,
   Container,
   Grid,
   Image,
+  Loading,
   Spacer,
   Text,
-  Tooltip,
 } from '@nextui-org/react';
-import React from 'react';
-import { getTopEpisode } from '../../api/podcasts/getTopEpisode';
+import React, { useEffect, useState } from 'react';
+import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
 
 const TopEpisode = () => {
-  getTopEpisode();
+  const [topEpisodeImg, setTopEpisodeImg] = useState<string>('');
+  const { data, isLoading } = useGetTopEpisode();
+
+  useEffect(() => {
+    setTopEpisodeImg(data?.episodes?.data[0].imageUrl);
+  }, [data]);
 
   return (
     <Container
@@ -25,16 +29,24 @@ const TopEpisode = () => {
       }}>
       <Grid.Container gap={4}>
         <Grid xs={6}>
-          <Image
-            css={{
-              clipPath: 'inset(5% 6% 7% 7% round 40% 3px 40% 3px)',
-            }}
-            width={528}
-            height={543}
-            src='https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
-            alt='Default Image'
-            objectFit='cover'
-          />
+          {isLoading ? (
+            <Loading
+              type='points'
+              css={{ ml: '19rem', mt: '1rem' }}
+              size='xl'
+            />
+          ) : (
+            <Image
+              css={{
+                clipPath: 'inset(5% 6% 7% 7% round 40% 3px 40% 3px)',
+              }}
+              width={528}
+              height={543}
+              src={topEpisodeImg}
+              alt='Default Image'
+              objectFit='cover'
+            />
+          )}
         </Grid>
         <Grid xs={6} css={{ display: 'block !important' }}>
           <Text
