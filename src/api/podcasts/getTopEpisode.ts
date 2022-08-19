@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 const getTopEpisode = (): Promise<TopEpisode> => {
   const query = gql`
     query {
-      episodes(sort: { sortBy: TRENDING }) {
+      episodes(sort: { sortBy: TRENDING },  first: 5) {
         data {
           title
           description

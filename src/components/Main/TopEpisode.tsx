@@ -11,6 +11,7 @@ import {
 } from '@nextui-org/react';
 import React, { useEffect, useState } from 'react';
 import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
+import BadgeInfo from '../Ui/BadgeInfo';
 
 const TopEpisode = () => {
   const [topEpisodeImg, setTopEpisodeImg] = useState<string>('');
@@ -66,21 +67,11 @@ const TopEpisode = () => {
           )}
         </Grid>
         <Grid xs={6} css={{ display: 'block !important', mt: 7 }}>
-          <Text
-            color='#001d3d'
-            css={{
-              mt: 23,
-              textAlign: 'left',
-              fontSize: '16px',
-              lineHeight: '1.2',
-              background: 'rgb(255 214 10)',
-              padding: '6px 14px',
-              width: 'max-content',
-              borderRadius: 'ius: 3px',
-              fontWeight: 600,
-            }}>
-            {topEpisodeChannel} | {topEpisodeAuthor} | {topEpisodeTime}
-          </Text>
+          <BadgeInfo
+            channel={topEpisodeChannel}
+            author={topEpisodeAuthor}
+            time={topEpisodeTime}
+          />
           <Text
             color='#fff'
             css={{
@@ -113,7 +104,7 @@ const TopEpisode = () => {
               color: '#001D3D',
               borderRadius: '3px',
             }}>
-            Play podcast
+            Play episode
           </Button>
         </Grid>
       </Grid.Container>
