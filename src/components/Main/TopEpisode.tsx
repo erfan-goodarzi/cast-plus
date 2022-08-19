@@ -1,4 +1,4 @@
-import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Button,
@@ -23,7 +23,13 @@ const TopEpisode = () => {
   const { data, isLoading } = useGetTopEpisode();
 
   useEffect(() => {
-    setTopEpisodeImg(data?.episodes?.data[2].imageUrl);
+    if (data?.episodes.data[2].imageUrl !== '') {
+      setTopEpisodeImg(data?.episodes.data[2].imageUrl);
+    } else {
+      setTopEpisodeImg(
+        'https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
+      );
+    }
     setTopEpisodeTitle(data?.episodes?.data[2].title);
     setTopEpisodeDetails(data?.episodes?.data[2].description);
     setTopEpisodeChannel(data?.episodes?.data[2].podcast.title);
@@ -59,15 +65,19 @@ const TopEpisode = () => {
             />
           )}
         </Grid>
-        <Grid xs={6} css={{ display: 'block !important' }}>
+        <Grid xs={6} css={{ display: 'block !important', mt: 7 }}>
           <Text
-            color='#9d9d9d'
+            color='#001d3d'
             css={{
               mt: 23,
-              width: '78%',
               textAlign: 'left',
               fontSize: '16px',
               lineHeight: '1.2',
+              background: 'rgb(255 214 10)',
+              padding: '6px 14px',
+              width: 'max-content',
+              borderRadius: 'ius: 3px',
+              fontWeight: 600,
             }}>
             {topEpisodeChannel} | {topEpisodeAuthor} | {topEpisodeTime}
           </Text>
@@ -97,7 +107,7 @@ const TopEpisode = () => {
           <Spacer />
           <Button
             auto
-            iconRight={<FontAwesomeIcon icon={faAnglesRight} />}
+            iconRight={<FontAwesomeIcon icon={faPlay} />}
             css={{
               background: '#FFD60A',
               color: '#001D3D',
