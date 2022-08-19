@@ -14,10 +14,21 @@ import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
 
 const TopEpisode = () => {
   const [topEpisodeImg, setTopEpisodeImg] = useState<string>('');
+  const [topEpisodeTitle, setTopEpisodeTitle] = useState<string>('');
+  const [topEpisodeDetails, setTopEpisodeDetails] = useState<string>('');
+  const [topEpisodeChannel, setTopEpisodeChannel] = useState<string>('');
+  const [topEpisodeAuthor, setTopEpisodeAuthor] = useState<string>('');
+  const [topEpisodeTime, setTopEpisodeTime] = useState<string>('');
+
   const { data, isLoading } = useGetTopEpisode();
 
   useEffect(() => {
-    setTopEpisodeImg(data?.episodes?.data[0].imageUrl);
+    setTopEpisodeImg(data?.episodes?.data[2].imageUrl);
+    setTopEpisodeTitle(data?.episodes?.data[2].title);
+    setTopEpisodeDetails(data?.episodes?.data[2].description);
+    setTopEpisodeChannel(data?.episodes?.data[2].podcast.title);
+    setTopEpisodeAuthor(data?.episodes?.data[2].podcast.author.name);
+    setTopEpisodeTime(data?.episodes?.data[2].length);
   }, [data]);
 
   return (
@@ -58,7 +69,7 @@ const TopEpisode = () => {
               fontSize: '16px',
               lineHeight: '1.2',
             }}>
-            Stuff You Should Know | Jacqueline Novogratz | 30 min
+            {topEpisodeChannel} | {topEpisodeAuthor} | {topEpisodeTime}
           </Text>
           <Text
             color='#fff'
@@ -70,7 +81,7 @@ const TopEpisode = () => {
               letterSpacing: '1px',
               lineHeight: '1.2',
             }}>
-            773: The Longest Distance Between Two Points
+            {topEpisodeTitle}
           </Text>
           <Text
             color='#d6d6d6'
@@ -81,10 +92,7 @@ const TopEpisode = () => {
               fontSize: '18px',
               lineHeight: '1.5',
             }}>
-            The Supreme Court case that overturned Roe v. Wade began with a
-            lawsuit filed by a Mississippi abortion clinic. On the day Roe was
-            overturned, we were there. Stories from the center of this moment of
-            history, the day it happened.
+            {topEpisodeDetails}
           </Text>
           <Spacer />
           <Button

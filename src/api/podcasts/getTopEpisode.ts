@@ -8,7 +8,15 @@ const getTopEpisode = (): Promise<TopEpisode> => {
       episodes(sort: { sortBy: TRENDING }) {
         data {
           title
+          description
           imageUrl
+          length
+          podcast {
+            title
+            author {
+              name
+            }
+          }
         }
       }
     }
