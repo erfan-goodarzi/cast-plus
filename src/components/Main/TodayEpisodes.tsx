@@ -11,9 +11,13 @@ import {
 import React, { useState } from 'react';
 import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
 import BadgeInfo from '../Ui/BadgeInfo';
+import { PodcastIndexClient } from 'podcastindexjs';
+import { client } from '../../api';
 
 const TodayEpisodes = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
+
+  // client.search('javascript').then(console.log);
 
   const { data, isLoading } = useGetTopEpisode();
   console.log(data);
@@ -43,7 +47,7 @@ const TodayEpisodes = () => {
               learning that shaped
             </Text>
           </Grid>
-          {isLoading ? (
+          {/* {isLoading ? (
             <Loading
               type='points'
               css={{ ml: '36rem', mt: '7rem' }}
@@ -112,7 +116,7 @@ const TodayEpisodes = () => {
                 </Card>
               </Grid>
             ))
-          )}
+          )} */}
         </Grid.Container>
       </Container>
     </div>

@@ -14,28 +14,28 @@ import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
 import BadgeInfo from '../Ui/BadgeInfo';
 
 const TopEpisode = () => {
-  const [topEpisodeImg, setTopEpisodeImg] = useState<string>('');
-  const [topEpisodeTitle, setTopEpisodeTitle] = useState<string>('');
-  const [topEpisodeDetails, setTopEpisodeDetails] = useState<string>('');
-  const [topEpisodeChannel, setTopEpisodeChannel] = useState<string>('');
-  const [topEpisodeAuthor, setTopEpisodeAuthor] = useState<string>('');
-  const [topEpisodeTime, setTopEpisodeTime] = useState<string>('');
+  const [episodeImg, setEpisodeImg] = useState<string>('');
+  const [episodeTitle, setEpisodeTitle] = useState<string>('');
+  const [episodeDetails, setEpisodeDetails] = useState<string>('');
+  const [episodeChannel, setEpisodeChannel] = useState<string>('');
+  const [episodeAuthor, setEpisodeAuthor] = useState<string>('');
+  const [episodeTime, setEpisodeTime] = useState<number>();
 
   const { data, isLoading } = useGetTopEpisode();
-
+  console.log(data);
   useEffect(() => {
-    if (data?.episodes.data[2].imageUrl !== '') {
-      setTopEpisodeImg(data?.episodes.data[2].imageUrl);
-    } else {
-      setTopEpisodeImg(
-        'https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
-      );
+    if (data) {
+      data?.items[0].image !== ''
+        ? setEpisodeImg(data?.items[0].image)
+        : setEpisodeImg(
+            'https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
+          );
+      setEpisodeTitle(data?.items[0].title);
+      setEpisodeDetails(data?.items[0].description);
+      setEpisodeChannel(data?.items[0].feedTitle);
+      setEpisodeAuthor(data?.items[0].title);
+      setEpisodeTime(data?.items[0].enclosureLength);
     }
-    setTopEpisodeTitle(data?.episodes?.data[2].title);
-    setTopEpisodeDetails(data?.episodes?.data[2].description);
-    setTopEpisodeChannel(data?.episodes?.data[2].podcast.title);
-    setTopEpisodeAuthor(data?.episodes?.data[2].podcast.author.name);
-    setTopEpisodeTime(data?.episodes?.data[2].length);
   }, [data]);
 
   return (
@@ -60,7 +60,7 @@ const TopEpisode = () => {
               }}
               width={528}
               height={543}
-              src={topEpisodeImg}
+              src={episodeImg}
               alt='Default Image'
               objectFit='cover'
             />
@@ -68,9 +68,9 @@ const TopEpisode = () => {
         </Grid>
         <Grid xs={6} css={{ display: 'block !important', mt: 7 }}>
           <BadgeInfo
-            channel={topEpisodeChannel}
-            author={topEpisodeAuthor}
-            time={topEpisodeTime}
+            channel={episodeChannel}
+            author={episodeAuthor}
+            time={episodeTime}
           />
           <Text
             color='#fff'
@@ -82,7 +82,7 @@ const TopEpisode = () => {
               letterSpacing: '1px',
               lineHeight: '1.2',
             }}>
-            {topEpisodeTitle}
+            {episodeTitle}
           </Text>
           <Text
             color='#d6d6d6'
@@ -93,7 +93,7 @@ const TopEpisode = () => {
               fontSize: '18px',
               lineHeight: '1.5',
             }}>
-            {topEpisodeDetails}
+            {episodeDetails}
           </Text>
           <Spacer />
           <Button

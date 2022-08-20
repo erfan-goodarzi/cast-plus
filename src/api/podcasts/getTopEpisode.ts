@@ -1,30 +1,42 @@
+// import { gql } from 'graphql-request';
+// import { httpClient } from '..';
+// import { useQuery } from 'react-query';
+
+// const getTopEpisode = (): Promise<TopEpisode> => {
+//   const query = gql`
+//     query {
+//       episodes(sort: { sortBy: TRENDING },  first: 5) {
+//         data {
+//           id
+//           title
+//           description
+//           imageUrl
+//           length
+//           podcast {
+//             title
+//             author {
+//               name
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `;
+//   return httpClient(query);
+// };
+
+// export const useGetTopEpisode = () => {
+//   return useQuery<TopEpisode>(`episode`, async () => await getTopEpisode());
+// };
+
 import { gql } from 'graphql-request';
-import { httpClient } from '..';
+import { client, httpClient } from '..';
 import { useQuery } from 'react-query';
 
-const getTopEpisode = (): Promise<TopEpisode> => {
-  const query = gql`
-    query {
-      episodes(sort: { sortBy: TRENDING },  first: 5) {
-        data {
-          id
-          title
-          description
-          imageUrl
-          length
-          podcast {
-            title
-            author {
-              name
-            }
-          }
-        }
-      }
-    }
-  `;
-  return httpClient(query);
+const getTopEpisode = () => {
+  return client.recentEpisodes({max: 5, fulltext: true})
 };
 
 export const useGetTopEpisode = () => {
-  return useQuery<TopEpisode>(`episode`, async () => await getTopEpisode());
+  return useQuery(`episode`, async () => await getTopEpisode());
 };

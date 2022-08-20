@@ -1,9 +1,9 @@
 import { Text } from '@nextui-org/react';
 
 interface BadgeInfoProps {
-  channel: string;
-  author: string;
-  time: string;
+  channel: string | undefined;
+  author: string | undefined;
+  time: number | undefined;
 }
 
 const BadgeInfo = ({ channel, author, time }: BadgeInfoProps) => {
