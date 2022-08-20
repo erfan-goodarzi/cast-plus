@@ -7,6 +7,7 @@ const getTopEpisode = (): Promise<TopEpisode> => {
     query {
       episodes(sort: { sortBy: TRENDING },  first: 5) {
         data {
+          id
           title
           description
           imageUrl
