@@ -34,7 +34,7 @@ import { client, httpClient } from '..';
 import { useQuery } from 'react-query';
 
 const getTopEpisode = () => {
-  return client.recentEpisodes({max: 5, fulltext: true})
+  return client.recentEpisodes();
 };
 
 export const useGetTopEpisode = () => {

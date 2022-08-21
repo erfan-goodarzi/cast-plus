@@ -11,6 +11,7 @@ import {
 } from '@nextui-org/react';
 import React, { useEffect, useState } from 'react';
 import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
+import { removeHtmlTag } from '../../utils/removeHtmlTag';
 import BadgeInfo from '../Ui/BadgeInfo';
 
 const TopEpisode = () => {
@@ -19,11 +20,11 @@ const TopEpisode = () => {
   const [episodeDetails, setEpisodeDetails] = useState<string>('');
   const [episodeChannel, setEpisodeChannel] = useState<string>('');
   const [episodeAuthor, setEpisodeAuthor] = useState<string>('');
-  const [episodeTime, setEpisodeTime] = useState<number>();
-
+  const [episodeTime, setEpisodeTime] = useState<string>();
   const { data, isLoading } = useGetTopEpisode();
-  console.log(data);
+
   useEffect(() => {
+    console.log(data);
     if (data) {
       data?.items[0].image !== ''
         ? setEpisodeImg(data?.items[0].image)
@@ -34,7 +35,7 @@ const TopEpisode = () => {
       setEpisodeDetails(data?.items[0].description);
       setEpisodeChannel(data?.items[0].feedTitle);
       setEpisodeAuthor(data?.items[0].title);
-      setEpisodeTime(data?.items[0].enclosureLength);
+      setEpisodeTime(data?.items[0].datePublishedPretty);
     }
   }, [data]);
 
@@ -67,11 +68,7 @@ const TopEpisode = () => {
           )}
         </Grid>
         <Grid xs={6} css={{ display: 'block !important', mt: 7 }}>
-          <BadgeInfo
-            channel={episodeChannel}
-            author={episodeAuthor}
-            time={episodeTime}
-          />
+          <BadgeInfo channel={episodeChannel} time={episodeTime} />
           <Text
             color='#fff'
             css={{
@@ -93,7 +90,7 @@ const TopEpisode = () => {
               fontSize: '18px',
               lineHeight: '1.5',
             }}>
-            {episodeDetails}
+            {removeHtmlTag(episodeDetails)}
           </Text>
           <Spacer />
           <Button

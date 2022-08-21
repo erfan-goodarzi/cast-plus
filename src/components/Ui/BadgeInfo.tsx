@@ -1,12 +1,11 @@
 import { Text } from '@nextui-org/react';
 
 interface BadgeInfoProps {
-  channel: string | undefined;
-  author: string | undefined;
-  time: number | undefined;
+  channel: string;
+  time: string | undefined;
 }
 
-const BadgeInfo = ({ channel, author, time }: BadgeInfoProps) => {
+const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
   return (
     <>
       {' '}
@@ -19,11 +18,11 @@ const BadgeInfo = ({ channel, author, time }: BadgeInfoProps) => {
           lineHeight: '1.2',
           background: 'rgb(255 214 10)',
           padding: '6px 14px',
-          width: 'max-content',
+          width: 'fit-content',
           borderRadius: 'ius: 3px',
           fontWeight: 600,
         }}>
-        {channel} | {author} | {time}
+        {channel} | {time}
       </Text>
     </>
   );
