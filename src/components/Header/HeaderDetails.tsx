@@ -2,8 +2,11 @@ import { Avatar, Button, Container, Spacer, Text } from '@nextui-org/react';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
+import { useMediaQuery } from 'react-responsive';
 
 const HeaderDetails = () => {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+
   const nameUsers = ['Junior', 'Jane', 'W', 'John', 'JR'];
   const pictureUsers = [
     'https://i.pravatar.cc/150?u=a042581f4e29026024d',
@@ -20,10 +23,17 @@ const HeaderDetails = () => {
         color='#fff'
         css={{
           marginInline: 'auto',
-          width: '53%',
+          fontSize: '28px',
+          width: '100%',
           textAlign: 'center',
-          fontSize: '56px',
           lineHeight: '1.2',
+          '@xs': {},
+          '@sm': {},
+          '@md': {},
+          '@lg': {
+            width: '54%',
+            fontSize: '56px',
+          },
         }}>
         Discover better insight every single day.
       </Text>
@@ -32,9 +42,13 @@ const HeaderDetails = () => {
         color='#c4c4c4'
         css={{
           marginInline: 'auto',
-          width: '54%',
+          width: '100%',
           textAlign: 'center',
-          fontSize: '21px',
+          fontSize: '15px',
+          '@lg': {
+            width: '54%',
+            fontSize: '21px',
+          },
         }}>
         Discovered latest top-notch stories from world wide community. quality
         informative podcast and verified creators.
@@ -46,13 +60,18 @@ const HeaderDetails = () => {
           background: '#14213D',
           border: 'none',
           borderRadius: '3px',
-          padding: '22px 28px',
+          padding: '12px 13px',
+          fontSize: '12px',
+          '@lg': {
+            fontSize: '16px',
+            padding: '22px 28px',
+          },
         }}
         auto
         iconRight={<FontAwesomeIcon icon={faAnglesRight} />}>
         Browse Podcast
       </Button>
-      <Spacer y={9} />
+      {isTabletOrMobile ? <Spacer y={6} /> : <Spacer y={9} />}
       <Avatar.Group>
         {pictureUsers.map((url, index) => (
           <Avatar
@@ -66,7 +85,9 @@ const HeaderDetails = () => {
           />
         ))}
         <Text css={{ color: '#fff', m: 7 }}>
-          And more people are listening on cast plus
+          {isTabletOrMobile
+            ? ' And more people'
+            : 'And more people are listening on cast plus'}
         </Text>
       </Avatar.Group>
     </Container>

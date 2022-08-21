@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <Header />
-      <TopEpisode />
-      <TodayEpisodes />
+      {/* <TopEpisode /> */}
+      {/* <TodayEpisodes /> */}
     </>
   );
 }

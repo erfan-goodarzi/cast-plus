@@ -1,9 +1,13 @@
 import { Grid, css, Text, Container, Spacer } from '@nextui-org/react';
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from '../Ui/Nav';
 import HeaderDetails from './HeaderDetails';
 import BackgroundImg from '../../assets/man-wearing-headphones.webp';
+import { useMediaQuery } from 'react-responsive';
+import MobileNav from '../Ui/MobileNav';
 const Header = () => {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+
   return (
     <Container
       xl
@@ -13,7 +17,7 @@ const Header = () => {
         backgroundPosition: 'center',
         height: '106vh',
       }}>
-      <Nav />
+      {isTabletOrMobile ? <MobileNav /> : <Nav />}
       <Spacer y={5} />
       <HeaderDetails />
     </Container>
