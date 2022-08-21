@@ -11,8 +11,9 @@ import {
 import React, { useState } from 'react';
 import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
 import BadgeInfo from '../Ui/BadgeInfo';
-import { PodcastIndexClient } from 'podcastindexjs';
-import { client } from '../../api';
+import { removeHtmlTag } from '../../utils/removeHtmlTag';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell, faPlay, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 
 const TodayEpisodes = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
@@ -47,14 +48,14 @@ const TodayEpisodes = () => {
               learning that shaped
             </Text>
           </Grid>
-          {/* {isLoading ? (
+          {isLoading ? (
             <Loading
               type='points'
               css={{ ml: '36rem', mt: '7rem' }}
               size='xl'
             />
           ) : (
-            data?.episodes.data.map((episode) => (
+            data?.items.map((episode) => (
               <Grid xs={12} key={episode.id}>
                 <Card
                   variant='bordered'
@@ -74,8 +75,8 @@ const TodayEpisodes = () => {
                           height: '219px',
                         }}
                         src={
-                          episode.imageUrl
-                            ? episode.imageUrl
+                          episode.image
+                            ? episode.image
                             : 'https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
                         }
                         alt='Default Image'
@@ -93,9 +94,8 @@ const TodayEpisodes = () => {
                         {episode.title}
                       </Text>
                       <BadgeInfo
-                        channel={episode.podcast.title}
-                        author={episode.podcast.author.name}
-                        time={episode.length}
+                        channel={episode.feedTitle}
+                        time={episode.datePublishedPretty}
                       />
                       <Text
                         color='#d6d6d6'
@@ -108,15 +108,59 @@ const TodayEpisodes = () => {
                         }}>
                         {showMore
                           ? episode.description
-                          : `${episode.description.substring(0, 450)}`}{' '}
+                          : `${removeHtmlTag(
+                              episode.description.substring(0, 300)
+                            )}`}{' '}
                         ...
                       </Text>
+                      <Grid.Container>
+                        <Button
+                          bordered
+                          shadow
+                          iconRight={<FontAwesomeIcon icon={faPlay} />}
+                          css={{
+                            color: '#fff',
+                            mt: 18,
+                            mr: 29,
+                            borderColor: '#fff',
+                            borderRadius: 3,
+                          }}
+                          auto>
+                          Play episode
+                        </Button>
+                        <Button
+                          bordered
+                          iconRight={<FontAwesomeIcon icon={faShareAlt} />}
+                          css={{
+                            color: '#fff',
+                            mt: 18,
+                            mr: 29,
+                            borderColor: '#fff',
+                            borderRadius: 3,
+                          }}
+                          auto>
+                          Share
+                        </Button>
+                        <Button
+                          bordered
+                          iconRight={<FontAwesomeIcon icon={faBell} />}
+                          css={{
+                            color: '#fff',
+                            mt: 18,
+                            mr: 29,
+                            borderColor: '#fff',
+                            borderRadius: 3,
+                          }}
+                          auto>
+                          Subscribe
+                        </Button>
+                      </Grid.Container>
                     </Grid>
                   </Grid.Container>
                 </Card>
               </Grid>
             ))
-          )} */}
+          )}
         </Grid.Container>
       </Container>
     </div>
