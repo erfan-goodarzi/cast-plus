@@ -27,9 +27,7 @@ const TopEpisode = () => {
     console.log(data);
     console.log(window.onerror);
     if (data) {
-      data?.items[0].image === '' ||
-      data.items[0].image ===
-        'https://vps.sermonaudio.com/resize_image/broadcasters/albumart/1400/1400/generic.jpg'
+      data?.items[0].image === ''
         ? setEpisodeImg(
             'https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
           )

@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <TopEpisode />
-      {/* <TodayEpisodes /> */}
+      <TodayEpisodes />
     </>
   );
 }

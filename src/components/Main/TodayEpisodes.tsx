@@ -28,19 +28,61 @@ const TodayEpisodes = () => {
           background: '#001D3D',
           height: 'auto',
         }}>
-        <Grid.Container gap={8} css={{ ml: '3rem', width: 'auto' }}>
-          <Grid xs={6}>
-            <Text css={{ fontSize: '43px', color: '#fff', fontWeight: 'bold' }}>
+        <Grid.Container
+          gap={8}
+          css={{
+            marginLeft: '-2rem',
+            width: '100%',
+            '@lg': { marginLeft: '3rem !important', width: '100%' },
+          }}>
+          <Grid lg={6} md={6} xs={12}>
+            <Text
+              css={{
+                minWidth: '197%',
+                fontSize: '31px',
+                color: '#fff',
+                fontWeight: 'bold',
+                '@xs': {
+                  minWidth: 'auto',
+                  mx: 'auto',
+                  ml: '12rem',
+                },
+                '@sm': {
+                  mx: 'auto',
+                  minWidth:'auto',
+                  fontSize: '49px',
+                  ml: '18rem',
+                },
+                '@lg': {
+                  minWidth: 'auto',
+                  fontSize: '43px',
+                  ml: '0',
+                },
+              }}>
               Today Episodes
             </Text>
           </Grid>
-          <Grid xs={6}>
+          <Grid lg={6} md={6} xs={12}>
             <Text
               css={{
                 fontSize: '18px',
                 color: '#a1a1a1',
-                mt: '1.2rem',
-                width: '80%',
+                mt: '-4rem',
+                textAlign: 'center',
+                minWidth: '146%',
+                '@xs': {
+                  minWidth: '108%',
+                },
+                '@sm': {
+                  mt: '0',
+                },
+                '@lg': {
+                  mt: '1.2rem',
+                  minWidth: 'auto',
+                  textAlign: 'unset',
+                  fontSize: '18px',
+                  width: '79%',
+                },
               }}>
               More episodes podcast you must hear and share the experiences and
               learning that shaped
@@ -64,9 +106,21 @@ const TodayEpisodes = () => {
                     background: '#0000003b',
                     padding: '27px 42px',
                     borderColor: '#838383',
+                    minWidth: '221%',
+                    margin: '0rem -3rem',
+                    '@xs': {
+                      minWidth: '130%',
+                    },
+                    '@sm': {
+                      minWidth: '121%',
+                    },
+                    '@lg': {
+                      minWidth: 'auto',
+                      margin: '0',
+                    },
                   }}>
                   <Grid.Container>
-                    <Grid xs={2}>
+                    <Grid xs={12} lg={2}>
                       <Image
                         css={{
                           objectFit: 'cover',
@@ -82,12 +136,19 @@ const TodayEpisodes = () => {
                       />
                     </Grid>
                     <Spacer x={2} />
-                    <Grid xs={8} css={{ display: 'block !important' }}>
+                    <Grid xs={12} lg={8} css={{ display: 'block !important' }}>
                       <Text
                         css={{
                           fontSize: '23px',
                           color: '#fff',
                           fontWeight: 'bold',
+                          mx: 'auto',
+                          textAlign: 'center',
+                          mb: 9,
+                          '@lg': {
+                            mx: 'unset',
+                            textAlign: 'left',
+                          },
                         }}>
                         {episode.title}
                       </Text>
@@ -99,10 +160,14 @@ const TodayEpisodes = () => {
                         color='#d6d6d6'
                         css={{
                           mt: 23,
-                          width: '120%',
-                          textAlign: 'left',
+                          width: '101%',
+                          textAlign: 'center',
                           fontSize: '17px',
                           lineHeight: '1.5',
+                          '@lg': {
+                            textAlign: 'left',
+                            width: '120%',
+                          },
                         }}>
                         {showMore
                           ? episode.description
@@ -111,7 +176,17 @@ const TodayEpisodes = () => {
                             )}`}{' '}
                         ...
                       </Text>
-                      <Grid.Container>
+                      <Grid.Container
+                        css={{
+                          ml: '2rem',
+                          '@xs': {
+                            ml: '5rem',
+                          },
+                          '@sm': {
+                            ml: '13rem !important',
+                          },
+                          '@lg': { ml: '0 !important' },
+                        }}>
                         <Button
                           bordered
                           shadow

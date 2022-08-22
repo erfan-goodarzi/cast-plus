@@ -28,7 +28,8 @@ const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
           '@lg': {
             fontSize: '16px',
             textAlign: 'left',
-            m: 0,
+            m: '12px 0px',
+            mt: 20,
           },
         }}>
         {channel} | {time}
