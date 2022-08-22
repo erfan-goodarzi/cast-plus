@@ -8,15 +8,18 @@ const Nav = () => {
     <Grid.Container
       gap={3}
       css={{ justifyContent: 'space-around', height: '100px' }}>
-      <Grid xs={4}>
+      <Grid xs={1} lg={4} sm={3}>
         {' '}
         <Text
           h1
           size={24}
           css={{
             color: '#fff',
-            marginLeft: '2rem',
+            marginLeft: '0rem',
             padding: '3px 6px',
+            '@lg': {
+              marginLeft: '2rem',
+            },
           }}
           weight='bold'>
           Cast
@@ -31,26 +34,87 @@ const Nav = () => {
           +
         </Text>
       </Grid>
-      <Grid xs={6}>
-        <Link color='primary' css={{ padding: '8px 22px' }} href='#'>
+      <Grid xs={8} lg={6} sm={8}>
+        <Link
+          color='primary'
+          css={{
+            padding: '8px 22px',
+            fontSize: '16px',
+            '@xs': {
+              fontSize: '14px',
+            },
+            '@lg': {
+              fontSize: '16px',
+            },
+          }}
+          href='#'>
           Home
         </Link>
-        <Link color='primary' css={{ padding: '8px 22px' }} href='#'>
+        <Link
+          color='primary'
+          css={{
+            padding: '8px 22px',
+            fontSize: '16px',
+            '@xs': {
+              fontSize: '14px',
+            },
+            '@lg': {
+              fontSize: '16px',
+            },
+          }}
+          href='#'>
           Categories
         </Link>
-        <Link color='primary' css={{ padding: '8px 22px' }} href='#'>
+        <Link
+          color='primary'
+          css={{
+            padding: '8px 22px',
+            fontSize: '16px',
+            '@xs': {
+              fontSize: '14px',
+            },
+            '@lg': {
+              fontSize: '16px',
+            },
+          }}
+          href='#'>
           Trending
         </Link>
-        <Link color='primary' css={{ padding: '8px 22px' }} href='#'>
+        <Link
+          color='primary'
+          css={{
+            padding: '8px 22px',
+            fontSize: '16px',
+            '@xs': {
+              fontSize: '14px',
+            },
+            '@lg': {
+              fontSize: '16px',
+            },
+          }}
+          href='#'>
           Top Podcast
         </Link>
       </Grid>
-      <Grid xs={2}>
+      <Grid xs={1} lg={2} sm={1}>
         <Button
           bordered
           iconRight={<FontAwesomeIcon icon={faHeadphonesSimple} />}
           shadow
-          css={{ color: '#fff', borderColor: '#fff', borderRadius: 3 }}
+          css={{
+            color: '#fff',
+            borderColor: '#fff',
+            borderRadius: 3,
+            '@xs': {
+              marginLeft: '-4rem',
+              fontSize: '12px',
+              padding: '0px 13px',
+            },
+            '@lg': {
+              fontSize: '15px',
+              padding: '1.25rem 1.25rem'
+            },
+          }}
           auto>
           Strat Listening
         </Button>

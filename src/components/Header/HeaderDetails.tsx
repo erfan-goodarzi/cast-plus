@@ -5,7 +5,7 @@ import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import { useMediaQuery } from 'react-responsive';
 
 const HeaderDetails = () => {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   const nameUsers = ['Junior', 'Jane', 'W', 'John', 'JR'];
   const pictureUsers = [
@@ -27,8 +27,12 @@ const HeaderDetails = () => {
           width: '100%',
           textAlign: 'center',
           lineHeight: '1.2',
-          '@xs': {},
-          '@sm': {},
+          '@xs': {
+            fontSize: '45px',
+          },
+          '@sm': {
+            width: '75%',
+          },
           '@md': {},
           '@lg': {
             width: '54%',
@@ -45,6 +49,9 @@ const HeaderDetails = () => {
           width: '100%',
           textAlign: 'center',
           fontSize: '15px',
+          '@sm': {
+            width: '51%',
+          },
           '@lg': {
             width: '54%',
             fontSize: '21px',
