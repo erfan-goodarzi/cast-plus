@@ -18,8 +18,6 @@ import { faBell, faPlay, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 const TodayEpisodes = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
 
-  // client.search('javascript').then(console.log);
-
   const { data, isLoading } = useGetTopEpisode();
   console.log(data);
   return (

@@ -15,7 +15,7 @@ const Header = () => {
         background: `linear-gradient(rgba(0, 29, 61 ,0.9), rgba(255, 214, 10, .5)), url(${BackgroundImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        height: 'auto',
+        height: '106vh',
         '@xs': {
           height: '73vh',
         },

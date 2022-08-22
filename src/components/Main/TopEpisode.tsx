@@ -25,12 +25,15 @@ const TopEpisode = () => {
 
   useEffect(() => {
     console.log(data);
+    console.log(window.onerror);
     if (data) {
-      data?.items[0].image !== ''
-        ? setEpisodeImg(data?.items[0].image)
-        : setEpisodeImg(
+      data?.items[0].image === '' ||
+      data.items[0].image ===
+        'https://vps.sermonaudio.com/resize_image/broadcasters/albumart/1400/1400/generic.jpg'
+        ? setEpisodeImg(
             'https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
-          );
+          )
+        : setEpisodeImg(data?.items[0].image);
       setEpisodeTitle(data?.items[0].title);
       setEpisodeDetails(data?.items[0].description);
       setEpisodeChannel(data?.items[0].feedTitle);
@@ -47,37 +50,62 @@ const TopEpisode = () => {
         height: 'auto',
       }}>
       <Grid.Container gap={4}>
-        <Grid xs={6}>
+        <Grid xs={12} lg={6} sm={6}>
           {isLoading ? (
             <Loading
               type='points'
-              css={{ ml: '19rem', mt: '1rem' }}
+              css={{
+                ml: '7rem',
+                mt: '1rem',
+                '@lg': {
+                  marginLeft: '19rem',
+                },
+              }}
               size='xl'
             />
           ) : (
             <Image
               css={{
                 clipPath: 'inset(5% 6% 7% 7% round 40% 3px 40% 3px)',
+                height: '285px',
+                width: '528px',
+                '@xs': {
+                  width: '336px',
+                },
+                '@sm': {
+                  width: '299px',
+                },
+                '@lg': {
+                  height: '543px',
+                  width: '528px',
+                },
               }}
-              width={528}
-              height={543}
               src={episodeImg}
               alt='Default Image'
               objectFit='cover'
             />
           )}
         </Grid>
-        <Grid xs={6} css={{ display: 'block !important', mt: 7 }}>
+        <Grid
+          xs={12}
+          lg={6}
+          sm={6}
+          css={{ display: 'block !important', mt: 7 }}>
           <BadgeInfo channel={episodeChannel} time={episodeTime} />
           <Text
             color='#fff'
             css={{
               mt: 13,
-              width: '78%',
-              textAlign: 'left',
-              fontSize: '46px',
+              width: '100%',
+              textAlign: 'center',
+              fontSize: '27px',
               letterSpacing: '1px',
               lineHeight: '1.2',
+              '@lg': {
+                fontSize: '46px',
+                width: '78%',
+                textAlign: 'left',
+              },
             }}>
             {episodeTitle}
           </Text>
@@ -85,10 +113,15 @@ const TopEpisode = () => {
             color='#d6d6d6'
             css={{
               mt: 23,
-              width: '78%',
-              textAlign: 'left',
-              fontSize: '18px',
-              lineHeight: '1.5',
+              width: '100%',
+              textAlign: 'center',
+              fontSize: '15px',
+              lineHeight: '1.i5',
+              '@lg': {
+                fontSize: '18px',
+                width: '78%',
+                textAlign: 'left',
+              },
             }}>
             {removeHtmlTag(episodeDetails)}
           </Text>
@@ -100,6 +133,10 @@ const TopEpisode = () => {
               background: '#FFD60A',
               color: '#001D3D',
               borderRadius: '3px',
+              mx: 'auto',
+              '@lg': {
+                mx: 'unset',
+              },
             }}>
             Play episode
           </Button>

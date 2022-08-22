@@ -13,14 +13,23 @@ const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
         color='#001d3d'
         css={{
           mt: 23,
-          textAlign: 'left',
-          fontSize: '16px',
+          textAlign: 'center',
+          fontSize: '13px',
           lineHeight: '1.2',
           background: 'rgb(255 214 10)',
           padding: '6px 14px',
           width: 'fit-content',
+          m: '0px 23px',
           borderRadius: 'ius: 3px',
           fontWeight: 600,
+          '@xs': {
+            mx: 'auto',
+          },
+          '@lg': {
+            fontSize: '16px',
+            textAlign: 'left',
+            m: 0,
+          },
         }}>
         {channel} | {time}
       </Text>

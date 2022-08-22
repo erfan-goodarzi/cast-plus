@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      {/* <TopEpisode /> */}
+      <TopEpisode />
       {/* <TodayEpisodes /> */}
     </>
   );
