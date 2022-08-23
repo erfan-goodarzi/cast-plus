@@ -9,37 +9,50 @@ import {
   Spacer,
   Text,
 } from '@nextui-org/react';
-import React, { useEffect, useState } from 'react';
+import React, { MouseEvent, useEffect, useState } from 'react';
 import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
 import { removeHtmlTag } from '../../utils/removeHtmlTag';
 import BadgeInfo from '../Ui/BadgeInfo';
+import Player, { PlayerInterface, Track } from 'react-material-music-player';
 
 const TopEpisode = () => {
   const [episodeImg, setEpisodeImg] = useState<string>('');
+  const [episodeId, setEpisodeId] = useState<number>();
   const [episodeTitle, setEpisodeTitle] = useState<string>('');
   const [episodeDetails, setEpisodeDetails] = useState<string>('');
   const [episodeChannel, setEpisodeChannel] = useState<string>('');
-  const [episodeAuthor, setEpisodeAuthor] = useState<string>('');
-  const [episodeTime, setEpisodeTime] = useState<string>();
+  const [episodeTime, setEpisodeTime] = useState<string>('');
+  const [episodeUrl, setEpisodeUrl] = useState<string>('');
+
   const { data, isLoading } = useGetTopEpisode();
 
   useEffect(() => {
-    console.log(data);
-    console.log(window.onerror);
     if (data) {
-      data?.items[0].image === ''
+      data.items[0].image === ''
         ? setEpisodeImg(
             'https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
           )
-        : setEpisodeImg(data?.items[0].image);
-      setEpisodeTitle(data?.items[0].title);
-      setEpisodeDetails(data?.items[0].description);
-      setEpisodeChannel(data?.items[0].feedTitle);
-      setEpisodeAuthor(data?.items[0].title);
-      setEpisodeTime(data?.items[0].datePublishedPretty);
+        : setEpisodeImg(data.items[0].image);
+      setEpisodeTitle(data.items[0].title);
+      setEpisodeDetails(data.items[0].description);
+      setEpisodeChannel(data.items[0].feedTitle);
+      setEpisodeTime(data.items[0].datePublishedPretty);
+      setEpisodeId(data.items[0].id);
+      setEpisodeUrl(data.items[0].enclosureUrl);
     }
+    playepisodehandler();
   }, [data]);
-
+  const playepisodehandler = () => {
+    PlayerInterface.play([
+      new Track(
+        `${episodeId}`,
+        episodeImg,
+        episodeTitle,
+        episodeChannel,
+        episodeUrl
+      ),
+    ]);
+  };
   return (
     <Container
       xl
@@ -47,6 +60,14 @@ const TopEpisode = () => {
         background: '#001D3D',
         height: 'auto',
       }}>
+      <Player
+        disableDrawer={false}
+        sx={{
+          zIndex: 2,
+          width: '82%',
+          ml: '7rem',
+        }}
+      />
       <Grid.Container gap={4}>
         <Grid xs={12} lg={6} sm={6}>
           {isLoading ? (
@@ -126,6 +147,7 @@ const TopEpisode = () => {
           <Spacer />
           <Button
             auto
+            onClick={playepisodehandler}
             iconRight={<FontAwesomeIcon icon={faPlay} />}
             css={{
               background: '#FFD60A',

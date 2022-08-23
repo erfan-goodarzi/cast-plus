@@ -19,7 +19,6 @@ const TodayEpisodes = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
 
   const { data, isLoading } = useGetTopEpisode();
-  console.log(data);
   return (
     <div>
       <Container
@@ -49,7 +48,7 @@ const TodayEpisodes = () => {
                 },
                 '@sm': {
                   mx: 'auto',
-                  minWidth:'auto',
+                  minWidth: 'auto',
                   fontSize: '49px',
                   ml: '18rem',
                 },

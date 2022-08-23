@@ -2,7 +2,7 @@ import { Text } from '@nextui-org/react';
 
 interface BadgeInfoProps {
   channel: string;
-  time: string | undefined;
+  time: string;
 }
 
 const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
