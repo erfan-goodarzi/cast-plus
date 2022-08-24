@@ -14,11 +14,14 @@ import BadgeInfo from '../Ui/BadgeInfo';
 import { removeHtmlTag } from '../../utils/removeHtmlTag';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faPlay, faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { PlayerInterface, Track } from 'react-material-music-player';
+import PlayButton from '../Ui/PlayButton';
 
 const TodayEpisodes = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
 
   const { data, isLoading } = useGetTopEpisode();
+  const playepisodehandler = () => {};
   return (
     <div>
       <Container
@@ -186,9 +189,18 @@ const TodayEpisodes = () => {
                           },
                           '@lg': { ml: '0 !important' },
                         }}>
-                        <Button
+                        {/* <Button
                           bordered
                           shadow
+                          onClick={() => {
+                            Play(
+                              episode.id,
+                              episode.image,
+                              episode.title,
+                              episode.feedTitle,
+                              episode.enclosureUrl
+                            );
+                          }}
                           iconRight={<FontAwesomeIcon icon={faPlay} />}
                           css={{
                             color: '#fff',
@@ -199,7 +211,14 @@ const TodayEpisodes = () => {
                           }}
                           auto>
                           Play episode
-                        </Button>
+                        </Button> */}
+                        <PlayButton
+                          id={episode.id}
+                          image={episode.image}
+                          title={episode.title}
+                          feedTitle={episode.feedTitle}
+                          url={episode.enclosureUrl}
+                        />
                         <Button
                           bordered
                           iconRight={<FontAwesomeIcon icon={faShareAlt} />}

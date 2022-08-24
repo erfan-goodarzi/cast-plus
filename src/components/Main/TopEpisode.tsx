@@ -1,4 +1,4 @@
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faEuroSign, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Button,
@@ -14,6 +14,7 @@ import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
 import { removeHtmlTag } from '../../utils/removeHtmlTag';
 import BadgeInfo from '../Ui/BadgeInfo';
 import Player, { PlayerInterface, Track } from 'react-material-music-player';
+import PlayButton from '../Ui/PlayButton';
 
 const TopEpisode = () => {
   const [episodeImg, setEpisodeImg] = useState<string>('');
@@ -40,19 +41,8 @@ const TopEpisode = () => {
       setEpisodeId(data.items[0].id);
       setEpisodeUrl(data.items[0].enclosureUrl);
     }
-    playepisodehandler();
   }, [data]);
-  const playepisodehandler = () => {
-    PlayerInterface.play([
-      new Track(
-        `${episodeId}`,
-        episodeImg,
-        episodeTitle,
-        episodeChannel,
-        episodeUrl
-      ),
-    ]);
-  };
+
   return (
     <Container
       xl
@@ -60,14 +50,6 @@ const TopEpisode = () => {
         background: '#001D3D',
         height: 'auto',
       }}>
-      <Player
-        disableDrawer={false}
-        sx={{
-          zIndex: 2,
-          width: '82%',
-          ml: '7rem',
-        }}
-      />
       <Grid.Container gap={4}>
         <Grid xs={12} lg={6} sm={6}>
           {isLoading ? (
@@ -145,7 +127,14 @@ const TopEpisode = () => {
             {removeHtmlTag(episodeDetails)}
           </Text>
           <Spacer />
-          <Button
+          <PlayButton
+            id={episodeId}
+            title={episodeTitle}
+            image={episodeImg}
+            feedTitle={episodeChannel}
+            url={episodeUrl}
+          />
+          {/* <Button
             auto
             onClick={playepisodehandler}
             iconRight={<FontAwesomeIcon icon={faPlay} />}
@@ -159,7 +148,7 @@ const TopEpisode = () => {
               },
             }}>
             Play episode
-          </Button>
+          </Button> */}
         </Grid>
       </Grid.Container>
     </Container>
