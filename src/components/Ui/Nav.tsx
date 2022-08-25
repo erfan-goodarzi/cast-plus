@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphonesSimple } from '@fortawesome/free-solid-svg-icons';
-import { Button, Grid, Link, Text } from '@nextui-org/react';
-import React from 'react';
+import { Button, Grid, Text } from '@nextui-org/react';
+import { Link } from '@tanstack/react-location';
 
 const Nav = () => {
   return (
@@ -36,63 +36,61 @@ const Nav = () => {
       </Grid>
       <Grid xs={8} lg={6} sm={8}>
         <Link
+         to='/'
           color='primary'
-          css={{
+          style={{
             padding: '8px 22px',
             fontSize: '16px',
-            '@xs': {
-              fontSize: '14px',
-            },
-            '@lg': {
-              fontSize: '16px',
-            },
-          }}
-          href='#'>
-          Home
-        </Link>
+            // '@xs': {
+            //   fontSize: '14px',
+            // },
+            // '@lg': {
+            //   fontSize: '16px',
+            // },
+          }}>Home</Link>
         <Link
           color='primary'
-          css={{
+          style={{
             padding: '8px 22px',
             fontSize: '16px',
-            '@xs': {
-              fontSize: '14px',
-            },
-            '@lg': {
-              fontSize: '16px',
-            },
+            // '@xs': {
+            // fontSize: '14px',
+            // },
+            // '@lg': {
+            // fontSize: '16px',
+            // },
           }}
-          href='#'>
+          to="/categories">
           Categories
         </Link>
         <Link
           color='primary'
-          css={{
+          style={{
             padding: '8px 22px',
             fontSize: '16px',
-            '@xs': {
-              fontSize: '14px',
-            },
-            '@lg': {
-              fontSize: '16px',
-            },
+            // '@xs': {
+            //   fontSize: '14px',
+            // },
+            // '@lg': {
+            //   fontSize: '16px',
+            // },
           }}
-          href='#'>
+          to='/trending'>
           Trending
         </Link>
         <Link
           color='primary'
-          css={{
+          style={{
             padding: '8px 22px',
             fontSize: '16px',
-            '@xs': {
-              fontSize: '14px',
-            },
-            '@lg': {
-              fontSize: '16px',
-            },
+            // '@xs': {
+            //   fontSize: '14px',
+            // },
+            // '@lg': {
+            //   fontSize: '16px',
+            // },
           }}
-          href='#'>
+          to='/podcasts'>
           Top Podcast
         </Link>
       </Grid>
@@ -112,7 +110,7 @@ const Nav = () => {
             },
             '@lg': {
               fontSize: '15px',
-              padding: '1.25rem 1.25rem'
+              padding: '1.25rem 1.25rem',
             },
           }}
           auto>

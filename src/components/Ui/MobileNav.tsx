@@ -1,7 +1,7 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Dropdown, Grid, Link, Text } from '@nextui-org/react';
-
+import { Dropdown, Grid, Text } from '@nextui-org/react';
+import { Link } from '@tanstack/react-location';
 const MobileNav = () => {
   return (
     <Grid.Container
@@ -30,30 +30,19 @@ const MobileNav = () => {
         </Text>
       </Grid>
       <Grid xs={12}>
-        <Link
-          color='primary'
-          css={{ fontSize: '14px', padding: '0 11px' }}
-          href='#'>
+        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/'>
           Home
         </Link>
-        <Link
-          color='primary'
-          css={{ fontSize: '14px', padding: '0 11px' }}
-          href='#'>
+        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/category'>
           Categories
         </Link>
-        <Link
-          color='primary'
-          css={{ fontSize: '14px', padding: '0 11px' }}
-          href='#'>
+        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/trending'>
           Trending
         </Link>
         <Link
-          color='primary'
-          
-          css={{ fontSize: '14px', padding: '0 11px', width: '120%' }}
-          href='#'>
-        Podcasts
+          style={{ fontSize: '14px', padding: '0 11px', width: '120%' }}
+          to='/podcasts'>
+          Podcasts
         </Link>
       </Grid>
     </Grid.Container>
