@@ -10,7 +10,7 @@ const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
     <>
       {' '}
       <Text
-        color='#001d3d'
+        color='#0F172B'
         css={{
           mt: 23,
           textAlign: 'center',

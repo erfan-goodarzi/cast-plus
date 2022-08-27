@@ -5,6 +5,7 @@ import {
   Container,
   Grid,
   Image,
+  Link,
   Loading,
   Spacer,
   Text,
@@ -47,7 +48,7 @@ const TopEpisode = () => {
     <Container
       xl
       css={{
-        background: '#001D3D',
+        background: '#0F172B',
         height: 'auto',
       }}>
       <Grid.Container gap={4}>
@@ -134,13 +135,14 @@ const TopEpisode = () => {
             feedTitle={episodeChannel}
             url={episodeUrl}
           />
+
           {/* <Button
             auto
             onClick={playepisodehandler}
             iconRight={<FontAwesomeIcon icon={faPlay} />}
             css={{
               background: '#FFD60A',
-              color: '#001D3D',
+              color: '#0F172B',
               borderRadius: '3px',
               mx: 'auto',
               '@lg': {

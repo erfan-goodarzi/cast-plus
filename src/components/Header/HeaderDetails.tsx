@@ -3,11 +3,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from '@tanstack/react-location';
 
 const HeaderDetails = () => {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
-  const nameUsers = ['Junior', 'Jane', 'W', 'John', 'JR'];
   const pictureUsers = [
     'https://i.pravatar.cc/150?u=a042581f4e29026024d',
     'https://i.pravatar.cc/150?u=a042581f4e29026704d',
@@ -64,7 +64,7 @@ const HeaderDetails = () => {
         css={{
           marginInline: 'auto',
           mt: 22,
-          background: '#14213D',
+          background: '#0F172B',
           border: 'none',
           borderRadius: '3px',
           padding: '12px 13px',
@@ -76,7 +76,7 @@ const HeaderDetails = () => {
         }}
         auto
         iconRight={<FontAwesomeIcon icon={faAnglesRight} />}>
-        Browse Podcast
+        <Link to='/explore'>Browse Podcast</Link>
       </Button>
       {isTabletOrMobile ? <Spacer y={6} /> : <Spacer y={9} />}
       <Avatar.Group>

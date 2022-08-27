@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphonesSimple } from '@fortawesome/free-solid-svg-icons';
-import { Button, Grid, Text } from '@nextui-org/react';
+import { Badge, Button, Grid, Navbar, Text } from '@nextui-org/react';
 import { Link } from '@tanstack/react-location';
 
 const Nav = () => {
@@ -36,7 +36,7 @@ const Nav = () => {
       </Grid>
       <Grid xs={8} lg={6} sm={8}>
         <Link
-         to='/'
+          to='/'
           color='primary'
           style={{
             padding: '8px 22px',
@@ -47,7 +47,9 @@ const Nav = () => {
             // '@lg': {
             //   fontSize: '16px',
             // },
-          }}>Home</Link>
+          }}>
+          Home
+        </Link>
         <Link
           color='primary'
           style={{
@@ -60,7 +62,7 @@ const Nav = () => {
             // fontSize: '16px',
             // },
           }}
-          to="/categories">
+          to='/categories'>
           Categories
         </Link>
         <Link
@@ -114,7 +116,7 @@ const Nav = () => {
             },
           }}
           auto>
-          Strat Listening
+          <Link to='/explore'> Start Listening</Link>
         </Button>
       </Grid>
     </Grid.Container>

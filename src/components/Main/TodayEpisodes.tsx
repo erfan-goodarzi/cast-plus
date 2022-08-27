@@ -26,7 +26,7 @@ const TodayEpisodes = () => {
       <Container
         xl
         css={{
-          background: '#001D3D',
+          background: '#0F172B',
           height: 'auto',
         }}>
         <Grid.Container
