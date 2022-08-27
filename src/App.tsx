@@ -1,29 +1,31 @@
 import { Text } from '@nextui-org/react';
 import { MakeGenerics, ReactLocation, Router } from '@tanstack/react-location';
 import Player from 'react-material-music-player';
-import TodayEpisodes from './components/Main/TodayEpisodes';
-import TopEpisode from './components/Main/TopEpisode';
-import Nav from './components/Ui/Nav';
 import Home from './pages/Home';
 import { GlobalStyles } from './style/globalStyles';
+import { useStore } from './store/PlayerStore';
 
 type LocationGenerics = MakeGenerics<{
   LoaderData: { episodes: TopEpisode[]; episode: TopEpisode };
 }>;
 
 function App() {
+  const { isEpisodePlay } = useStore();
   GlobalStyles();
   const location = new ReactLocation<LocationGenerics>();
   return (
     <>
-      <Player
-        disableDrawer={false}
-        sx={{
-          zIndex: 10,
-          ml: '3rem',
-          width: '90%',
-        }}
-      />
+      {isEpisodePlay ? (
+        <Player
+          disableDrawer={false}
+          sx={{
+            zIndex: 10,
+            ml: '3rem',
+            width: '90%',
+          }}
+        />
+      ) : null}
+
       <Router
         location={location}
         routes={[

@@ -21,7 +21,6 @@ const TodayEpisodes = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
 
   const { data, isLoading } = useGetTopEpisode();
-  const playepisodehandler = () => {};
   return (
     <div>
       <Container

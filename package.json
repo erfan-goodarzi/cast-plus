@@ -24,7 +24,8 @@
     "react-query": "^3.39.2",
     "react-responsive": "^9.0.0-beta.10",
     "react-script": "^2.0.5",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "zustand": "^4.1.1"
   },
   "devDependencies": {
     "@types/node": "^18.7.5",
