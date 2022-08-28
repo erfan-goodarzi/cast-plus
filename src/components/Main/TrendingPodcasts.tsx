@@ -1,4 +1,5 @@
 import { Card, Image, Row, Spacer, Text } from '@nextui-org/react';
+import { Carousel } from '@trendyol-js/react-carousel';
 import BackgroundImg from '../../assets/man-wearing-headphones.webp';
 const TrendingPodcasts = () => {
   return (
@@ -30,11 +31,44 @@ const TrendingPodcasts = () => {
           zIndex: 2,
           background: 'rgb(255 255 255 / 17%)',
           margin: '2rem 3.6rem',
-          height: '26vh',
+          height: '32vh',
           width: '85%',
         }}>
         <Card.Body>
-          <Text>Some Podcasts</Text>
+          <Carousel show={3.5} slide={1} transition={.5} swiping={true}>
+            <Card.Body>
+              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
+              <Text>Episode 1</Text>
+            </Card.Body>
+            <Card.Body>
+              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
+              <Text>Episode 1</Text>
+            </Card.Body>
+            <Card.Body>
+              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
+              <Text>Episode 1</Text>
+            </Card.Body>
+            <Card.Body>
+              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
+              <Text>Episode 1</Text>
+            </Card.Body>
+            <Card.Body>
+              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
+              <Text>Episode 1</Text>
+            </Card.Body>
+            <Card.Body>
+              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
+              <Text>Episode 1</Text>
+            </Card.Body>
+            <Card.Body>
+              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
+              <Text>Episode 1</Text>
+            </Card.Body>
+            <Card.Body>
+              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
+              <Text>Episode 1</Text>
+            </Card.Body>
+          </Carousel>
         </Card.Body>
       </Card>
     </>

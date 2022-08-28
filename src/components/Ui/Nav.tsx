@@ -62,7 +62,7 @@ const Nav = () => {
             // fontSize: '16px',
             // },
           }}
-          to='/Explore'>
+          to='/explore'>
           Explore
         </Link>
         <Link
