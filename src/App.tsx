@@ -4,6 +4,7 @@ import Player from 'react-material-music-player';
 import Home from './pages/Home';
 import { GlobalStyles } from './style/globalStyles';
 import { useStore } from './store/PlayerStore';
+import Explore from './pages/Explore';
 
 type LocationGenerics = MakeGenerics<{
   LoaderData: { episodes: TopEpisode[]; episode: TopEpisode };
@@ -60,8 +61,8 @@ function App() {
             // ],
           },
           {
-            path: '/categories',
-            element: <Text>This is category pages</Text>,
+            path: '/explore',
+            element: <Explore />,
           },
           {
             path: '/trending',

@@ -33,8 +33,8 @@ const MobileNav = () => {
         <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/'>
           Home
         </Link>
-        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/category'>
-          Categories
+        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/explore'>
+          Explore
         </Link>
         <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/trending'>
           Trending

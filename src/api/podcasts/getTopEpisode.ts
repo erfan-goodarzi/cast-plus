@@ -29,12 +29,11 @@
 //   return useQuery<TopEpisode>(`episode`, async () => await getTopEpisode());
 // };
 
-import { gql } from 'graphql-request';
-import { client, httpClient } from '..';
+import { client } from '..';
 import { useQuery } from 'react-query';
 
 const getTopEpisode = () => {
-  return client.recentEpisodes({max: 6, fulltext: true});
+  return client.recentEpisodes({ max: 6, fulltext: true });
 };
 
 export const useGetTopEpisode = () => {

@@ -62,8 +62,8 @@ const Nav = () => {
             // fontSize: '16px',
             // },
           }}
-          to='/categories'>
-          Categories
+          to='/Explore'>
+          Explore
         </Link>
         <Link
           color='primary'
