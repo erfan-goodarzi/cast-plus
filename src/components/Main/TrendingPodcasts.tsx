@@ -1,4 +1,18 @@
-import { Card, Image, Row, Spacer, Text } from '@nextui-org/react';
+import {
+  faArrowLeft,
+  faArrowRight,
+  faPlay,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  Button,
+  Card,
+  Grid,
+  Image,
+  Row,
+  Spacer,
+  Text,
+} from '@nextui-org/react';
 import { Carousel } from '@trendyol-js/react-carousel';
 import BackgroundImg from '../../assets/man-wearing-headphones.webp';
 const TrendingPodcasts = () => {
@@ -28,46 +42,87 @@ const TrendingPodcasts = () => {
       </Text>
       <Card
         css={{
-          zIndex: 2,
+          zIndex: 1,
           background: 'rgb(255 255 255 / 17%)',
           margin: '2rem 3.6rem',
-          height: '32vh',
+          height: '34vh',
           width: '85%',
         }}>
         <Card.Body>
-          <Carousel show={3.5} slide={1} transition={.5} swiping={true}>
-            <Card.Body>
-              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
-              <Text>Episode 1</Text>
-            </Card.Body>
-            <Card.Body>
-              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
-              <Text>Episode 1</Text>
-            </Card.Body>
-            <Card.Body>
-              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
-              <Text>Episode 1</Text>
-            </Card.Body>
-            <Card.Body>
-              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
-              <Text>Episode 1</Text>
-            </Card.Body>
-            <Card.Body>
-              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
-              <Text>Episode 1</Text>
-            </Card.Body>
-            <Card.Body>
-              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
-              <Text>Episode 1</Text>
-            </Card.Body>
-            <Card.Body>
-              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
-              <Text>Episode 1</Text>
-            </Card.Body>
-            <Card.Body>
-              <Image src='https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true' />
-              <Text>Episode 1</Text>
-            </Card.Body>
+          <Carousel
+            show={4.3}
+            slide={1}
+            transition={0.5}
+            swiping={true}
+            // leftArrow={<FontAwesomeIcon className='carousel-arrow' icon={faArrowLeft} />}
+            // rightArrow={<FontAwesomeIcon className='carousel-arrow' icon={faArrowRight} />}
+            >
+            <Grid>
+              <img
+                style={{
+                  borderRadius: '10px',
+                  height: '150px',
+                }}
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQE5iCt2hGDxquedi8YlfBbomjlP84YaQzg&usqp=CAU'
+              />
+              <Text css={{ fontSize: 19, fontWeight: 'bold' }}>Hieu.Tv</Text>
+              <Text css={{ fontSize: 14, color: '#666' }}>Ali Bandari</Text>
+            </Grid>
+            <Grid>
+              <img
+                style={{
+                  borderRadius: '10px',
+                  height: '150px',
+                }}
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQE5iCt2hGDxquedi8YlfBbomjlP84YaQzg&usqp=CAU'
+              />
+              <Text css={{ fontSize: 19, fontWeight: 'bold' }}>Hieu.Tv</Text>
+              <Text css={{ fontSize: 14, color: '#666' }}>Ali Bandari</Text>
+            </Grid>
+            <Grid>
+              <img
+                style={{
+                  borderRadius: '10px',
+                  height: '150px',
+                }}
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQE5iCt2hGDxquedi8YlfBbomjlP84YaQzg&usqp=CAU'
+              />
+              <Text css={{ fontSize: 19, fontWeight: 'bold' }}>Hieu.Tv</Text>
+              <Text css={{ fontSize: 14, color: '#666' }}>Ali Bandari</Text>
+            </Grid>
+            <Grid>
+              <img
+                style={{
+                  borderRadius: '10px',
+                  height: '150px',
+                }}
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQE5iCt2hGDxquedi8YlfBbomjlP84YaQzg&usqp=CAU'
+              />
+              <Text css={{ fontSize: 19, fontWeight: 'bold' }}>Hieu.Tv</Text>
+              <Text css={{ fontSize: 14, color: '#666' }}>Ali Bandari</Text>
+            </Grid>
+            <Grid>
+              <img
+                style={{
+                  borderRadius: '10px',
+                  height: '150px',
+                }}
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQE5iCt2hGDxquedi8YlfBbomjlP84YaQzg&usqp=CAU'
+              />
+              <Text css={{ fontSize: 19, fontWeight: 'bold' }}>Hieu.Tv</Text>
+              <Text css={{ fontSize: 14, color: '#666' }}>Ali Bandari</Text>
+            </Grid>
+            <Grid>
+              <img
+                style={{
+                  borderRadius: '10px',
+                  height: '150px',
+                }}
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQE5iCt2hGDxquedi8YlfBbomjlP84YaQzg&usqp=CAU'
+              />
+              <Text css={{ fontSize: 19, fontWeight: 'bold' }}>Hieu.Tv</Text>
+              <Text css={{ fontSize: 14, color: '#666' }}>Ali Bandari</Text>
+            </Grid>
           </Carousel>
         </Card.Body>
       </Card>

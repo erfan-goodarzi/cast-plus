@@ -30,6 +30,7 @@ const Explore = () => {
             position: 'fixed',
             bottom: '2rem',
             background: '#D2D6D9',
+          
             '@lg': {
               height: '60vh',
               width: '97%',
