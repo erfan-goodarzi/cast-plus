@@ -7,7 +7,7 @@ import { useStore } from './store/PlayerStore';
 import Explore from './pages/Explore';
 
 type LocationGenerics = MakeGenerics<{
-  LoaderData: { episodes: TopEpisode[]; episode: TopEpisode };
+  LoaderData: { episodes: TopPodcast[]; episode: TopPodcast };
 }>;
 
 function App() {

@@ -1,5 +1,6 @@
-interface TopEpisode {
-  episodes: {
-    data: episode[];
+interface TopPodcast {
+  feeds: SetStateAction<Array>;
+  podcasts: {
+    data: feeds[];
   };
 }
