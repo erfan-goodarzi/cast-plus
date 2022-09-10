@@ -5,8 +5,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, Grid, Spacer, Text } from '@nextui-org/react';
-import { Carousel } from '@trendyol-js/react-carousel';
+
 import { useGetTopPodcasts } from '../../api/podcasts/getTopPodcasts';
+import EmblaCarousel from './EmblaCarousel';
+
+const SLIDE_COUNT = 6;
+const slides = Array.from(Array(SLIDE_COUNT).keys());
 
 const TrendingPodcasts = () => {
   const { data, isLoading } = useGetTopPodcasts();
@@ -36,7 +40,8 @@ const TrendingPodcasts = () => {
         }}>
         A suggestion based on the most popular podcasts
       </Text>
-      <Card
+      <EmblaCarousel slides={slides} />
+      {/* <Card
         css={{
           zIndex: 1,
           background: 'rgb(255 255 255 / 17%)',
@@ -45,39 +50,8 @@ const TrendingPodcasts = () => {
           width: '85%',
         }}>
         <Card.Body>
-          <Carousel
-            show={4.3}
-            slide={1}
-            transition={0.5}
-            swiping={true}
-            // leftArrow={<FontAwesomeIcon className='carousel-arrow' icon={faArrowLeft} />}
-            // rightArrow={<FontAwesomeIcon className='carousel-arrow' icon={faArrowRight} />}
-          >
-            <Grid>
-              <img
-                style={{
-                  borderRadius: '10px',
-                  height: '150px',
-                }}
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQE5iCt2hGDxquedi8YlfBbomjlP84YaQzg&usqp=CAU'
-              />
-              <Text css={{ fontSize: 19, fontWeight: 'bold' }}>title</Text>
-              <Text css={{ fontSize: 14, color: '#666' }}>Ali Bandari</Text>
-            </Grid>
-            <Grid>
-              <img
-                style={{
-                  borderRadius: '10px',
-                  height: '150px',
-                }}
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQE5iCt2hGDxquedi8YlfBbomjlP84YaQzg&usqp=CAU'
-              />
-              <Text css={{ fontSize: 19, fontWeight: 'bold' }}>title</Text>
-              <Text css={{ fontSize: 14, color: '#666' }}>Ali Bandari</Text>
-            </Grid>
-          </Carousel>
         </Card.Body>
-      </Card>
+      </Card> */}
     </>
   );
 };
