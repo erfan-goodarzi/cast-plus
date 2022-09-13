@@ -15,6 +15,9 @@ export const GlobalStyles = globalCss({
   '.nextui-c-eFfoBo': {
     width: '107% !important',
   },
+  '.active': {
+    color: 'rgb(255, 214, 10) !important',
+  },
   // '.carousel-arrow': {
   //   position: 'relative',
   //   left: '-3rem',

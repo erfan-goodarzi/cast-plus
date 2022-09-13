@@ -55,7 +55,6 @@ const TopEpisode = () => {
         <Grid xs={12} lg={6} sm={6}>
           {isLoading ? (
             <Loading
-              type='points'
               css={{
                 ml: '7rem',
                 mt: '1rem',

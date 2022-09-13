@@ -90,11 +90,7 @@ const TodayEpisodes = () => {
             </Text>
           </Grid>
           {isLoading ? (
-            <Loading
-              type='points'
-              css={{ ml: '36rem', mt: '7rem' }}
-              size='xl'
-            />
+            <Loading css={{ ml: '36rem', mt: '7rem' }} size='xl' />
           ) : (
             data?.items.map((episode) => (
               <Grid xs={12} key={episode.id}>

@@ -24,7 +24,7 @@ const EmblaCarousel = ({
   return (
     <>
       {isLoad ? (
-        <Loading />
+        <Loading css={{ ml: '12rem', mt: '3rem' }} size='xl' />
       ) : (
         <div className='embla'>
           <div className='embla__viewport' ref={viewportRef}>
