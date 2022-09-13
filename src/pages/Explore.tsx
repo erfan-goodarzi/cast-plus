@@ -9,7 +9,6 @@ const Explore = () => {
   const isTabletOrMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
-  
 
   return (
     <>
@@ -40,7 +39,7 @@ const Explore = () => {
           }}>
           <Card.Body
             css={{
-              position: 'relativeela',
+              position: 'relative',
             }}></Card.Body>
         </Card>
       </Container>

@@ -1,6 +1,7 @@
 .embla {
   position: relative;
-  background-color: rgb(255 255 255 / 12%);
+  /* background-color: rgb(255 255 255 / 12%); */
+  background: linear-gradient(1deg, #fff, transparent);
   padding: 20px;
   max-width: 860px;
   height: 33vh;

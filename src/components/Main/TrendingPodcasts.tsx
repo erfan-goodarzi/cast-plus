@@ -13,11 +13,11 @@ const TrendingPodcasts = () => {
         color='#fff'
         css={{
           '@lg': {
-            fontSize: '30px',
+            fontSize: '29px',
             margin: '-14px 68px',
           },
         }}>
-        More Of What You Like
+        More Of What You May Like
       </Text>
       <Spacer />
       <Text
@@ -28,7 +28,7 @@ const TrendingPodcasts = () => {
             margin: '-14px 68px',
           },
         }}>
-        A suggestion based on the most popular podcasts
+        A suggestion based on the most popular podcasts.
       </Text>
       <EmblaCarousel isLoad={isLoading} slides={data?.feeds} />
 
