@@ -1,20 +1,10 @@
-import {
-  faArrowLeft,
-  faArrowRight,
-  faPlay,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Card, Grid, Spacer, Text } from '@nextui-org/react';
-
+import { Spacer, Text } from '@nextui-org/react';
 import { useGetTopPodcasts } from '../../api/podcasts/getTopPodcasts';
 import EmblaCarousel from './EmblaCarousel';
 
-const SLIDE_COUNT = 6;
-const slides = Array.from(Array(SLIDE_COUNT).keys());
-
 const TrendingPodcasts = () => {
   const { data, isLoading } = useGetTopPodcasts();
-  console.log(data);
+  console.log(data?.feeds);
 
   return (
     <>
@@ -40,7 +30,8 @@ const TrendingPodcasts = () => {
         }}>
         A suggestion based on the most popular podcasts
       </Text>
-      <EmblaCarousel slides={slides} />
+      <EmblaCarousel isLoad={isLoading} slides={data?.feeds} />
+
       {/* <Card
         css={{
           zIndex: 1,

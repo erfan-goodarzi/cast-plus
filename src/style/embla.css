@@ -1,19 +1,18 @@
 .embla {
   position: relative;
-  background-color: rgb(255 255 255 / 17%);
+  background-color: rgb(255 255 255 / 12%);
   padding: 20px;
-  z-index: 2;
-  border-radius: 17px;
-  max-width: 728px;
+  max-width: 860px;
+  height: 33vh;
   margin-left: 4rem;
-  margin-right: auto;
+  z-index: 2;
+  border-radius: 12px;
   margin-top: 2rem;
-  height: 34vh;
 }
 
 .embla__viewport {
   overflow: hidden;
-  width: 100%;
+  width: 102.3%;
 }
 
 .embla__viewport.is-draggable {
@@ -31,19 +30,20 @@
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -webkit-tap-highlight-color: transparent;
-  margin-left: -10px;
+  margin-left: 297px;
 }
 
 .embla__slide {
   position: relative;
-  min-width: 50%;
   padding-left: 10px;
+  min-width: 41%;
 }
 
 .embla__slide__inner {
   position: relative;
   overflow: hidden;
-  height: 190px;
+  height: 30vh;
+  right: 6rem;
 }
 
 .embla__slide__img {
@@ -59,21 +59,13 @@
 }
 
 .embla__button {
-  outline: 0;
-  cursor: pointer;
-  background-color: transparent;
-  touch-action: manipulation;
   position: absolute;
   z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 0;
-  width: 30px;
-  height: 30px;
-  justify-content: center;
+  top: 28%;
   align-items: center;
-  fill: #1bcacd;
-  padding: 0;
+  background: #fff;
+  color: rgb(15, 23, 43);
+  border-radius: 50%;
 }
 
 .embla__button:disabled {
@@ -81,15 +73,7 @@
   opacity: 0.3;
 }
 
-.embla__button__svg {
-  width: 100%;
-  height: 100%;
-}
-
-.embla__button--prev {
-  left: 27px;
-}
-
 .embla__button--next {
-  right: 27px;
+  right: -21px;
 }
+
