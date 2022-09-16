@@ -4,7 +4,6 @@ import EmblaCarousel from './EmblaCarousel';
 
 const TrendingPodcasts = () => {
   const { data, isLoading } = useGetTopPodcasts();
-  console.log(data?.feeds);
 
   return (
     <>
@@ -31,7 +30,6 @@ const TrendingPodcasts = () => {
         A suggestion based on the most popular podcasts.
       </Text>
       <EmblaCarousel isLoad={isLoading} slides={data?.feeds} />
-
       {/* <Card
         css={{
           zIndex: 1,
