@@ -4,7 +4,7 @@
   background: linear-gradient(1deg, #fff, transparent);
   padding: 20px;
   max-width: 860px;
-  height: 33vh;
+  height: 34vh;
   margin-left: 4rem;
   z-index: 2;
   border-radius: 12px;
@@ -43,7 +43,7 @@
 .embla__slide__inner {
   position: relative;
   overflow: hidden;
-  height: 30vh;
+  height: 35vh;
   right: 6rem;
 }
 
@@ -77,4 +77,3 @@
 .embla__button--next {
   right: -21px;
 }
-

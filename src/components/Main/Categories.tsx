@@ -1,45 +1,32 @@
-import { Container, Grid, Loading, Text } from '@nextui-org/react';
-import React, { useEffect, useState } from 'react';
-import { useGetCategories } from '../../api/podcasts/getCategories';
+import { Card, Text } from '@nextui-org/react';
+import CategoryItem from '../Ui/CategoryItem';
 
 const Categories = () => {
-  const { data, isLoading } = useGetCategories();
-  const [categoryList, setCategoryList] = useState<any[][]>();
-  const array1 = [
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-    { image: 'https://ivy.fm/img/i320/734423.jpgF' },
-  ];
-  useEffect(() => {
-    if (data) {
-      const zip = data.feeds.slice(100).map(function (e, i) {
-        return [e, array1[i]];
-      });
-      setCategoryList(zip);
-    }
-  }, [data]);
   return (
     <>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        categoryList?.map((category) => (
-          <Container key={category[0].id}>
-            <Text color='#fff'>{category[0].name}</Text>
-          </Container>
-        ))
-      )}
+      <Text
+        h2
+        color='#fff'
+        css={{
+          '@lg': {
+            fontSize: '29px',
+            fontWeight: 'bold',
+            margin: '4px 8px',
+          },
+        }}>
+        All Categories
+      </Text>
+      <Card
+        css={{
+          zIndex: 1,
+          background: '#fff',
+          margin: '2rem 0',
+          height: '66vh',
+          overflowY: 'scroll',
+          width: '85%',
+        }}>
+        <CategoryItem />
+      </Card>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { Card, Container, Grid, Spacer } from '@nextui-org/react';
+import { Card, Container, Grid, Spacer, Text } from '@nextui-org/react';
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Categories from '../components/Main/Categories';
@@ -25,7 +25,7 @@ const Explore = () => {
           <Grid lg={8} css={{ display: 'block !important' }}>
             <TrendingPodcasts />
           </Grid>
-          <Grid lg={4}>
+          <Grid lg={4} css={{ display: 'block !important' }}>
             <Categories />
           </Grid>
         </Grid.Container>

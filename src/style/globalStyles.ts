@@ -1,7 +1,22 @@
 import { globalCss } from '@nextui-org/react';
 
 export const GlobalStyles = globalCss({
-  body: { color: '#fff', fontFamily: "'Quicksand', sans-serif !important" },
+  body: {
+    color: '#fff',
+    fontFamily: "'Quicksand', sans-serif !important",
+    '::-webkit-scrollbar': {
+      width: '9px',
+    },
+    '::-webkit-scrollbar-thumb': {
+      borderRadius: '2px',
+      backgroundColor: 'rgb(162 162 162)',
+      outline: '0',
+    },
+    '::-webkit-scrollbar-track': {
+      width: '11rem',
+      background: 'transparent',
+    },
+  },
   a: { color: '#fff !important' },
   '.MuiSlider-thumb': {
     color: '#000',
