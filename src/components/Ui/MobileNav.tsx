@@ -1,8 +1,7 @@
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Dropdown, Grid, Text } from '@nextui-org/react';
+import { Grid, Text } from '@nextui-org/react';
 import { Link } from '@tanstack/react-location';
-const MobileNav = () => {
+
+export const MobileNav = () => {
   return (
     <Grid.Container
       gap={3}
@@ -48,5 +47,3 @@ const MobileNav = () => {
     </Grid.Container>
   );
 };
-
-export default MobileNav;

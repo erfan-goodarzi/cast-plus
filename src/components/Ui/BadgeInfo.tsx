@@ -5,7 +5,7 @@ interface BadgeInfoProps {
   time: string;
 }
 
-const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
+export const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
   return (
     <>
       {' '}
@@ -37,5 +37,3 @@ const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
     </>
   );
 };
-
-export default BadgeInfo;

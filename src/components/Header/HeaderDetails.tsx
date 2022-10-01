@@ -1,5 +1,4 @@
 import { Avatar, Button, Container, Spacer, Text } from '@nextui-org/react';
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import { useMediaQuery } from 'react-responsive';

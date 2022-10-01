@@ -1,12 +1,9 @@
-import { Card, Container, Grid, Spacer, Text } from '@nextui-org/react';
-import React from 'react';
+import { Card, Container, Grid, Spacer } from '@nextui-org/react';
 import { useMediaQuery } from 'react-responsive';
-import Categories from '../components/Main/Categories';
-import TrendingPodcasts from '../components/Main/TrendingPodcasts';
-import MobileNav from '../components/Ui/MobileNav';
-import Nav from '../components/Ui/Nav';
+import { Categories, TrendingPodcasts } from '../components/Main';
+import { MobileNav, Nav } from '../components/Ui';
 
-const Explore = () => {
+export const Explore = () => {
   const isTabletOrMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
@@ -49,5 +46,3 @@ const Explore = () => {
     </>
   );
 };
-
-export default Explore;

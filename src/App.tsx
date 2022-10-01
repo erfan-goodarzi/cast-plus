@@ -1,10 +1,9 @@
 import { Text } from '@nextui-org/react';
 import { MakeGenerics, ReactLocation, Router } from '@tanstack/react-location';
 import Player from 'react-material-music-player';
-import Home from './pages/Home';
-import { GlobalStyles } from './style/globalStyles';
+import { Home, Explore } from './pages';
+import { GlobalStyles } from './style';
 import { useStore } from './store/PlayerStore';
-import Explore from './pages/Explore';
 
 type LocationGenerics = MakeGenerics<{
   LoaderData: { episodes: TopPodcast[]; episode: TopPodcast };

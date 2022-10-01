@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphonesSimple } from '@fortawesome/free-solid-svg-icons';
-import { Badge, Button, Grid, Navbar, Text } from '@nextui-org/react';
+import { Button, Grid, Text } from '@nextui-org/react';
 import { Link } from '@tanstack/react-location';
 
-const Nav = () => {
+export const Nav = () => {
   return (
     <Grid.Container
       gap={3}
@@ -122,5 +122,3 @@ const Nav = () => {
     </Grid.Container>
   );
 };
-
-export default Nav;

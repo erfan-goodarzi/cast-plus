@@ -7,9 +7,9 @@ import {
   simpleColors,
 } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
-import { useGetCategories } from '../../api/podcasts/getCategories';
+import { useGetCategories } from '../../api';
 
-const CategoryItem = () => {
+export const CategoryItem = () => {
   const { data, isLoading } = useGetCategories();
   const [categoryList, setCategoryList] = useState<any[][]>();
   const [badgeColors, setBadgeColors] = useState<SimpleColors>();
@@ -58,7 +58,6 @@ const CategoryItem = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data.feeds.slice(0, 12));
       const zip = data.feeds.slice(0, 10).map(function (e, i) {
         return [e, categoryImages[i]];
       });
@@ -102,5 +101,3 @@ const CategoryItem = () => {
     </>
   );
 };
-
-export default CategoryItem;

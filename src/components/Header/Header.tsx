@@ -1,10 +1,9 @@
-import { Grid, css, Text, Container, Spacer } from '@nextui-org/react';
-import React, { useState } from 'react';
-import Nav from '../Ui/Nav';
+import { Container, Spacer } from '@nextui-org/react';
 import HeaderDetails from './HeaderDetails';
 import BackgroundImg from '../../assets/man-wearing-headphones.webp';
 import { useMediaQuery } from 'react-responsive';
-import MobileNav from '../Ui/MobileNav';
+import { MobileNav, Nav } from '../Ui';
+
 const Header = () => {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' });
 

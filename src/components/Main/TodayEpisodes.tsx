@@ -8,16 +8,15 @@ import {
   Spacer,
   Text,
 } from '@nextui-org/react';
-import React, { useState } from 'react';
-import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
-import BadgeInfo from '../Ui/BadgeInfo';
-import { removeHtmlTag } from '../../utils/removeHtmlTag';
+import { useState } from 'react';
+import { useGetTopEpisode } from '../../api';
+import { BadgeInfo } from '../Ui';
+import { removeHtmlTag } from '../../utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faPlay, faShareAlt } from '@fortawesome/free-solid-svg-icons';
-import { PlayerInterface, Track } from 'react-material-music-player';
-import PlayButton from '../Ui/PlayButton';
+import { faBell, faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { PlayButton } from '../Ui';
 
-const TodayEpisodes = () => {
+export const TodayEpisodes = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
 
   const { data, isLoading } = useGetTopEpisode();
@@ -252,5 +251,3 @@ const TodayEpisodes = () => {
     </div>
   );
 };
-
-export default TodayEpisodes;

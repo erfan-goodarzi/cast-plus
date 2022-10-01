@@ -1,16 +1,12 @@
 import Header from '../components/Header/Header';
-import TodayEpisodes from '../components/Main/TodayEpisodes';
-import TopEpisode from '../components/Main/TopEpisode';
+import { TodayEpisodes, TopEpisode } from '../components/Main';
 
-const Home = () => {
+export const Home = () => {
   return (
     <>
-      {' '}
       <Header />
       <TopEpisode />
       <TodayEpisodes />
     </>
   );
 };
-
-export default Home;

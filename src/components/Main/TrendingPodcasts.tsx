@@ -1,8 +1,8 @@
 import { Spacer, Text } from '@nextui-org/react';
-import { useGetTopPodcasts } from '../../api/podcasts/getTopPodcasts';
-import EmblaCarousel from './EmblaCarousel';
+import { useGetTopPodcasts } from '../../api';
+import { EmblaCarousel } from './EmblaCarousel';
 
-const TrendingPodcasts = () => {
+export const TrendingPodcasts = () => {
   const { data, isLoading } = useGetTopPodcasts();
 
   return (
@@ -44,5 +44,3 @@ const TrendingPodcasts = () => {
     </>
   );
 };
-
-export default TrendingPodcasts;

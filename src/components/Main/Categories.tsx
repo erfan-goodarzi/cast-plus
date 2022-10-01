@@ -1,7 +1,7 @@
 import { Card, Text } from '@nextui-org/react';
-import CategoryItem from '../Ui/CategoryItem';
+import { CategoryItem } from '../Ui';
 
-const Categories = () => {
+export const Categories = () => {
   return (
     <>
       <Text
@@ -30,5 +30,3 @@ const Categories = () => {
     </>
   );
 };
-
-export default Categories;

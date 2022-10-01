@@ -6,7 +6,7 @@ import { PIApiFeed } from 'podcastindexjs/lib/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const EmblaCarousel = ({
+export const EmblaCarousel = ({
   isLoad,
   slides,
 }: {
@@ -69,5 +69,3 @@ const EmblaCarousel = ({
     </>
   );
 };
-
-export default EmblaCarousel;

@@ -1,23 +1,18 @@
-import { faEuroSign, faPlay } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  Button,
   Container,
   Grid,
   Image,
-  Link,
   Loading,
   Spacer,
   Text,
 } from '@nextui-org/react';
-import React, { MouseEvent, useEffect, useState } from 'react';
-import { useGetTopEpisode } from '../../api/podcasts/getTopEpisode';
-import { removeHtmlTag } from '../../utils/removeHtmlTag';
-import BadgeInfo from '../Ui/BadgeInfo';
-import Player, { PlayerInterface, Track } from 'react-material-music-player';
-import PlayButton from '../Ui/PlayButton';
+import { useEffect, useState } from 'react';
+import { useGetTopEpisode } from '../../api';
+import { removeHtmlTag } from '../../utils';
+import { BadgeInfo } from '../Ui';
+import { PlayButton } from '../Ui';
 
-const TopEpisode = () => {
+export const TopEpisode = () => {
   const [episodeImg, setEpisodeImg] = useState<string>('');
   const [episodeId, setEpisodeId] = useState<number>();
   const [episodeTitle, setEpisodeTitle] = useState<string>('');
@@ -155,5 +150,3 @@ const TopEpisode = () => {
     </Container>
   );
 };
-
-export default TopEpisode;
