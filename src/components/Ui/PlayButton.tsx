@@ -21,16 +21,16 @@ export const PlayButton = ({
   feedTitle,
   url,
 }: PlayButtonProps) => {
-  const [recentEpisodePlayed, setRecentEpisodePlayed] = useLocalStorageState<
+  const [recentPlayedEpisodes, setRecentPlayedEpisodes] = useLocalStorageState<
     string[]
-  >('recent-episode-played', {
+  >('recent-played-episodes', {
     defaultValue: [],
   });
   const enablePlayer = useStore((state) => state.enablePlayer);
   const recentPlayed = useStore((state) => state.setRecentPlayed);
   useEffect(() => {
-    recentPlayed(recentEpisodePlayed);
-  }, [recentEpisodePlayed]);
+    recentPlayed(recentPlayedEpisodes);
+  }, [recentPlayedEpisodes]);
 
   return (
     <>
@@ -41,7 +41,7 @@ export const PlayButton = ({
           PlayerInterface.play([
             new Track(`${id}`, image, title, feedTitle, url),
           ]);
-          setRecentEpisodePlayed([...recentEpisodePlayed, title]);
+          setRecentPlayedEpisodes([...recentPlayedEpisodes, title]);
           enablePlayer();
         }}
         iconRight={<FontAwesomeIcon icon={faPlay} />}
