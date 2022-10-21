@@ -1,14 +1,13 @@
 .embla {
   position: relative;
   /* background-color: rgb(255 255 255 / 12%); */
-  background: linear-gradient(1deg, #fff, transparent);
+  background: linear-gradient(1deg, #ffffffd1, transparent);
   padding: 20px;
   max-width: 860px;
   height: 34vh;
-  margin-left: 4rem;
   z-index: 2;
   border-radius: 12px;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .embla__viewport {

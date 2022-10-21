@@ -1,9 +1,9 @@
-import { Card, Text } from '@nextui-org/react';
+import { Card, Container, Text } from '@nextui-org/react';
 import { CategoryItem } from '../Ui';
 
 export const Categories = () => {
   return (
-    <>
+    <Container>
       <Text
         h2
         color='#fff'
@@ -27,6 +27,6 @@ export const Categories = () => {
         }}>
         <CategoryItem />
       </Card>
-    </>
+    </Container>
   );
 };

@@ -7,7 +7,10 @@ const routes = [
     path: '/',
     element: <Home />,
   },
-  { path: '/explore', element: <Explore /> },
+  {
+    path: '/explore',
+    element: <Explore />,
+  },
   {
     path: '/trending',
     element: <Text>This is trending page</Text>,
