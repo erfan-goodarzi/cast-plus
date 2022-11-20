@@ -8,8 +8,8 @@ export const RecentPlayed = () => {
           zIndex: 1,
           background: '#fff',
           overflowY: 'scroll',
-          width: 460,
-          height: 201,
+          width: 'auto',
+          height: 'auto',
           padding: '15px 25px',
         }}>
         <Text h4 weight='bold'>

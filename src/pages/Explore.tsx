@@ -14,7 +14,7 @@ export const Explore = () => {
         xl
         css={{
           background: 'rgb(15, 23, 43)',
-          height: '782px',
+          height: '100vh',
         }}>
         {isTabletOrMobile ? <MobileNav /> : <Nav />}
         <Grid.Container style={{ padding: '30px 30px' }}>

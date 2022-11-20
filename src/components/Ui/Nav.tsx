@@ -1,15 +1,47 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphonesSimple } from '@fortawesome/free-solid-svg-icons';
-import { Button, Grid, Text } from '@nextui-org/react';
-import { Link } from '@tanstack/react-location';
+import { Button, Text, Navbar } from '@nextui-org/react';
+import { Link, useLocation } from '@tanstack/react-location';
+
+export interface NavLinkItems {
+  label: string;
+  path: string;
+}
+
+const links: NavLinkItems[] = [
+  {
+    label: 'Home',
+    path: '/',
+  },
+  {
+    label: 'Explore',
+    path: '/explore',
+  },
+  {
+    label: 'Trending',
+    path: '/trending',
+  },
+  {
+    label: 'Top Podcasts',
+    path: '/top-podcasts',
+  },
+];
 
 export const Nav = () => {
+  const {
+    current: { pathname },
+  } = useLocation();
+
   return (
-    <Grid.Container
-      gap={3}
-      css={{ justifyContent: 'space-around', height: '100px' }}>
-      <Grid xs={1} lg={4} sm={3}>
-        {' '}
+    <Navbar
+      variant='static'
+      maxWidth='fluid'
+      style={{ boxShadow: 'unset' }}
+      containerCss={{
+        background: 'unset !important',
+        backdropFilter: 'unset !important',
+      }}>
+      <Navbar.Brand>
         <Text
           h1
           size={24}
@@ -33,70 +65,31 @@ export const Nav = () => {
           weight='bold'>
           +
         </Text>
-      </Grid>
-      <Grid xs={8} lg={6} sm={8}>
-        <Link
-          to='/'
-          color='primary'
-          style={{
-            padding: '8px 22px',
-            fontSize: '16px',
-            // '@xs': {
-            //   fontSize: '14px',
-            // },
-            // '@lg': {
-            //   fontSize: '16px',
-            // },
-          }}>
-          Home
-        </Link>
-        <Link
-          color='primary'
-          style={{
-            padding: '8px 22px',
-            fontSize: '16px',
-            // '@xs': {
-            // fontSize: '14px',
-            // },
-            // '@lg': {
-            // fontSize: '16px',
-            // },
-          }}
-          to='/explore'>
-          Explore
-        </Link>
-        <Link
-          color='primary'
-          style={{
-            padding: '8px 22px',
-            fontSize: '16px',
-            // '@xs': {
-            //   fontSize: '14px',
-            // },
-            // '@lg': {
-            //   fontSize: '16px',
-            // },
-          }}
-          to='/trending'>
-          Trending
-        </Link>
-        <Link
-          color='primary'
-          style={{
-            padding: '8px 22px',
-            fontSize: '16px',
-            // '@xs': {
-            //   fontSize: '14px',
-            // },
-            // '@lg': {
-            //   fontSize: '16px',
-            // },
-          }}
-          to='/podcasts'>
-          Top Podcast
-        </Link>
-      </Grid>
-      <Grid xs={1} lg={2} sm={1}>
+      </Navbar.Brand>
+      <Navbar.Content hideIn='sm' variant='default'>
+        {links.map((item) => (
+          <>
+            <Navbar.Link key={item.label} isActive={pathname === item.path}>
+              <Link
+                style={{
+                  padding: '8px 22px',
+                  fontSize: '16px',
+                }}
+                to={item.path}>
+                {item.label}
+              </Link>
+            </Navbar.Link>
+            {console.log(item, pathname)}
+          </>
+        ))}
+      </Navbar.Content>
+      <Navbar.Content
+        css={{
+          '@xs': {
+            w: '12%',
+            jc: 'flex-end',
+          },
+        }}>
         <Button
           bordered
           iconRight={<FontAwesomeIcon icon={faHeadphonesSimple} />}
@@ -118,7 +111,20 @@ export const Nav = () => {
           auto>
           <Link to='/explore'> Start Listening</Link>
         </Button>
-      </Grid>
-    </Grid.Container>
+      </Navbar.Content>
+      <Navbar.Collapse disableAnimation>
+        {links.map((item, index) => (
+          <Navbar.CollapseItem
+            key={item.label}
+            activeColor='warning'
+            css={{
+              color: index === item.label.length - 1 ? '$error' : '',
+            }}
+            isActive={index === 2}>
+            <Link color='inherit'>{item.label}</Link>
+          </Navbar.CollapseItem>
+        ))}
+      </Navbar.Collapse>
+    </Navbar>
   );
 };

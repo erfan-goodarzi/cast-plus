@@ -1,5 +1,10 @@
 import { Text } from '@nextui-org/react';
-import { MakeGenerics, ReactLocation, Router } from '@tanstack/react-location';
+import {
+  MakeGenerics,
+  Navigate,
+  ReactLocation,
+  Router,
+} from '@tanstack/react-location';
 import { Explore, Home } from './pages';
 
 const routes = [
@@ -18,6 +23,9 @@ const routes = [
   {
     path: '/podcasts',
     element: <Text>This is podcast page</Text>,
+  },
+  {
+    element: <Navigate to='/' />,
   },
 ];
 

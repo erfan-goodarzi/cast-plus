@@ -33,15 +33,4 @@ export const GlobalStyles = globalCss({
   '.active': {
     color: 'rgb(255, 214, 10) !important',
   },
-  // '.carousel-arrow': {
-  //   position: 'relative',
-  //   left: '-3rem',
-  //   zIndex: 2,
-  //   top: '5rem',
-  //   cursor: 'pointer',
-  //   padding: '7px 6px',
-  //   background: '#ffd60a',
-  //   borderRadius: '7px',
-  //   color: '#0f172b',
-  // },
 });

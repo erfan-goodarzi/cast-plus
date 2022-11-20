@@ -1,11 +1,10 @@
 import { Container, Spacer } from '@nextui-org/react';
 import HeaderDetails from './HeaderDetails';
 import BackgroundImg from '../../assets/man-wearing-headphones.webp';
-import { useMediaQuery } from 'react-responsive';
-import { MobileNav, Nav } from '../Ui';
+import { Nav } from '../Ui';
 
 const Header = () => {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   return (
     <Container
@@ -28,7 +27,7 @@ const Header = () => {
           height: '106vh',
         },
       }}>
-      {isTabletOrMobile ? <MobileNav /> : <Nav />}
+      <Nav />
       <Spacer y={5} />
       <HeaderDetails />
     </Container>

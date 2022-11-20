@@ -2,9 +2,9 @@
   position: relative;
   /* background-color: rgb(255 255 255 / 12%); */
   background: linear-gradient(1deg, #ffffffd1, transparent);
-  padding: 20px;
-  max-width: 860px;
-  height: 34vh;
+  padding: 24px;
+  max-width: 'auto';
+  height: 264px;
   z-index: 2;
   border-radius: 12px;
   margin-top: 1rem;
@@ -36,7 +36,7 @@
 .embla__slide {
   position: relative;
   padding-left: 10px;
-  min-width: 41%;
+  min-width: 33%;
 }
 
 .embla__slide__inner {

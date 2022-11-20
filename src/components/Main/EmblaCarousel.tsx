@@ -46,7 +46,7 @@ export const EmblaCarousel = ({
                           }}
                           src={pod.image}
                         />
-                        <Text css={{ fontSize: 19, fontWeight: 'bold', ml: 3 }}>
+                        <Text css={{ fontSize: 16, fontWeight: 'bold', ml: 3 }}>
                           {pod.title.substring(0, 19)}
                         </Text>
                         <Text css={{ fontSize: 14, color: '#666', ml: 4 }}>
