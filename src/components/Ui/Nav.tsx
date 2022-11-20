@@ -79,7 +79,6 @@ export const Nav = () => {
                 {item.label}
               </Link>
             </Navbar.Link>
-            {console.log(item, pathname)}
           </>
         ))}
       </Navbar.Content>
