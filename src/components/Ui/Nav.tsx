@@ -68,18 +68,16 @@ export const Nav = () => {
       </Navbar.Brand>
       <Navbar.Content hideIn='sm' variant='default'>
         {links.map((item) => (
-          <>
-            <Navbar.Link key={item.label} isActive={pathname === item.path}>
-              <Link
-                style={{
-                  padding: '8px 22px',
-                  fontSize: '16px',
-                }}
-                to={item.path}>
-                {item.label}
-              </Link>
-            </Navbar.Link>
-          </>
+          <Link
+            key={item.path}
+            activeOptions={{ exact: pathname === item.path }}
+            style={{
+              padding: '8px 22px',
+              fontSize: '16px',
+            }}
+            to={item.path}>
+            {item.label}
+          </Link>
         ))}
       </Navbar.Content>
       <Navbar.Content
@@ -111,7 +109,7 @@ export const Nav = () => {
           <Link to='/explore'> Start Listening</Link>
         </Button>
       </Navbar.Content>
-      <Navbar.Collapse disableAnimation>
+      <Navbar.Collapse >
         {links.map((item, index) => (
           <Navbar.CollapseItem
             key={item.label}

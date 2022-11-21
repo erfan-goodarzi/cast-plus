@@ -32,5 +32,6 @@ export const GlobalStyles = globalCss({
   },
   '.active': {
     color: 'rgb(255, 214, 10) !important',
+    fontWeight: '700',
   },
 });
