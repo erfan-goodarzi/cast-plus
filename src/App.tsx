@@ -4,7 +4,8 @@ import { useStore } from './store/PlayerStore';
 import { Routes } from './Routes';
 
 function App() {
-  const { isEpisodePlay, recentPlayed } = useStore();
+  const { isEpisodePlay } = useStore();
+
   GlobalStyles();
 
   return (
