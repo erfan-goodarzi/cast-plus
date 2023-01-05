@@ -1,3 +1,4 @@
+export * from './TopThisWeek';
 export * from './Categories';
 export * from './EmblaCarousel';
 export * from './TodayEpisodes';

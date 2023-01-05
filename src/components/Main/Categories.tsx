@@ -21,7 +21,7 @@ export const Categories = () => {
           zIndex: 1,
           background: '#fff',
           margin: '2rem 0',
-          height: '66vh',
+          height: '70vh',
           overflowY: 'scroll',
           width: '85%',
         }}>

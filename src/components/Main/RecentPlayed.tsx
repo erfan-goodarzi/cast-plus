@@ -3,7 +3,6 @@ import { useStore } from '../../store/PlayerStore';
 
 export const RecentPlayed = () => {
   const { recentPlayed } = useStore();
-  console.log(recentPlayed);
   return (
     <Container>
       <Card

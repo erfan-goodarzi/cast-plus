@@ -1,6 +1,10 @@
-import { Card, Container, Grid, Spacer, Text } from '@nextui-org/react';
+import { Card, Container, Grid, Spacer } from '@nextui-org/react';
 import { useMediaQuery } from 'react-responsive';
-import { Categories, RecentPlayed, TrendingPodcasts } from '../components/Main';
+import {
+  Categories,
+  TopThisWeek,
+  TrendingPodcasts,
+} from '../components/Main';
 import { MobileNav, Nav } from '../components/Ui';
 
 export const Explore = () => {
@@ -21,7 +25,7 @@ export const Explore = () => {
           <Grid lg={8} css={{ display: 'block !important' }}>
             <TrendingPodcasts />
             <Spacer y={1} />
-            <RecentPlayed />
+            <TopThisWeek />
           </Grid>
           <Grid lg={4}>
             <Categories />
