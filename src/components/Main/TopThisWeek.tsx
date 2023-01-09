@@ -10,7 +10,6 @@ import { useGetTopThisWeek } from '../../api';
 
 export const TopThisWeek = () => {
   const { data, isLoading } = useGetTopThisWeek();
-  console.log(data);
   return (
     <Container>
       <Card
@@ -41,29 +40,27 @@ export const TopThisWeek = () => {
         </Text>
         {isLoading && <Loading css={{ mr: '80%', mt: 40 }} size='sm' />}
         {data?.feeds.map((item) => (
-          <>
-            <Grid.Container key={item.id}>
-              <Grid lg={3}>
-                <img
-                  src={item.image}
-                  width={243}
-                  height={250}
-                  style={{
-                    borderRadius: '10px',
-                  }}
-                />
-              </Grid>
-              <Grid lg={8} css={{ display: 'inline-block !important' }}>
-                <Text size='$lg' b>
-                  {item.title}
-                </Text>
-                <Spacer y={1} />
-                <Text color='gray' size='$md'>
-                  {item.description.substring(0, 600)}
-                </Text>
-              </Grid>
-            </Grid.Container>
-          </>
+          <Grid.Container key={item.id}>
+            <Grid lg={3}>
+              <img
+                src={item.image}
+                width={243}
+                height={250}
+                style={{
+                  borderRadius: '10px',
+                }}
+              />
+            </Grid>
+            <Grid lg={8} css={{ display: 'inline-block !important' }}>
+              <Text size='$lg' b>
+                {item.title}
+              </Text>
+              <Spacer y={1} />
+              <Text color='gray' size='$md'>
+                {item.description.substring(0, 600)}
+              </Text>
+            </Grid>
+          </Grid.Container>
         ))}
       </Card>
     </Container>

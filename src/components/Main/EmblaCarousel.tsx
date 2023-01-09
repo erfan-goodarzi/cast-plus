@@ -5,6 +5,7 @@ import { Button, Grid, Loading, Text } from '@nextui-org/react';
 import { PIApiFeed } from 'podcastindexjs/lib/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Link } from '@tanstack/react-location';
 
 export const EmblaCarousel = ({
   isLoad,
@@ -36,7 +37,7 @@ export const EmblaCarousel = ({
                   title: string;
                   author: string;
                 }) => (
-                  <div className='embla__slide' key={pod.id}>
+                  <Link className='embla__slide' key={pod.id} to={pod.id}>
                     <div className='embla__slide__inner'>
                       <Grid>
                         <img
@@ -54,7 +55,7 @@ export const EmblaCarousel = ({
                         </Text>
                       </Grid>
                     </div>
-                  </div>
+                  </Link>
                 )
               )}
             </div>

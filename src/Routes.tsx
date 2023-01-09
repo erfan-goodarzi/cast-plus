@@ -6,11 +6,16 @@ import {
   Router,
 } from '@tanstack/react-location';
 import { Explore, Home } from './pages';
+import { PodcastDetails } from './pages/PodcastDetails';
 
 const routes = [
   {
     path: '/',
     element: <Home />,
+  },
+  {
+    path: '/explore/:podcastId',
+    element: <PodcastDetails />,
   },
   {
     path: '/explore',

@@ -1,10 +1,6 @@
 import { Card, Container, Grid, Spacer } from '@nextui-org/react';
 import { useMediaQuery } from 'react-responsive';
-import {
-  Categories,
-  TopThisWeek,
-  TrendingPodcasts,
-} from '../components/Main';
+import { Categories, TopThisWeek, TrendingPodcasts } from '../components/Main';
 import { MobileNav, Nav } from '../components/Ui';
 
 export const Explore = () => {
