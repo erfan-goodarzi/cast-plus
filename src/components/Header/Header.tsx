@@ -13,6 +13,7 @@ const Header = () => {
         background: `linear-gradient(rgba(0, 29, 61 ,0.9), rgba(255, 214, 10, .5)), url(${BackgroundImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        position: 'relative',
         height: '106vh',
         '@xs': {
           height: '73vh',
@@ -24,7 +25,7 @@ const Header = () => {
           height: '106vh',
         },
         '@lg': {
-          height: '106vh',
+          height: '100vh',
         },
       }}>
       <Nav />

@@ -14,9 +14,9 @@ const HeaderDetails = () => {
     'https://i.pravatar.cc/150?u=a048581f4e29026701d',
     'https://i.pravatar.cc/150?u=a092581d4ef9026700d',
   ];
+
   return (
-    <Container>
-      {' '}
+    <Container css={{ paddingTop: '5.5rem' }}>
       <Text
         h1
         color='#fff'
@@ -78,7 +78,7 @@ const HeaderDetails = () => {
         <Link to='/explore'>Browse Podcast</Link>
       </Button>
       {isTabletOrMobile ? <Spacer y={6} /> : <Spacer y={9} />}
-      <Avatar.Group>
+      <Avatar.Group css={{position: 'absolute', bottom: '3rem'}}>
         {pictureUsers.map((url, index) => (
           <Avatar
             key={index}
