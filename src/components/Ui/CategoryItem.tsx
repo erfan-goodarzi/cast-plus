@@ -80,6 +80,7 @@ export const CategoryItem = () => {
               style={{ flexDirection: 'column', justifyContent: 'center' }}>
               <Card.Body style={{ textAlign: 'center' }}>
                 <Card.Image
+                  className='hovered-img'
                   width={154}
                   style={{ borderRadius: '9px' }}
                   src={category[1].image}

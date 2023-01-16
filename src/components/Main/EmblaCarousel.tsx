@@ -41,6 +41,7 @@ export const EmblaCarousel = ({
                     <div className='embla__slide__inner'>
                       <Grid>
                         <img
+                        className='hovered-img'
                           style={{
                             borderRadius: '10px',
                             height: '150px',
