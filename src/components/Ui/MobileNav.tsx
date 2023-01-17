@@ -29,7 +29,7 @@ export const MobileNav = () => {
         </Text>
       </Grid>
       <Grid xs={12}>
-        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/'>
+        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/home'>
           Home
         </Link>
         <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/explore'>

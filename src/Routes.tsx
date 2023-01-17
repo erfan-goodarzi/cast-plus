@@ -5,21 +5,23 @@ import {
   ReactLocation,
   Router,
 } from '@tanstack/react-location';
-import { Explore, Home } from './pages';
-import { PodcastDetails } from './pages/PodcastDetails';
-
+import { AppLayout } from './components/Layout';
+import { Explore, Home, PodcastDetails } from './pages';
 const routes = [
   {
-    path: '/',
+    path: '/home',
     element: <Home />,
   },
   {
-    path: '/explore/:podcastId',
-    element: <PodcastDetails />,
-  },
-  {
     path: '/explore',
-    element: <Explore />,
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/',
+        element: <Explore />,
+      },
+      { path: ':podcastId', element: <PodcastDetails /> },
+    ],
   },
   {
     path: '/trending',
@@ -30,7 +32,7 @@ const routes = [
     element: <Text>This is podcast page</Text>,
   },
   {
-    element: <Navigate to='/' />,
+    element: <Navigate to='/home' />,
   },
 ];
 

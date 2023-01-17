@@ -11,7 +11,7 @@ export interface NavLinkItems {
 const links: NavLinkItems[] = [
   {
     label: 'Home',
-    path: '/',
+    path: '/home',
   },
   {
     label: 'Explore',
@@ -109,7 +109,7 @@ export const Nav = () => {
           <Link to='/explore'> Start Listening</Link>
         </Button>
       </Navbar.Content>
-      <Navbar.Collapse >
+      <Navbar.Collapse>
         {links.map((item, index) => (
           <Navbar.CollapseItem
             key={item.label}

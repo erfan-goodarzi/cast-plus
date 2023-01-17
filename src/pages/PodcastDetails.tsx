@@ -8,5 +8,5 @@ export const PodcastDetails = () => {
   } = useMatch();
   const { data } = useGetPodcastById(parseInt(podcastId));
 
-  return <Text>id: {data?.feed.id}</Text>;
+  return <Text color='red'>id: {data?.feed.id}</Text>;
 };
