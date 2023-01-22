@@ -7,6 +7,7 @@ import {
   Text,
 } from '@nextui-org/react';
 import { useGetTopThisWeek } from '../../api';
+import { Link } from '@tanstack/react-location';
 
 export const TopThisWeek = () => {
   const { data, isLoading } = useGetTopThisWeek();
@@ -42,14 +43,16 @@ export const TopThisWeek = () => {
         {data?.feeds.map((item) => (
           <Grid.Container key={item.id}>
             <Grid lg={3}>
-              <img
-                src={item.image}
-                width={243}
-                height={250}
-                style={{
-                  borderRadius: '10px',
-                }}
-              />
+              <Link to={item.id}>
+                <img
+                  src={item.image}
+                  width={243}
+                  height={250}
+                  style={{
+                    borderRadius: '10px',
+                  }}
+                />
+              </Link>
             </Grid>
             <Grid lg={8} css={{ display: 'inline-block !important' }}>
               <Text size='$lg' b>
