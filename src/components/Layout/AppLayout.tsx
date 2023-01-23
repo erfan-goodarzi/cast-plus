@@ -26,7 +26,7 @@ export const AppLayout = () => {
           background: '#D2D6D9',
 
           '@lg': {
-            height: '60vh',
+            height: '58vh',
             width: '97%',
           },
         }}>

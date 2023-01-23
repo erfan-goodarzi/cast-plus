@@ -8,7 +8,6 @@ interface BadgeInfoProps {
 export const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
   return (
     <>
-      {' '}
       <Text
         color='#0F172B'
         css={{
