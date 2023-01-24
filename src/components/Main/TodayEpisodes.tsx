@@ -1,19 +1,21 @@
 import {
   Button,
   Card,
+  Col,
   Container,
   Grid,
   Image,
   Loading,
+  Row,
   Spacer,
   Text,
 } from '@nextui-org/react';
 import { useState } from 'react';
 import { useGetTopEpisode } from '../../api';
-import { BadgeInfo } from '../Ui';
+import { BadgeInfo, ShareButton } from '../Ui';
 import { removeHtmlTag } from '../../utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { PlayButton } from '../Ui';
 
 export const TodayEpisodes = () => {
@@ -169,77 +171,37 @@ export const TodayEpisodes = () => {
                           ? episode.description
                           : `${removeHtmlTag(
                               episode.description.substring(0, 300)
-                            )}`}{' '}
+                            )}`}
                         ...
                       </Text>
-                      <Grid.Container
-                        css={{
-                          ml: '2rem',
-                          '@xs': {
-                            ml: '5rem',
-                          },
-                          '@sm': {
-                            ml: '13rem !important',
-                          },
-                          '@lg': { ml: '0 !important' },
-                        }}>
-                        {/* <Button
-                          bordered
-                          shadow
-                          onClick={() => {
-                            Play(
-                              episode.id,
-                              episode.image,
-                              episode.title,
-                              episode.feedTitle,
-                              episode.enclosureUrl
-                            );
-                          }}
-                          iconRight={<FontAwesomeIcon icon={faPlay} />}
-                          css={{
-                            color: '#fff',
-                            mt: 18,
-                            mr: 29,
-                            borderColor: '#fff',
-                            borderRadius: 3,
-                          }}
-                          auto>
-                          Play episode
-                        </Button> */}
-                        <PlayButton
-                          id={episode.id}
-                          image={episode.image}
-                          title={episode.title}
-                          feedTitle={episode.feedTitle}
-                          url={episode.enclosureUrl}
-                        />
-                        <Button
-                          bordered
-                          iconRight={<FontAwesomeIcon icon={faShareAlt} />}
-                          css={{
-                            color: '#fff',
-                            mt: 18,
-                            mr: 29,
-                            borderColor: '#fff',
-                            borderRadius: 3,
-                          }}
-                          auto>
-                          Share
-                        </Button>
-                        <Button
-                          bordered
-                          iconRight={<FontAwesomeIcon icon={faBell} />}
-                          css={{
-                            color: '#fff',
-                            mt: 18,
-                            mr: 29,
-                            borderColor: '#fff',
-                            borderRadius: 3,
-                          }}
-                          auto>
-                          Subscribe
-                        </Button>
-                      </Grid.Container>
+
+                      <Row css={{ gap: 20, pt: 20 }}>
+                        <Col span={2}>
+                          <PlayButton
+                            id={episode.id}
+                            image={episode.image}
+                            title={episode.title}
+                            feedTitle={episode.feedTitle}
+                            url={episode.enclosureUrl}
+                          />
+                        </Col>
+                        <Col span={2}>
+                          <ShareButton />
+                        </Col>
+                        <Col span={12}>
+                          <Button
+                            bordered
+                            iconRight={<FontAwesomeIcon icon={faBell} />}
+                            css={{
+                              color: '#fff',
+                              borderColor: '#fff',
+                              borderRadius: 3,
+                            }}
+                            auto>
+                            Subscribe
+                          </Button>
+                        </Col>
+                      </Row>
                     </Grid>
                   </Grid.Container>
                 </Card>

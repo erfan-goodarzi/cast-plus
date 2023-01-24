@@ -13,6 +13,7 @@ import {
 import { useMatch } from '@tanstack/react-location';
 import { useState } from 'react';
 import { useGetPodcastById } from '../api';
+import { ShareButton } from '../components/Ui';
 
 export const PodcastDetails = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
@@ -89,17 +90,7 @@ export const PodcastDetails = () => {
               </Button>
             </Grid>
             <Grid>
-              <Button
-                bordered
-                iconRight={<FontAwesomeIcon icon={faShareAlt} />}
-                css={{
-                  color: '#fff',
-                  borderColor: '#fff',
-                  borderRadius: 3,
-                }}
-                auto>
-                Share
-              </Button>
+              <ShareButton />
             </Grid>
           </Grid.Container>
         </Col>
