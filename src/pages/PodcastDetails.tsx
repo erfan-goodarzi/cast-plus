@@ -90,7 +90,10 @@ export const PodcastDetails = () => {
               </Button>
             </Grid>
             <Grid>
-              <ShareButton />
+              <ShareButton
+                podcastTitle={data?.feed.title!}
+                shareUrl={data?.feed.originalUrl!}
+              />
             </Grid>
           </Grid.Container>
         </Col>

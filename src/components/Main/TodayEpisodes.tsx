@@ -186,7 +186,10 @@ export const TodayEpisodes = () => {
                           />
                         </Col>
                         <Col span={2}>
-                          <ShareButton />
+                          <ShareButton
+                            podcastTitle={episode.title}
+                            shareUrl={episode.enclosureUrl}
+                          />
                         </Col>
                         <Col span={12}>
                           <Button

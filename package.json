@@ -27,6 +27,7 @@
     "react-responsive": "^9.0.0-beta.10",
     "react-script": "^2.0.5",
     "react-scripts": "^5.0.1",
+    "react-share": "^4.4.1",
     "zustand": "^4.1.1"
   },
   "devDependencies": {
