@@ -19,22 +19,6 @@ export const AppLayout = () => {
       <Grid.Container style={{ padding: '30px 30px' }}>
         <Outlet />
       </Grid.Container>
-      <Card
-        css={{
-          position: 'fixed',
-          bottom: '2rem',
-          background: '#D2D6D9',
-
-          '@lg': {
-            height: '58vh',
-            width: '97%',
-          },
-        }}>
-        <Card.Body
-          css={{
-            position: 'relative',
-          }}></Card.Body>
-      </Card>
     </Container>
   );
 };

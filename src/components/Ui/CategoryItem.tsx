@@ -77,7 +77,11 @@ export const CategoryItem = () => {
             <Grid
               xs={6}
               key={category[0].id}
-              style={{ flexDirection: 'column', justifyContent: 'center' }}>
+              style={{
+                flexDirection: 'column',
+                justifyContent: 'center',
+                padding: '15px 28px',
+              }}>
               <Card.Body style={{ textAlign: 'center' }}>
                 <Card.Image
                   className='hovered-img'
