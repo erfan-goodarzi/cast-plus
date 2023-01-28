@@ -41,7 +41,7 @@ export const EpisodeBox = ({
         variant='bordered'
         css={{
           mw: 'auto',
-          width: '91%',
+          width: '100%',
           borderRadius: '3px',
           background: '#0000003b',
           padding: '27px 42px',

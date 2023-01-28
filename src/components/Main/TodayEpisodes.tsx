@@ -16,8 +16,7 @@ export const TodayEpisodes = () => {
         <Grid.Container
           gap={8}
           css={{
-            marginLeft: '-2rem',
-            width: '100%',
+            width: '92%',
             '@lg': { marginLeft: '3rem !important', width: '100%' },
           }}>
           <Grid lg={6} md={6} xs={12}>
@@ -63,14 +62,12 @@ export const TodayEpisodes = () => {
                 },
                 '@lg': {
                   mt: '1.2rem',
-                  minWidth: 'auto',
                   textAlign: 'unset',
-                  fontSize: '18px',
-                  width: '79%',
+                  fontSize: '17px',
                 },
               }}>
               More episodes podcast you must hear and share the experiences and
-              learning that shaped
+              learning that shaped.
             </Text>
           </Grid>
           {isLoading ? (

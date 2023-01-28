@@ -1,9 +1,19 @@
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Badge, Button, Col, Grid, Row, Spacer, Text } from '@nextui-org/react';
+import {
+  Badge,
+  Button,
+  Col,
+  Container,
+  Grid,
+  Row,
+  Spacer,
+  Text,
+} from '@nextui-org/react';
 import { useMatch } from '@tanstack/react-location';
 import { useState } from 'react';
 import { useGetPodcastById } from '../api';
+import { EpisodeBox } from '../components/Main';
 import { ShareButton } from '../components/Ui';
 
 export const PodcastDetails = () => {
@@ -14,8 +24,8 @@ export const PodcastDetails = () => {
   const { data } = useGetPodcastById(parseInt(podcastId));
 
   return (
-    <>
-      <Row css={{ pl: 28 }}>
+    <Container gap={8}>
+      <Row>
         <Col span={2}>
           <img
             style={{
@@ -25,7 +35,7 @@ export const PodcastDetails = () => {
             src={data?.feed.artwork}
           />
         </Col>
-        <Col>
+        <Col span={10}>
           <Text
             css={{
               fontSize: '32px',
@@ -56,7 +66,7 @@ export const PodcastDetails = () => {
           </Text>
           <Text
             css={{
-              width: '80%',
+              width: '95%',
               color: '#d1d1d1',
               fontWeight: 600,
             }}>
@@ -89,6 +99,16 @@ export const PodcastDetails = () => {
           </Grid.Container>
         </Col>
       </Row>
-    </>
+      <Spacer y={3} />
+      <EpisodeBox
+        id={12}
+        title='test'
+        feedTitle='test'
+        audioUrl='test'
+        datePublished='test'
+        description='test'
+        image='https://pastoroti.org/audiodevotional/wp-content/uploads/sites/4/2017/03/5min_1400.jpg'
+      />
+    </Container>
   );
 };

@@ -15,6 +15,7 @@ const Header = () => {
         backgroundPosition: 'center',
         position: 'relative',
         height: '106vh',
+        marginBottom: '1rem',
         '@xs': {
           height: '73vh',
         },
