@@ -44,7 +44,7 @@ export const EpisodeBox = ({
           width: '100%',
           borderRadius: '3px',
           background: '#0000003b',
-          padding: '27px 42px',
+          padding: '27px 20px',
           borderColor: '#838383',
           minWidth: '221%',
           margin: '0rem -3rem',
@@ -60,11 +60,19 @@ export const EpisodeBox = ({
           },
         }}>
         <Grid.Container>
-          <Grid xs={12} lg={2}>
+          <Grid
+            xs={12}
+            lg={2}
+            css={{
+              border: '1px solid #7c7c7c',
+              padding: '17px 16px',
+              borderRadius: 4,
+            }}>
             <Image
               css={{
                 objectFit: 'cover',
                 height: '219px',
+                borderRadius: 3,
               }}
               src={
                 image
@@ -100,7 +108,7 @@ export const EpisodeBox = ({
                 width: '101%',
                 textAlign: 'center',
                 fontSize: '17px',
-                lineHeight: '1.5',
+                lineHeight: '1.9',
                 '@lg': {
                   textAlign: 'left',
                   width: '120%',
@@ -111,7 +119,7 @@ export const EpisodeBox = ({
                 : `${removeHtmlTag(description.substring(0, 300))}`}
               ...
             </Text>
-            <Row css={{ gap: 20, pt: 20 }}>
+            <Row css={{ gap: 20, pt: 30 }}>
               <Col span={2}>
                 <PlayButton
                   id={id}

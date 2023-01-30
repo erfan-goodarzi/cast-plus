@@ -99,16 +99,23 @@ export const PodcastDetails = () => {
           </Grid.Container>
         </Col>
       </Row>
-      <Spacer y={3} />
-      <EpisodeBox
-        id={12}
-        title='test'
-        feedTitle='test'
-        audioUrl='test'
-        datePublished='test'
-        description='test'
-        image='https://pastoroti.org/audiodevotional/wp-content/uploads/sites/4/2017/03/5min_1400.jpg'
-      />
+      <Spacer y={4} />
+      <Grid.Container css={{ width: '96%', gap: 40 }}>
+        <Text size='$4xl' color='white'>
+          Available Episodes
+        </Text>
+        <Grid xs={12}>
+          <EpisodeBox
+            id={12}
+            title='test'
+            feedTitle='test'
+            audioUrl='test'
+            datePublished='test'
+            description='test'
+            image='https://img.hearthis.at/c/r/o/_/uploads/417685/image_user/w1400_h1400_q70_m1477339420----cropped_3afc0fb06f14d4e46bc871d10f0efe71logo-hev500x.jpg'
+          />
+        </Grid>
+      </Grid.Container>
     </Container>
   );
 };

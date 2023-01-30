@@ -14,6 +14,7 @@ export const AppLayout = () => {
       css={{
         background: 'rgb(15, 23, 43)',
         height: '100vh',
+        overflow: 'auto'
       }}>
       {isTabletOrMobile ? <MobileNav /> : <Nav />}
       <Grid.Container style={{ padding: '30px 30px' }}>

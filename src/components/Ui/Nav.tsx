@@ -36,7 +36,7 @@ export const Nav = () => {
     <Navbar
       variant='static'
       maxWidth='fluid'
-      style={{ boxShadow: 'unset' }}
+      css={{ boxShadow: 'unset',pt: 4 }}
       containerCss={{
         background: 'unset !important',
         backdropFilter: 'unset !important',
