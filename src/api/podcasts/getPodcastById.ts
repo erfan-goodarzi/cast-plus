@@ -6,7 +6,6 @@ export const getPodcastById = (id: number) => {
 };
 
 export const useGetPodcastById = (id: number | undefined) => {
-  console.log(!!id);
   return useQuery(['getPodcastById', id], () => getPodcastById(id!), {
     enabled: !!id,
   });

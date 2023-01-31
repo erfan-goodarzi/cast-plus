@@ -12,7 +12,7 @@ import {
 } from '@nextui-org/react';
 import { useMatch } from '@tanstack/react-location';
 import { useState } from 'react';
-import { useGetPodcastById } from '../api';
+import { useGeEpisodeById, useGetPodcastById } from '../api';
 import { EpisodeBox } from '../components/Main';
 import { ShareButton } from '../components/Ui';
 
@@ -21,7 +21,9 @@ export const PodcastDetails = () => {
   const {
     params: { podcastId },
   } = useMatch();
-  const { data } = useGetPodcastById(parseInt(podcastId));
+  const id = parseInt(podcastId);
+  const { data: podcast } = useGetPodcastById(id);
+  const { data: episode } = useGeEpisodeById(id);
 
   return (
     <Container gap={8}>
@@ -32,7 +34,7 @@ export const PodcastDetails = () => {
               borderRadius: '10px',
               width: 220,
             }}
-            src={data?.feed.artwork}
+            src={podcast?.feed.artwork}
           />
         </Col>
         <Col span={10}>
@@ -48,7 +50,7 @@ export const PodcastDetails = () => {
                 textAlign: 'left',
               },
             }}>
-            {data?.feed.title}
+            {podcast?.feed.title}
           </Text>
           <Text size='larger' css={{ color: '#b6b6b6', lineHeight: '2.1' }}>
             Made By
@@ -61,7 +63,7 @@ export const PodcastDetails = () => {
               }}
               isSquared
               variant='bordered'>
-              {data?.feed.author}
+              {podcast?.feed.author}
             </Badge>
           </Text>
           <Text
@@ -71,8 +73,8 @@ export const PodcastDetails = () => {
               fontWeight: 600,
             }}>
             {showMore
-              ? data?.feed.description
-              : `${data?.feed.description.substring(0, 360)}`}
+              ? podcast?.feed.description
+              : `${podcast?.feed.description.substring(0, 360)}`}
             ...
           </Text>
           <Spacer />
@@ -92,8 +94,8 @@ export const PodcastDetails = () => {
             </Grid>
             <Grid>
               <ShareButton
-                podcastTitle={data?.feed.title!}
-                shareUrl={data?.feed.originalUrl!}
+                podcastTitle={podcast?.feed.title!}
+                shareUrl={podcast?.feed.originalUrl!}
               />
             </Grid>
           </Grid.Container>
@@ -104,17 +106,28 @@ export const PodcastDetails = () => {
         <Text size='$4xl' color='white'>
           Available Episodes
         </Text>
-        <Grid xs={12}>
-          <EpisodeBox
-            id={12}
-            title='test'
-            feedTitle='test'
-            audioUrl='test'
-            datePublished='test'
-            description='test'
-            image='https://img.hearthis.at/c/r/o/_/uploads/417685/image_user/w1400_h1400_q70_m1477339420----cropped_3afc0fb06f14d4e46bc871d10f0efe71logo-hev500x.jpg'
-          />
-        </Grid>
+        {episode?.items.map(
+          ({
+            id,
+            title,
+            enclosureUrl,
+            datePublishedPretty,
+            description,
+            image,
+          }) => (
+            <Grid xs={12}>
+              <EpisodeBox
+                id={id}
+                title={title}
+                feedTitle={podcast?.feed.title!}
+                audioUrl={enclosureUrl}
+                datePublished={datePublishedPretty}
+                description={description}
+                image={image}
+              />
+            </Grid>
+          )
+        )}
       </Grid.Container>
     </Container>
   );
