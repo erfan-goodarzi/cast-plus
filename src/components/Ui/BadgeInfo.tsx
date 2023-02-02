@@ -1,16 +1,22 @@
 import { Text } from '@nextui-org/react';
+import { Link } from '@tanstack/react-location';
 
 interface BadgeInfoProps {
   channel: string;
   time: string;
+  path: number;
 }
 
-export const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
+export const BadgeInfo = ({ channel, time, path }: BadgeInfoProps) => {
   return (
-    <>
+    <Link to={`/explore/${path}`}>
       <Text
         color='#0F172B'
         css={{
+          '&:hover': {
+            transition: 'all 0.2s ease-in-out',
+            background: '#fff',
+          },
           mt: 23,
           textAlign: 'center',
           fontSize: '13px',
@@ -33,6 +39,6 @@ export const BadgeInfo = ({ channel, time }: BadgeInfoProps) => {
         }}>
         {channel} | {time}
       </Text>
-    </>
+    </Link>
   );
 };

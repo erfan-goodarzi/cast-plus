@@ -16,6 +16,7 @@ import { BadgeInfo, PlayButton, ShareButton } from '../Ui';
 
 interface Props {
   id: number;
+  feedId: number;
   title: string;
   image: string;
   feedTitle: string;
@@ -31,6 +32,7 @@ export const EpisodeBox = ({
   feedTitle,
   datePublished,
   description,
+  feedId,
   audioUrl,
 }: Props) => {
   const [showMore, setShowMore] = useState<boolean>(false);
@@ -100,7 +102,7 @@ export const EpisodeBox = ({
               }}>
               {title}
             </Text>
-            <BadgeInfo channel={feedTitle} time={datePublished} />
+            <BadgeInfo path={feedId} channel={feedTitle} time={datePublished} />
             <Text
               color='#d6d6d6'
               css={{

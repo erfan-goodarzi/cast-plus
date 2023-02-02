@@ -114,9 +114,11 @@ export const PodcastDetails = () => {
             datePublishedPretty,
             description,
             image,
+            feedId,
           }) => (
             <Grid xs={12}>
               <EpisodeBox
+                feedId={feedId}
                 id={id}
                 title={title}
                 feedTitle={podcast?.feed.title!}

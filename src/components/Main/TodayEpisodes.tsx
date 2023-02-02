@@ -76,6 +76,7 @@ export const TodayEpisodes = () => {
             data?.items.map(
               ({
                 id,
+                feedId,
                 image,
                 title,
                 feedTitle,
@@ -83,15 +84,18 @@ export const TodayEpisodes = () => {
                 datePublishedPretty,
                 description,
               }) => (
-                <EpisodeBox
-                  id={id}
-                  title={title}
-                  feedTitle={feedTitle}
-                  image={image}
-                  datePublished={datePublishedPretty}
-                  description={description}
-                  audioUrl={enclosureUrl}
-                />
+                <>
+                  <EpisodeBox
+                    id={id}
+                    feedId={feedId}
+                    title={title}
+                    feedTitle={feedTitle}
+                    image={image}
+                    datePublished={datePublishedPretty}
+                    description={description}
+                    audioUrl={enclosureUrl}
+                  />
+                </>
               )
             )
           )}

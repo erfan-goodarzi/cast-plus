@@ -15,6 +15,7 @@ import { PlayButton } from '../Ui';
 export const TopEpisode = () => {
   const [episodeImg, setEpisodeImg] = useState<string>('');
   const [episodeId, setEpisodeId] = useState<number>();
+  const [episodeFeedId, setEpisodeFeedId] = useState<number>();
   const [episodeTitle, setEpisodeTitle] = useState<string>('');
   const [episodeDetails, setEpisodeDetails] = useState<string>('');
   const [episodeChannel, setEpisodeChannel] = useState<string>('');
@@ -35,6 +36,7 @@ export const TopEpisode = () => {
       setEpisodeChannel(data.items[0].feedTitle);
       setEpisodeTime(data.items[0].datePublishedPretty);
       setEpisodeId(data.items[0].id);
+      setEpisodeFeedId(data.items[0].feedId);
       setEpisodeUrl(data.items[0].enclosureUrl);
     }
   }, [data]);
@@ -87,7 +89,11 @@ export const TopEpisode = () => {
           lg={6}
           sm={6}
           css={{ display: 'block !important', mt: 7 }}>
-          <BadgeInfo channel={episodeChannel} time={episodeTime} />
+          <BadgeInfo
+            channel={episodeChannel}
+            time={episodeTime}
+            path={episodeFeedId!}
+          />
           <Text
             color='#fff'
             css={{
