@@ -1,6 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeadphonesSimple } from '@fortawesome/free-solid-svg-icons';
-import { Button, Text, Navbar } from '@nextui-org/react';
+import {
+  faHeadphonesSimple,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons';
+import { Button, Text, Navbar, Input } from '@nextui-org/react';
 import { Link, useLocation } from '@tanstack/react-location';
 
 export interface NavLinkItems {
@@ -68,7 +71,7 @@ export const Nav = () => {
           </Text>
         </Navbar.Brand>
       </Link>
-      <Navbar.Content hideIn='sm' variant='default'>
+      <Navbar.Content hideIn='sm' variant='default' css={{ ml: '19rem' }}>
         {links.map((item) => (
           <Link
             key={item.path}
@@ -81,6 +84,22 @@ export const Nav = () => {
             {item.label}
           </Link>
         ))}
+      </Navbar.Content>
+      <Navbar.Content>
+        <Input
+          clearable
+          underlined
+          status='primary'
+          color='primary'
+          placeholder='Search for Podcasts'
+          width='300px'
+          css={{
+            '::placeholder': {
+              color: '#fff',
+            },
+          }}
+          contentLeft={<FontAwesomeIcon icon={faSearch} />}
+        />
       </Navbar.Content>
       <Navbar.Content
         css={{
