@@ -36,36 +36,38 @@ export const Nav = () => {
     <Navbar
       variant='static'
       maxWidth='fluid'
-      css={{ boxShadow: 'unset',pt: 4 }}
+      css={{ boxShadow: 'unset', pt: 4 }}
       containerCss={{
         background: 'unset !important',
         backdropFilter: 'unset !important',
       }}>
-      <Navbar.Brand>
-        <Text
-          h1
-          size={24}
-          css={{
-            color: '#fff',
-            marginLeft: '0rem',
-            padding: '3px 6px',
-            '@lg': {
-              marginLeft: '2rem',
-            },
-          }}
-          weight='bold'>
-          Cast
-        </Text>
-        <Text
-          h1
-          size={28}
-          css={{
-            color: '#FFD60A',
-          }}
-          weight='bold'>
-          +
-        </Text>
-      </Navbar.Brand>
+      <Link to='/'>
+        <Navbar.Brand>
+          <Text
+            h1
+            size={24}
+            css={{
+              color: '#fff',
+              marginLeft: '0rem',
+              padding: '3px 6px',
+              '@lg': {
+                marginLeft: '2rem',
+              },
+            }}
+            weight='bold'>
+            Cast
+          </Text>
+          <Text
+            h1
+            size={28}
+            css={{
+              color: '#FFD60A',
+            }}
+            weight='bold'>
+            +
+          </Text>
+        </Navbar.Brand>
+      </Link>
       <Navbar.Content hideIn='sm' variant='default'>
         {links.map((item) => (
           <Link
