@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-location';
 import { AppLayout } from './components/Layout';
 import { Explore, Home, PodcastDetails } from './pages';
+
 const routes = [
   {
     path: '/home',

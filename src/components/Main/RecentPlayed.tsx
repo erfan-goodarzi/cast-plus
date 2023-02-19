@@ -1,5 +1,5 @@
 import { Card, Container, Text } from '@nextui-org/react';
-import { useStore } from '../../store/PlayerStore';
+import { useStore } from '../../store';
 
 export const RecentPlayed = () => {
   const { recentPlayed } = useStore();

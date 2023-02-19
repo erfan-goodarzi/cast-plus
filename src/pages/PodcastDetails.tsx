@@ -116,7 +116,7 @@ export const PodcastDetails = () => {
             image,
             feedId,
           }) => (
-            <Grid xs={12}>
+            <Grid xs={12} key={id}>
               <EpisodeBox
                 feedId={feedId}
                 id={id}

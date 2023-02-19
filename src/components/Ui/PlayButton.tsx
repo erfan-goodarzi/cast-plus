@@ -2,7 +2,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '@nextui-org/react';
 import { PlayerInterface, Track } from 'react-material-music-player';
-import { useStore } from '../../store/PlayerStore';
+import { useStore } from '../../store';
 import { useLocalStorageState } from 'ahooks';
 import { useEffect } from 'react';
 

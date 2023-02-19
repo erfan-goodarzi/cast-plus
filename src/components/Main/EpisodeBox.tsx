@@ -38,7 +38,7 @@ export const EpisodeBox = ({
   const [showMore, setShowMore] = useState<boolean>(false);
 
   return (
-    <Grid xs={12} key={id}>
+    <Grid xs={12}>
       <Card
         variant='bordered'
         css={{

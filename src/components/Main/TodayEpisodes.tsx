@@ -84,18 +84,17 @@ export const TodayEpisodes = () => {
                 datePublishedPretty,
                 description,
               }) => (
-                <>
-                  <EpisodeBox
-                    id={id}
-                    feedId={feedId}
-                    title={title}
-                    feedTitle={feedTitle}
-                    image={image}
-                    datePublished={datePublishedPretty}
-                    description={description}
-                    audioUrl={enclosureUrl}
-                  />
-                </>
+                <EpisodeBox
+                  key={id}
+                  id={id}
+                  feedId={feedId}
+                  title={title}
+                  feedTitle={feedTitle}
+                  image={image}
+                  datePublished={datePublishedPretty}
+                  description={description}
+                  audioUrl={enclosureUrl}
+                />
               )
             )
           )}
