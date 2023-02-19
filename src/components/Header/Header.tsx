@@ -1,6 +1,6 @@
 import { Container, Spacer } from '@nextui-org/react';
 import HeaderDetails from './HeaderDetails';
-import BackgroundImg from '../../assets/man-wearing-headphones.webp';
+import BackgroundImg from '../../assets/mic-min.jpg';
 import { Nav } from '../Ui';
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
       xl
       css={{
         background: `linear-gradient(rgba(0, 29, 61 ,0.9), rgba(255, 214, 10, .5)), url(${BackgroundImg})`,
-        backgroundSize: 'cover',
+        backgroundSize: 'auto',
         backgroundPosition: 'center',
         position: 'relative',
         height: '106vh',
