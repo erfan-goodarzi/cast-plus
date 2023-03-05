@@ -15,7 +15,7 @@ import {
 } from '@nextui-org/react';
 import { Link, useLocation } from '@tanstack/react-location';
 import { useSearchPodcasts } from '../../api';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { useStore } from '../../store';
 
 export interface NavLinkItems {
@@ -51,12 +51,18 @@ export const Nav = () => {
   const { searchResult } = useStore();
   const setPodcastResult = useStore((state) => state.setSearchResult);
   const { data, isLoading, error } = useSearchPodcasts(searchQuery!);
+  const inputRef = useRef<FormElement>(null);
 
   useEffect(() => {
     if (data) {
       setPodcastResult(data.feeds);
     }
   }, [data, setPodcastResult]);
+
+  const clearCardResult = () => {
+    inputRef.current!.value = '';
+    setIsVisible(false);
+  };
 
   const handleChange = (e: ChangeEvent<FormElement>) => {
     setSearchQuery(e.target.value);
@@ -125,6 +131,7 @@ export const Nav = () => {
         }}>
         <Navbar.Item>
           <Input
+            ref={inputRef}
             aria-label='search'
             onChange={handleChange}
             clearable
@@ -161,7 +168,15 @@ export const Nav = () => {
           }}>
           {searchResult?.map(({ title, ownerName, image, id }) => (
             <Link to={`/explore/${id}`} replace key={id}>
-              <Card.Header css={{ border: '1px solid #ddd' }}>
+              <Card.Header
+                onClick={() => clearCardResult()}
+                css={{
+                  border: '1px solid #ddd',
+                  transition: 'all 0.3s ease-in-out',
+                  '&:hover': {
+                    boxShadow: '-1px 3px 16px 13px #ddd',
+                  },
+                }}>
                 <img alt={title} src={image} width='70px' height='70px' />
                 <Grid.Container
                   direction='column'
