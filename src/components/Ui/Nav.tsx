@@ -37,8 +37,8 @@ const links: NavLinkItems[] = [
     path: '/trending',
   },
   {
-    label: 'Top Podcasts',
-    path: '/top-podcasts',
+    label: 'Categories',
+    path: '/categories',
   },
 ];
 

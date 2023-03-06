@@ -37,26 +37,29 @@ export const EmblaCarousel = ({
                   title: string;
                   author: string;
                 }) => (
-                  <Link className='embla__slide' key={pod.id} to={pod.id}>
+                  <div className='embla__slide' key={pod.id}>
                     <div className='embla__slide__inner'>
                       <Grid>
-                        <img
-                        className='hovered-img'
-                          style={{
-                            borderRadius: '10px',
-                            height: '150px',
-                          }}
-                          src={pod.image}
-                        />
-                        <Text css={{ fontSize: 16, fontWeight: 'bold', ml: 3 }}>
-                          {pod.title.substring(0, 19)}
-                        </Text>
-                        <Text css={{ fontSize: 14, color: '#666', ml: 4 }}>
-                          {pod.author}
-                        </Text>
+                        <Link to={pod.id}>
+                          <img
+                            className='hovered-img'
+                            style={{
+                              borderRadius: '10px',
+                              height: '150px',
+                            }}
+                            src={pod.image}
+                          />
+                          <Text
+                            css={{ fontSize: 16, fontWeight: 'bold', ml: 3 }}>
+                            {pod.title.substring(0, 19)}
+                          </Text>
+                          <Text css={{ fontSize: 14, color: '#666', ml: 4 }}>
+                            {pod.author}
+                          </Text>
+                        </Link>
                       </Grid>
                     </div>
-                  </Link>
+                  </div>
                 )
               )}
             </div>
