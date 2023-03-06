@@ -6,6 +6,7 @@ import {
   Col,
   Container,
   Grid,
+  Link,
   Row,
   Spacer,
   Text,
@@ -26,7 +27,7 @@ export const PodcastDetails = () => {
   const { data: episode } = useGeEpisodeById(id);
 
   return (
-    <Container gap={8}>
+    <Container gap={8} css={{ mb: 40 }}>
       <Row>
         <Col span={2}>
           <img
@@ -95,7 +96,7 @@ export const PodcastDetails = () => {
             <Grid>
               <ShareButton
                 podcastTitle={podcast?.feed.title!}
-                shareUrl={podcast?.feed.originalUrl!}
+                shareUrl={podcast?.feed.link!}
               />
             </Grid>
           </Grid.Container>
@@ -130,6 +131,20 @@ export const PodcastDetails = () => {
             </Grid>
           )
         )}
+        <Button
+          bordered
+          as={Link}
+          target='_blank'
+          href={podcast?.feed.link}
+          css={{
+            mx: 'auto',
+            color: '$primary !important',
+            borderRadius: 3,
+            mt: 30,
+            fontSize: 15,
+          }}>
+          See All Episodes
+        </Button>
       </Grid.Container>
     </Container>
   );
