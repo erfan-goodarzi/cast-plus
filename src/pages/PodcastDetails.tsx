@@ -7,6 +7,7 @@ import {
   Container,
   Grid,
   Link,
+  Loading,
   Row,
   Spacer,
   Text,
@@ -24,8 +25,9 @@ export const PodcastDetails = () => {
   } = useMatch();
   const id = parseInt(podcastId);
   const { data: podcast } = useGetPodcastById(id);
-  const { data: episode } = useGeEpisodeById(id);
+  const { data: episode, isLoading } = useGeEpisodeById(id);
 
+  if (isLoading) return <Loading css={{ mx: 'auto', mt: 100 }} />;
   return (
     <Container gap={8} css={{ mb: 40 }}>
       <Row>

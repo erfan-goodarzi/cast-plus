@@ -14,9 +14,12 @@ export const ScrollToTop = () => {
   const [showGoTop, setShowGoTop] = useState<boolean>();
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      window.scrollY > 3000 ? setShowGoTop(true) : setShowGoTop(false);
-    });
+    const handleScroll = () => {
+      const shouldShowButton = window.scrollY > 3000;
+      setShowGoTop(shouldShowButton);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -33,7 +36,7 @@ export const ScrollToTop = () => {
             },
           }}
           auto
-          color='error'
+          color='primary'
           icon={<FontAwesomeIcon icon={faAngleUp} />}
         />
       ) : null}
