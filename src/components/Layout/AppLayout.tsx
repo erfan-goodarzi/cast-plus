@@ -13,7 +13,7 @@ export const AppLayout = () => {
       xl
       css={{
         background: 'rgb(15, 23, 43)',
-        height: '100vh',
+        height: 'auto',
         overflow: 'auto'
       }}>
       {isTabletOrMobile ? <MobileNav /> : <Nav />}
