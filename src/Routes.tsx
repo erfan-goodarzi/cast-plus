@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-location';
 import { AppLayout } from './components/Layout';
 import { type Route as LocationRoute } from '@tanstack/react-location';
-import { Explore, Home, PodcastDetails } from './pages';
+import { Categories, Explore, Home, PodcastDetails } from './pages';
 
 export interface Route extends Omit<LocationRoute<LocationGenerics>, 'path'> {
   path?: string;
@@ -23,7 +23,7 @@ const routes: Route[] = [
     path: '/',
     element: <AppLayout />,
     children: [
-      { path: '/categories', element: <>Categories page</> },
+      { path: '/categories', element: <Categories /> },
       {
         path: '/explore',
         element: <Explore />,
