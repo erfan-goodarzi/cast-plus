@@ -6,5 +6,5 @@ export const geEpisodeById = (id: number) => {
 };
 
 export const useGeEpisodeById = (id: number | undefined) => {
-  return useQuery(['geEpisodeById', id], () => geEpisodeById(id!));
+  return useQuery(['getEpisodeById', id], () => geEpisodeById(id!));
 };
