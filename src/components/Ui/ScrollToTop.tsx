@@ -11,22 +11,28 @@ const scaleUp = keyframes({
 });
 
 export const ScrollToTop = () => {
-  const [showGoTop, setShowGoTop] = useState<boolean>();
+  const [showGoTop, setShowGoTop] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const shouldShowButton = window.scrollY > 3000;
-      setShowGoTop(shouldShowButton);
+      window.pageYOffset > 3000 ? setShowGoTop(true) : setShowGoTop(false);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <>
       {showGoTop ? (
         <Button
-          onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}
+          onClick={handleClick}
           css={{
             position: 'fixed',
             bottom: 20,
