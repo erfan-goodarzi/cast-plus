@@ -62,6 +62,7 @@ const HeaderDetails = () => {
       <Button
         css={{
           marginInline: 'auto',
+          color: '$accents0',
           mt: 22,
           background: '#0F172B',
           border: 'none',
@@ -78,7 +79,7 @@ const HeaderDetails = () => {
         <Link to='/explore'>Browse Podcast</Link>
       </Button>
       {isTabletOrMobile ? <Spacer y={6} /> : <Spacer y={9} />}
-      <Avatar.Group css={{position: 'absolute', bottom: '3rem'}}>
+      <Avatar.Group css={{ position: 'absolute', bottom: '3rem' }}>
         {pictureUsers.map((url, index) => (
           <Avatar
             key={index}

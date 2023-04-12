@@ -17,7 +17,6 @@ export const TopThisWeek = () => {
         css={{
           background: 'transparent',
           zIndex: 1,
-          overflowY: 'scroll',
           width: 'auto',
           height: 'auto',
           padding: '15px 5px',
