@@ -1,5 +1,5 @@
 export * from './TopThisWeek';
-export * from './Categories';
+export * from './CategoriesCard';
 export * from './EmblaCarousel';
 export * from './TodayEpisodes';
 export * from './TrendingPodcasts';

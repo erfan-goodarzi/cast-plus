@@ -1,6 +1,10 @@
 import { Card, Grid, Spacer } from '@nextui-org/react';
 import { Outlet, useMatches } from '@tanstack/react-location';
-import { Categories, TopThisWeek, TrendingPodcasts } from '../components/Main';
+import {
+  CategoriesCard,
+  TopThisWeek,
+  TrendingPodcasts,
+} from '../components/Main';
 
 export const Explore = () => {
   const data = useMatches();
@@ -15,7 +19,7 @@ export const Explore = () => {
             <TopThisWeek />
           </Grid>
           <Grid lg={4}>
-            <Categories />
+            <CategoriesCard />
           </Grid>
           <Card
             css={{

@@ -1,7 +1,7 @@
 import { Card, Container, Text } from '@nextui-org/react';
 import { CategoryItem } from '../Ui';
 
-export const Categories = () => {
+export const CategoriesCard = () => {
   return (
     <Container>
       <Text
@@ -21,6 +21,8 @@ export const Categories = () => {
           zIndex: 1,
           background: '#fff',
           margin: '3rem 0',
+          borderTopRightRadius: 0,
+          borderBottomRightRadius: 0,
           height: '70vh',
           overflowY: 'scroll',
           width: '85%',
