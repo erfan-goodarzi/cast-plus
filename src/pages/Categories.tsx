@@ -19,7 +19,7 @@ export const Categories = () => {
           <Grid>
             <Card
               css={{
-                borderRadius: '0px',
+                borderRadius: 0,
                 overflowY: 'scroll',
                 height: '81vh',
                 background: 'transparent',
