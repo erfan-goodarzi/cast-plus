@@ -1,21 +1,22 @@
-import { Button, Card, Container, Grid, Text } from '@nextui-org/react';
+import { Button, Card, Container, Grid, Loading } from '@nextui-org/react';
 import { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useGetCategories } from '../api';
+import { CategoryResult } from '../components/Main';
 
 export const Categories = () => {
-  const { data } = useGetCategories();
+  const { data, isLoading } = useGetCategories();
   const ITEMS_INCREMENT = 15;
   const [itemsToShow, setItemsToShow] = useState(ITEMS_INCREMENT);
 
   const onLoadMore = () => {
     setItemsToShow((prevState) => prevState + ITEMS_INCREMENT);
   };
-
+  if (isLoading) return <Loading css={{ mx: 'auto' }} />;
   return (
-    <Container css={{ mt: 30, height: '81vh', overflow: 'hidden' }}>
+    <Container css={{ mt: 30, height: '81vh', overflowX: 'hidden' }}>
       <Tabs className='react-tabs'>
-        <Grid.Container css={{ gap: 100 }} direction='row'>
+        <Grid.Container css={{ gap: 70, width: '100%' }} wrap='nowrap'>
           <Grid>
             <Card
               css={{
@@ -43,12 +44,9 @@ export const Categories = () => {
           </Grid>
           <Grid>
             {data?.feeds.slice(0, itemsToShow).map((c) => (
-              <>
-                <TabPanel key={c.id}>
-                  <Text color='#fff'>All Episodes About:</Text>
-                  {c.name}
-                </TabPanel>
-              </>
+              <TabPanel key={c.id}>
+                <CategoryResult category={c} />
+              </TabPanel>
             ))}
           </Grid>
         </Grid.Container>

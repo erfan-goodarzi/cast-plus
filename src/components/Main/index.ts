@@ -4,5 +4,6 @@ export * from './EmblaCarousel';
 export * from './TodayEpisodes';
 export * from './TrendingPodcasts';
 export * from './TopEpisode';
+export * from './CategoryResult';
 export * from './RecentPlayed';
 export * from './EpisodeBox';
