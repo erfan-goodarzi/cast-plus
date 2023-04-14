@@ -3,10 +3,9 @@ import { globalCss } from '@nextui-org/react';
 export const GlobalStyles = globalCss({
   body: {
     color: '#fff',
+    boxSizing: 'border-box',
+    margin: 0,
     fontFamily: "'Quicksand', sans-serif !important",
-  },
-  '.hidden < body': {
-    overflow: 'hidden',
   },
   '::-webkit-scrollbar': { width: 8 },
   '::-webkit-scrollbar-track': {

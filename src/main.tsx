@@ -7,7 +7,12 @@ import App from './App';
 const queryClient = new QueryClient();
 const theme = createTheme({
   type: 'light',
+
   theme: {
+    radii: {
+      xs: '5px',
+      base: '10px',
+    },
     colors: {
       primary: '#ffd60a',
       primarySolidContrast: '#0f172b',
