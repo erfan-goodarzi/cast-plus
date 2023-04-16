@@ -23,7 +23,7 @@ export const CategoryResult = ({ category }: Props) => {
       <Grid.Container css={{ gap: 12, mb: 20 }}>
         <Grid>
           <Text h4 color='#fff'>
-            All Episodes About :
+            All Podcasts About :
           </Text>
         </Grid>
         <Grid>
@@ -69,7 +69,7 @@ export const CategoryResult = ({ category }: Props) => {
                     <Row align='baseline'>
                       <Col span={8}>
                         <Text color='#fff' weight='bold' size={14}>
-                          {pod.title}
+                          {pod.title.substring(0,20)}
                         </Text>
                       </Col>
                       <Col span={4}>
