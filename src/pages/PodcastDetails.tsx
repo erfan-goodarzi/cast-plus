@@ -77,8 +77,12 @@ export const PodcastDetails = () => {
             }}>
             {showMore
               ? podcast?.feed.description
-              : `${podcast?.feed.description.substring(0, 360)}`}
-            ...
+              : podcast?.feed.description.substring(0, 360)}
+            <span
+              style={{ cursor: 'pointer' }}
+              onClick={() => setShowMore(true)}>
+              ...
+            </span>
           </Text>
           <Spacer />
           <Grid.Container css={{ columnGap: 26 }}>

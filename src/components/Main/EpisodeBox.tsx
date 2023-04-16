@@ -36,6 +36,7 @@ export const EpisodeBox = ({
   audioUrl,
 }: Props) => {
   const [showMore, setShowMore] = useState<boolean>(false);
+  const episodeDesc = removeHtmlTag(description);
 
   return (
     <Grid xs={12}>
@@ -116,10 +117,12 @@ export const EpisodeBox = ({
                   width: '120%',
                 },
               }}>
-              {showMore
-                ? description
-                : `${removeHtmlTag(description.substring(0, 300))}`}
-              ...
+              {showMore ? episodeDesc : episodeDesc.substring(0, 300)}
+              <span
+                style={{ cursor: 'pointer' }}
+                onClick={() => setShowMore(true)}>
+                ...
+              </span>
             </Text>
             <Row css={{ gap: 20, pt: 30 }}>
               <Col span={2}>
