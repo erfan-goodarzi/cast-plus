@@ -10,6 +10,7 @@ import {
 } from '@nextui-org/react';
 import { PIApiCategory } from 'podcastindexjs/lib/types';
 import { useGetTopPodcasts } from '../../api';
+import DefaultImg from '../../assets/default-img.jpg';
 
 interface Props {
   category: PIApiCategory;
@@ -17,6 +18,10 @@ interface Props {
 
 export const CategoryResult = ({ category }: Props) => {
   const { data, isLoading } = useGetTopPodcasts(category.name);
+
+  const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = DefaultImg;
+  };
 
   return (
     <>
@@ -49,6 +54,7 @@ export const CategoryResult = ({ category }: Props) => {
                 <Card css={{ bg: 'none', borderRadius: '$xs' }}>
                   <Card.Body css={{ p: 0 }}>
                     <Card.Image
+                      onError={handleImgError}
                       src={pod.image}
                       objectFit='cover'
                       width='100%'
@@ -69,7 +75,7 @@ export const CategoryResult = ({ category }: Props) => {
                     <Row align='baseline'>
                       <Col span={8}>
                         <Text color='#fff' weight='bold' size={14}>
-                          {pod.title.substring(0,20)}
+                          {pod.title.substring(0, 20)}
                         </Text>
                       </Col>
                       <Col span={4}>
