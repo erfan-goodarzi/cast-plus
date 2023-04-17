@@ -13,6 +13,7 @@ import {
 import { useState } from 'react';
 import { removeHtmlTag } from '../../utils';
 import { BadgeInfo, PlayButton, ShareButton } from '../Ui';
+import DefaultImg from '../../assets/default-img.jpg';
 
 interface Props {
   id: number;
@@ -77,12 +78,8 @@ export const EpisodeBox = ({
                 height: '219px',
                 borderRadius: 3,
               }}
-              src={
-                image
-                  ? image
-                  : 'https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
-              }
-              alt='Default Image'
+              src={image || DefaultImg}
+              alt={title}
               objectFit='cover'
             />
           </Grid>

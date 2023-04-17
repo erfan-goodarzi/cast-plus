@@ -11,6 +11,7 @@ import { useGetTopEpisode } from '../../api';
 import { removeHtmlTag } from '../../utils';
 import { BadgeInfo } from '../Ui';
 import { PlayButton } from '../Ui';
+import DefaultImg from '../../assets/default-img.jpg';
 
 export const TopEpisode = () => {
   const [episodeImg, setEpisodeImg] = useState<string>('');
@@ -27,9 +28,7 @@ export const TopEpisode = () => {
   useEffect(() => {
     if (data) {
       data.items[0].image === ''
-        ? setEpisodeImg(
-            'https://img.freepik.com/free-photo/close-up-portrait-happy-smiling-romantic-tender-african-american-woman-enjoying-listening-music-headphones-tilt-head-close-eyes-dreamy-grinning-delighted-blue-wall_1258-35460.jpg'
-          )
+        ? setEpisodeImg(DefaultImg)
         : setEpisodeImg(data.items[0].image);
       setEpisodeTitle(data.items[0].title);
       setEpisodeDetails(data.items[0].description);
