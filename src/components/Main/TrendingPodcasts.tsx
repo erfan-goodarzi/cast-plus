@@ -1,9 +1,9 @@
-import { Container, Spacer, Text } from '@nextui-org/react';
+import { Container, Text } from '@nextui-org/react';
 import { useGetTopPodcasts } from '../../api';
 import { EmblaCarousel } from './EmblaCarousel';
 
 export const TrendingPodcasts = () => {
-  const { data, isLoading } = useGetTopPodcasts();
+  const { data, isLoading } = useGetTopPodcasts({ max: 15 });
 
   return (
     <Container>

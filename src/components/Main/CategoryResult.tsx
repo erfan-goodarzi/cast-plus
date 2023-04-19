@@ -8,10 +8,7 @@ import {
   Row,
   Text,
 } from '@nextui-org/react';
-import {
-  Link,
-  useNavigate,
-} from '@tanstack/react-location';
+import { Link, useNavigate } from '@tanstack/react-location';
 import { PIApiCategory } from 'podcastindexjs/lib/types';
 import { useGetTopPodcasts } from '../../api';
 import DefaultImg from '../../assets/default-img.jpg';
@@ -21,7 +18,10 @@ interface Props {
 }
 
 export const CategoryResult = ({ category }: Props) => {
-  const { data, isLoading } = useGetTopPodcasts(category.name);
+  const { data, isLoading } = useGetTopPodcasts({
+    cat: category.name,
+    max: 30,
+  });
   const navigate = useNavigate();
 
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
