@@ -24,6 +24,9 @@ export const Categories = () => {
                 overflowY: 'scroll',
                 height: '81vh',
                 background: 'transparent',
+                position: 'sticky',
+                zIndex: 1,
+                top: 0,
               }}>
               <TabList>
                 {data?.feeds.slice(0, itemsToShow).map((c) => (
