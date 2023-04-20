@@ -6,12 +6,13 @@ import {
   SimpleColors,
   simpleColors,
 } from '@nextui-org/react';
+import { useNavigate } from '@tanstack/react-location';
 import { useEffect, useState } from 'react';
 import { useGetCategories } from '../../api';
-
 export const CategoryItem = () => {
   const { data, isLoading } = useGetCategories();
-  const [categoryList, setCategoryList] = useState<any[][]>();
+  const navigate = useNavigate();
+  const [categoryList, setCategoryList] = useState<any[][]>(); // FIXME fix type
   const [badgeColors, setBadgeColors] = useState<SimpleColors>();
   const categoryImages = [
     {
@@ -54,7 +55,7 @@ export const CategoryItem = () => {
       image:
         'https://images.unsplash.com/photo-1522648485144-849409408aee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
     },
-  ];
+  ]; // FIXME abstract it.
 
   useEffect(() => {
     if (data) {
@@ -82,7 +83,14 @@ export const CategoryItem = () => {
                 justifyContent: 'center',
                 padding: '15px 28px',
               }}>
-              <Card.Body style={{ textAlign: 'center' }}>
+              <Card.Body
+                style={{ textAlign: 'center' }}
+                onClick={() =>
+                  navigate({
+                    to: '/categories',
+                    hash: category[0].name.toLowerCase(),
+                  })
+                }>
                 <Card.Image
                   className='hovered-img'
                   width={154}
