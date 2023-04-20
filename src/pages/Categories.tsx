@@ -1,21 +1,37 @@
 import { Button, Card, Container, Grid, Loading } from '@nextui-org/react';
-import { useState } from 'react';
+import { useNavigate } from '@tanstack/react-location';
+import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useGetCategories } from '../api';
 import { CategoryResult } from '../components/Main';
 
 export const Categories = () => {
   const { data, isLoading } = useGetCategories();
+  const navigate = useNavigate();
   const ITEMS_INCREMENT = 15;
   const [itemsToShow, setItemsToShow] = useState(ITEMS_INCREMENT);
+  const [selectedTab, setSelectedTab] = useState(0);
+
+  useEffect(() => {
+    const hash = location.hash.substr(1);
+    const index =
+      data?.feeds.findIndex((c) => c.name.toLowerCase() === hash);
+    if (index !== undefined && index >= 0) {
+      setSelectedTab(index);
+    }
+  }, [location.hash, data]);
 
   const onLoadMore = () => {
     setItemsToShow((prevState) => prevState + ITEMS_INCREMENT);
   };
+
   if (isLoading) return <Loading css={{ mx: 'auto' }} />;
   return (
     <Container css={{ mt: 30, height: '81vh', overflowX: 'hidden' }}>
-      <Tabs className='react-tabs'>
+      <Tabs
+        selectedIndex={selectedTab}
+        onSelect={(index) => setSelectedTab(index)}
+        className='react-tabs'>
         <Grid.Container css={{ gap: 70, width: '100%' }} wrap='nowrap'>
           <Grid>
             <Card
@@ -30,7 +46,16 @@ export const Categories = () => {
               }}>
               <TabList>
                 {data?.feeds.slice(0, itemsToShow).map((c) => (
-                  <Tab key={c.id}>{c.name}</Tab>
+                  <Tab
+                    onClick={() =>
+                      navigate({
+                        to: '/categories',
+                        hash: c.name.toLowerCase(),
+                      })
+                    }
+                    key={c.id}>
+                    {c.name}
+                  </Tab>
                 ))}
                 <Button
                   onClick={onLoadMore}
