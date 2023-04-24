@@ -1,4 +1,13 @@
-import { Button, Card, Container, Grid, Loading } from '@nextui-org/react';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  Button,
+  Card,
+  Container,
+  Grid,
+  Input,
+  Loading,
+} from '@nextui-org/react';
 import { useNavigate } from '@tanstack/react-location';
 import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -14,8 +23,7 @@ export const Categories = () => {
 
   useEffect(() => {
     const hash = location.hash.substr(1);
-    const index =
-      data?.feeds.findIndex((c) => c.name.toLowerCase() === hash);
+    const index = data?.feeds.findIndex((c) => c.name.toLowerCase() === hash);
     if (index !== undefined && index >= 0) {
       setSelectedTab(index);
     }
@@ -44,6 +52,22 @@ export const Categories = () => {
                 zIndex: 1,
                 top: 0,
               }}>
+              <Input
+                aria-label='search'
+                clearable
+                underlined
+                status='primary'
+                placeholder='Explore categories'
+                size='lg'
+                css={{
+                  fontSize: '40xp',
+                  mb: 15,
+                  '::placeholder': {
+                    color: '#fff',
+                  },
+                }}
+                contentLeft={<FontAwesomeIcon size='xs' icon={faSearch} />}
+              />
               <TabList>
                 {data?.feeds.slice(0, itemsToShow).map((c) => (
                   <Tab
