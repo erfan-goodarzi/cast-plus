@@ -4,12 +4,13 @@ import {
   Button,
   Card,
   Container,
+  FormElement,
   Grid,
   Input,
   Loading,
 } from '@nextui-org/react';
 import { useNavigate } from '@tanstack/react-location';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useGetCategories } from '../api';
 import { CategoryResult } from '../components/Main';
@@ -20,6 +21,7 @@ export const Categories = () => {
   const ITEMS_INCREMENT = 15;
   const [itemsToShow, setItemsToShow] = useState(ITEMS_INCREMENT);
   const [selectedTab, setSelectedTab] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const hash = location.hash.substr(1);
@@ -27,7 +29,16 @@ export const Categories = () => {
     if (index !== undefined && index >= 0) {
       setSelectedTab(index);
     }
-  }, [location.hash, data]);
+  }, [data]);
+
+  const handleSearchInputChange = (e: React.ChangeEvent<FormElement>) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value.toLowerCase());
+  };
+
+  const filteredCategories = data?.feeds.filter((category) =>
+    category.name.toLowerCase().includes(searchTerm)
+  );
 
   const onLoadMore = () => {
     setItemsToShow((prevState) => prevState + ITEMS_INCREMENT);
@@ -54,13 +65,14 @@ export const Categories = () => {
               }}>
               <Input
                 aria-label='search'
+                onChange={handleSearchInputChange}
                 clearable
+                width='190px'
                 underlined
                 status='primary'
                 placeholder='Explore categories'
-                size='lg'
+                size='md'
                 css={{
-                  fontSize: '40xp',
                   mb: 15,
                   '::placeholder': {
                     color: '#fff',
@@ -69,7 +81,7 @@ export const Categories = () => {
                 contentLeft={<FontAwesomeIcon size='xs' icon={faSearch} />}
               />
               <TabList>
-                {data?.feeds.slice(0, itemsToShow).map((c) => (
+                {filteredCategories?.slice(0, itemsToShow).map((c) => (
                   <Tab
                     onClick={() =>
                       navigate({
@@ -95,7 +107,7 @@ export const Categories = () => {
             </Card>
           </Grid>
           <Grid>
-            {data?.feeds.slice(0, itemsToShow).map((c) => (
+            {filteredCategories?.slice(0, itemsToShow).map((c) => (
               <TabPanel key={c.id}>
                 <CategoryResult category={c} />
               </TabPanel>
