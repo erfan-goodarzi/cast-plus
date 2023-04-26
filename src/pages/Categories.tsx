@@ -66,7 +66,6 @@ export const Categories = () => {
               <Input
                 aria-label='search'
                 onChange={handleSearchInputChange}
-                clearable
                 width='190px'
                 underlined
                 status='primary'
