@@ -5,3 +5,4 @@ export * from './CategoryItem';
 export * from './Nav';
 export * from './ScrollToTop';
 export * from './ShareButton';
+export * from './SubscribeButton';

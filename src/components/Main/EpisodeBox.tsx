@@ -12,7 +12,7 @@ import {
 } from '@nextui-org/react';
 import { useState } from 'react';
 import { removeHtmlTag } from '../../utils';
-import { BadgeInfo, PlayButton, ShareButton } from '../Ui';
+import { BadgeInfo, PlayButton, ShareButton, SubscribeButton } from '../Ui';
 import DefaultImg from '../../assets/default-img.jpg';
 
 interface Props {
@@ -135,17 +135,7 @@ export const EpisodeBox = ({
                 <ShareButton podcastTitle={title} shareUrl={audioUrl} />
               </Col>
               <Col span={12}>
-                <Button
-                  bordered
-                  iconRight={<FontAwesomeIcon icon={faBell} />}
-                  css={{
-                    color: '#fff',
-                    borderColor: '#fff',
-                    borderRadius: 3,
-                  }}
-                  auto>
-                  Subscribe
-                </Button>
+                <SubscribeButton />
               </Col>
             </Row>
           </Grid>
