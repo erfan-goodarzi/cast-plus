@@ -18,17 +18,17 @@ export const SubscribeButton = () => {
   return (
     <Button
       bordered
-      onClick={() => {
+      onPress={(e) => {
         toggle();
+        const bellIcon = e.target.querySelector('svg');
+        bellIcon!.style.animation = `${bellAnimation} .7s`;
+        bellIcon!.style.animationIterationCount = '2';
+        // reset the animation trigger
+        bellIcon!.addEventListener('animationend', () => {
+          bellIcon!.style.animation = '';
+        });
       }}
-      iconRight={
-        <FontAwesomeIcon
-          style={{
-            animation: `${bellAnimation} .7s`,
-          }}
-          icon={faBell}
-        />
-      }
+      iconRight={<FontAwesomeIcon icon={faBell} />}
       css={{
         color: isSubscribed ? '$primary' : '#fff',
         borderColor: isSubscribed ? '$primary' : '#fff',
