@@ -1,7 +1,7 @@
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, keyframes } from '@nextui-org/react';
-import { useToggle } from 'ahooks';
+import { useLocalStorageState, useToggle } from 'ahooks';
 
 const bellAnimation = keyframes({
   '0%': { transform: 'rotate(0deg)' },
@@ -12,6 +12,12 @@ const bellAnimation = keyframes({
 
 export const SubscribeButton = () => {
   const [isSubscribed, { toggle }] = useToggle();
+  const [subscribe, setSubscribe] = useLocalStorageState<boolean | undefined>(
+    'isPodcastSubscribed',
+    {
+      defaultValue: false,
+    }
+  );
 
   const labels = ['subscribe', 'unsubscribe'];
 
@@ -20,6 +26,7 @@ export const SubscribeButton = () => {
       bordered
       onPress={(e) => {
         toggle();
+        setSubscribe(!isSubscribed);
         const bellIcon = e.target.querySelector('svg');
         bellIcon!.style.animation = `${bellAnimation} .7s`;
         bellIcon!.style.animationIterationCount = '2';
@@ -30,12 +37,12 @@ export const SubscribeButton = () => {
       }}
       iconRight={<FontAwesomeIcon icon={faBell} />}
       css={{
-        color: isSubscribed ? '$primary' : '#fff',
-        borderColor: isSubscribed ? '$primary' : '#fff',
+        color: subscribe ? '$primary' : '#fff',
+        borderColor: subscribe ? '$primary' : '#fff',
         borderRadius: 3,
       }}
       auto>
-      {labels[Number(isSubscribed)]}
+      {labels[Number(subscribe)]}
     </Button>
   );
 };
