@@ -12,6 +12,7 @@ import {
   Loading,
   Card,
   Grid,
+  Badge,
 } from '@nextui-org/react';
 import { Link, useLocation } from '@tanstack/react-location';
 import { useSearchPodcasts } from '../../api';
@@ -119,6 +120,11 @@ export const Nav = () => {
               fontSize: '16px',
             }}
             to={item.path}>
+            {item.label === 'Trending' ? (
+              <Badge size='xs' variant='default' isSquared>
+                CS
+              </Badge>
+            ) : null}
             {item.label}
           </Link>
         ))}
