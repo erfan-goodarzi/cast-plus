@@ -1,18 +1,9 @@
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  Button,
-  Card,
-  Col,
-  Grid,
-  Image,
-  Row,
-  Spacer,
-  Text,
-} from '@nextui-org/react';
+import { Button, Card, Grid, Image, Spacer, Text } from '@nextui-org/react';
 import { useState } from 'react';
 import { removeHtmlTag } from '../../utils';
-import { BadgeInfo, PlayButton, ShareButton, SubscribeButton } from '../Ui';
+import { BadgeInfo, PlayButton, ShareButton } from '../Ui';
 import DefaultImg from '../../assets/default-img.jpg';
 
 interface Props {
@@ -38,7 +29,6 @@ export const EpisodeBox = ({
 }: Props) => {
   const [showMore, setShowMore] = useState<boolean>(false);
   const episodeDesc = removeHtmlTag(description);
-
   return (
     <Grid xs={12}>
       <Card
@@ -121,8 +111,8 @@ export const EpisodeBox = ({
                 ...
               </span>
             </Text>
-            <Row css={{ gap: 20, pt: 30 }}>
-              <Col span={2}>
+            <Grid.Container css={{ gap: 25, pt: 30 }} justify='flex-start'>
+              <Grid>
                 <PlayButton
                   id={id}
                   image={image}
@@ -130,11 +120,25 @@ export const EpisodeBox = ({
                   feedTitle={feedTitle}
                   url={audioUrl}
                 />
-              </Col>
-              <Col span={2}>
+              </Grid>
+              <Grid>
                 <ShareButton podcastTitle={title} shareUrl={audioUrl} />
-              </Col>
-            </Row>
+              </Grid>
+              <Grid>
+                <Button
+                  bordered
+                  iconRight={<FontAwesomeIcon icon={faDownload} />}
+                  css={{
+                    color: '#fff',
+                    borderColor: '#fff',
+                    p: '2px 24px',
+                    borderRadius: 3,
+                  }}
+                  auto>
+                  Download
+                </Button>
+              </Grid>
+            </Grid.Container>
           </Grid>
         </Grid.Container>
       </Card>
