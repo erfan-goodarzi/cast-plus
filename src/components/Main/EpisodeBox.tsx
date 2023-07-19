@@ -134,9 +134,6 @@ export const EpisodeBox = ({
               <Col span={2}>
                 <ShareButton podcastTitle={title} shareUrl={audioUrl} />
               </Col>
-              <Col span={12}>
-                <SubscribeButton />
-              </Col>
             </Row>
           </Grid>
         </Grid.Container>

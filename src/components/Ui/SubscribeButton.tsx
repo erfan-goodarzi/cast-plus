@@ -2,6 +2,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, keyframes } from '@nextui-org/react';
 import { useLocalStorageState, useToggle } from 'ahooks';
+import { useEffect } from 'react';
 
 const bellAnimation = keyframes({
   '0%': { transform: 'rotate(0deg)' },
@@ -10,23 +11,55 @@ const bellAnimation = keyframes({
   '100%': { transform: 'rotate(0deg)' },
 });
 
-export const SubscribeButton = () => {
-  const [isSubscribed, { toggle }] = useToggle();
-  const [subscribe, setSubscribe] = useLocalStorageState<boolean | undefined>(
-    'isPodcastSubscribed',
-    {
-      defaultValue: false,
-    }
+interface Props {
+  podcastId: number;
+}
+
+interface Storage {
+  podcast: SubscribedPodcasts;
+}
+
+interface SubscribedPodcasts {
+  id: number[];
+  isSubscribed: boolean;
+}
+
+export const SubscribeButton = ({ podcastId }: Props) => {
+  const [isToggled, { toggle: toggleSubscription }] = useToggle();
+  const [localStorageData, setLocalStorageData] = useLocalStorageState<Storage>(
+    'SubscribedPodcasts',
+    { defaultValue: { podcast: { isSubscribed: false, id: [] } } }
   );
 
+  useEffect(() => {
+    setLocalStorageData((prevState) => ({
+      podcast: {
+        ...prevState!.podcast,
+        isSubscribed: localStorageData.podcast.id.includes(podcastId),
+      },
+    }));
+  }, []);
+
   const labels = ['subscribe', 'unsubscribe'];
+  const isPodSubscribed = localStorageData.podcast.isSubscribed;
 
   return (
     <Button
       bordered
       onPress={(e) => {
-        toggle();
-        setSubscribe(!isSubscribed);
+        toggleSubscription();
+        setLocalStorageData((prevState) => {
+          const updatedIds = prevState?.podcast.id.includes(podcastId)
+            ? prevState?.podcast.id.filter((id) => id !== podcastId)
+            : [...(prevState?.podcast.id || []), podcastId];
+
+          return {
+            podcast: {
+              id: updatedIds,
+              isSubscribed: !isToggled,
+            },
+          };
+        });
         const bellIcon = e.target.querySelector('svg');
         bellIcon!.style.animation = `${bellAnimation} .7s`;
         bellIcon!.style.animationIterationCount = '2';
@@ -37,12 +70,12 @@ export const SubscribeButton = () => {
       }}
       iconRight={<FontAwesomeIcon icon={faBell} />}
       css={{
-        color: subscribe ? '$primary' : '#fff',
-        borderColor: subscribe ? '$primary' : '#fff',
+        color: isPodSubscribed ? '$primary' : '#fff',
+        borderColor: isPodSubscribed ? '$primary' : '#fff',
         borderRadius: 3,
       }}
       auto>
-      {labels[Number(subscribe)]}
+      {labels[Number(isPodSubscribed)]}
     </Button>
   );
 };

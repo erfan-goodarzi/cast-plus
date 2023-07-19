@@ -87,7 +87,7 @@ export const PodcastDetails = () => {
           <Spacer />
           <Grid.Container css={{ columnGap: 26 }}>
             <Grid>
-              <SubscribeButton />
+              <SubscribeButton podcastId={podcast?.feed.id!} />
             </Grid>
             <Grid>
               <ShareButton
