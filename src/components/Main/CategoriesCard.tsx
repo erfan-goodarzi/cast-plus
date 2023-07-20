@@ -1,5 +1,5 @@
 import { Card, Container, Text } from '@nextui-org/react';
-import { CategoryItem } from '../Ui';
+import { CategoryList } from '../Ui';
 
 export const CategoriesCard = () => {
   return (
@@ -27,7 +27,7 @@ export const CategoriesCard = () => {
           overflowY: 'scroll',
           width: '85%',
         }}>
-        <CategoryItem />
+        <CategoryList />
       </Card>
     </Container>
   );
