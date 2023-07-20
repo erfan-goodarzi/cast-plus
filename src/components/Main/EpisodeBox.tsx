@@ -1,6 +1,14 @@
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Card, Grid, Image, Spacer, Text } from '@nextui-org/react';
+import {
+  Button,
+  Card,
+  Grid,
+  Image,
+  Spacer,
+  Text,
+  Tooltip,
+} from '@nextui-org/react';
 import { useState } from 'react';
 import { removeHtmlTag } from '../../utils';
 import { BadgeInfo, PlayButton, ShareButton } from '../Ui';
@@ -125,18 +133,20 @@ export const EpisodeBox = ({
                 <ShareButton podcastTitle={title} shareUrl={audioUrl} />
               </Grid>
               <Grid>
-                <Button
-                  bordered
-                  iconRight={<FontAwesomeIcon icon={faDownload} />}
-                  css={{
-                    color: '#fff',
-                    borderColor: '#fff',
-                    p: '2px 24px',
-                    borderRadius: 3,
-                  }}
-                  auto>
-                  Download
-                </Button>
+                <Tooltip content='Not implemented yet'>
+                  <Button
+                    bordered
+                    iconRight={<FontAwesomeIcon icon={faDownload} />}
+                    css={{
+                      color: '#fff',
+                      borderColor: '#fff',
+                      p: '2px 24px',
+                      borderRadius: 3,
+                    }}
+                    auto>
+                    Download
+                  </Button>
+                </Tooltip>
               </Grid>
             </Grid.Container>
           </Grid>
