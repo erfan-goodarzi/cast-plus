@@ -123,7 +123,7 @@ export const EpisodeBox = ({
               <Grid>
                 <PlayButton
                   id={id}
-                  image={image}
+                  image={image || DefaultImg}
                   title={title}
                   feedTitle={feedTitle}
                   url={audioUrl}
