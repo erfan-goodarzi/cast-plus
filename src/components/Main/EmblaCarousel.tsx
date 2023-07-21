@@ -1,11 +1,12 @@
 import { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import '../../style/embla.css';
-import { Button, Grid, Loading, Text } from '@nextui-org/react';
+import { Button, Grid, Text } from '@nextui-org/react';
 import { PIApiFeed } from 'podcastindexjs/lib/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from '@tanstack/react-location';
+import { Loader } from '../Ui';
 
 export const EmblaCarousel = ({
   isLoad,
@@ -25,7 +26,7 @@ export const EmblaCarousel = ({
   return (
     <>
       {isLoad ? (
-        <Loading css={{ ml: '12rem', mt: '3rem' }} size='xl' />
+        <Loader />
       ) : (
         <div className='embla'>
           <div className='embla__viewport' ref={viewportRef}>

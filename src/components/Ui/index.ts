@@ -7,3 +7,4 @@ export * from './ScrollToTop';
 export * from './ShareButton';
 export * from './SubscribeButton';
 export * from './SearchInput';
+export * from './Loader';

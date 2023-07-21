@@ -2,7 +2,6 @@ import {
   Badge,
   Card,
   Grid,
-  Loading,
   SimpleColors,
   simpleColors,
 } from '@nextui-org/react';
@@ -12,6 +11,7 @@ import { useGetCategories } from '../../api';
 import { IconList, iconList } from '../../Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PIApiCategory } from 'podcastindexjs/lib/types';
+import { Loader } from './Loader';
 
 export const CategoryList = () => {
   const { data, isLoading } = useGetCategories();
@@ -34,7 +34,7 @@ export const CategoryList = () => {
   return (
     <Grid.Container>
       {isLoading ? (
-        <Loading style={{ marginInline: 'auto', marginTop: '13rem' }} />
+        <Loader />
       ) : (
         categoryList?.map((category) => (
           <Grid

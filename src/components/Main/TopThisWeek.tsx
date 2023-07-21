@@ -2,12 +2,12 @@ import {
   Card,
   Container,
   Grid,
-  Loading,
   Spacer,
   Text,
 } from '@nextui-org/react';
 import { useGetTopThisWeek } from '../../api';
 import { Link } from '@tanstack/react-location';
+import { Loader } from '../Ui';
 
 export const TopThisWeek = () => {
   const { data, isLoading } = useGetTopThisWeek();
@@ -38,7 +38,7 @@ export const TopThisWeek = () => {
           }}>
           Trending This Week
         </Text>
-        {isLoading && <Loading css={{ mr: '80%', mt: 40 }} size='sm' />}
+        {isLoading && <Loader />}
         {data?.feeds.map((item) => (
           <Grid.Container key={item.id}>
             <Grid lg={3}>

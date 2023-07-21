@@ -1,6 +1,7 @@
-import { Container, Grid, Loading, Text } from '@nextui-org/react';
+import { Container, Grid, Text } from '@nextui-org/react';
 import { useGetTopEpisode } from '../../api';
 import { EpisodeBox } from './EpisodeBox';
+import { Loader } from '../Ui';
 
 export const TodayEpisodes = () => {
   const { data, isLoading } = useGetTopEpisode();
@@ -71,7 +72,7 @@ export const TodayEpisodes = () => {
             </Text>
           </Grid>
           {isLoading ? (
-            <Loading css={{ ml: '36rem', mt: '7rem' }} size='xl' />
+            <Loader size='xl' />
           ) : (
             data?.items.map(
               ({

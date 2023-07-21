@@ -7,13 +7,12 @@ import {
   FormElement,
   Grid,
   Input,
-  Loading,
 } from '@nextui-org/react';
 import { useNavigate } from '@tanstack/react-location';
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useGetCategories } from '../api';
-import { CategoryResult } from '../components';
+import { CategoryResult, Loader } from '../components';
 
 export const Categories = () => {
   const { data, isLoading } = useGetCategories();
@@ -44,7 +43,7 @@ export const Categories = () => {
     setItemsToShow((prevState) => prevState + ITEMS_INCREMENT);
   };
 
-  if (isLoading) return <Loading css={{ mx: 'auto' }} />;
+  if (isLoading) return <Loader />;
   return (
     <Container css={{ mt: 30, height: '81vh', overflowX: 'hidden' }}>
       <Tabs

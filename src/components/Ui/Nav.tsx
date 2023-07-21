@@ -9,7 +9,6 @@ import {
   Navbar,
   Input,
   FormElement,
-  Loading,
   Card,
   Grid,
   Badge,
@@ -18,6 +17,7 @@ import { Link, useLocation } from '@tanstack/react-location';
 import { useSearchPodcasts } from '../../api';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { useStore } from '../../store';
+import { Loader } from './Loader';
 
 export interface NavLinkItems {
   label: string;
@@ -155,7 +155,7 @@ export const Nav = () => {
             }}
             contentLeft={
               isLoading ? (
-                <Loading size='xs' />
+                <Loader size='xs' />
               ) : (
                 <FontAwesomeIcon icon={faSearch} />
               )

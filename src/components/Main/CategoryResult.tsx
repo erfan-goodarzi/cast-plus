@@ -4,7 +4,6 @@ import {
   Card,
   Col,
   Grid,
-  Loading,
   Row,
   Text,
 } from '@nextui-org/react';
@@ -12,6 +11,7 @@ import { Link, useNavigate } from '@tanstack/react-location';
 import { PIApiCategory } from 'podcastindexjs/lib/types';
 import { useGetTopPodcasts } from '../../api';
 import DefaultImg from '../../assets/default-img.jpg';
+import { Loader } from '../Ui';
 
 interface Props {
   category: PIApiCategory;
@@ -51,7 +51,7 @@ export const CategoryResult = ({ category }: Props) => {
       </Grid.Container>
       <Row wrap='wrap' css={{ gap: 40 }}>
         {isLoading ? (
-          <Loading css={{ ml: 'auto' }} />
+          <Loader />
         ) : (
           data?.feeds.map(
             (pod: { id: number; image: string; title: string }) => (

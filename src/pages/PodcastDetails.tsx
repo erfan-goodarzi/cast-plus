@@ -5,7 +5,6 @@ import {
   Container,
   Grid,
   Link,
-  Loading,
   Row,
   Spacer,
   Text,
@@ -13,7 +12,12 @@ import {
 import { useMatch } from '@tanstack/react-location';
 import { useState } from 'react';
 import { useGeEpisodeById, useGetPodcastById } from '../api';
-import { EpisodeBox, ShareButton, SubscribeButton } from '../components';
+import {
+  EpisodeBox,
+  Loader,
+  ShareButton,
+  SubscribeButton,
+} from '../components';
 
 export const PodcastDetails = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
@@ -24,7 +28,7 @@ export const PodcastDetails = () => {
   const { data: podcast } = useGetPodcastById(id);
   const { data: episode, isLoading } = useGeEpisodeById(id);
 
-  if (isLoading) return <Loading css={{ mx: 'auto', mt: 100 }} />;
+  if (isLoading) return <Loader size='lg' />;
   return (
     <Container gap={8} css={{ mb: 40 }}>
       <Row>
