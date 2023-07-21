@@ -31,13 +31,18 @@ export const SubscribeButton = ({ podcastId }: Props) => {
     { defaultValue: { podcast: { isSubscribed: false, id: [] } } }
   );
 
+  let didInit = false; // Prevent running twice.
+
   useEffect(() => {
-    setLocalStorageData((prevState) => ({
-      podcast: {
-        ...prevState!.podcast,
-        isSubscribed: localStorageData.podcast.id.includes(podcastId),
-      },
-    }));
+    if (!didInit) {
+      didInit = true;
+      setLocalStorageData((prevState) => ({
+        podcast: {
+          ...prevState!.podcast,
+          isSubscribed: localStorageData.podcast.id.includes(podcastId),
+        },
+      }));
+    }
   }, []);
 
   const labels = ['subscribe', 'unsubscribe'];
