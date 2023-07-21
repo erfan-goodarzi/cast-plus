@@ -60,7 +60,7 @@ export const CategoryList = () => {
               onClick={() =>
                 navigate({
                   to: '/categories',
-                  hash: category[0].name,
+                  hash: category[0].name.toLocaleLowerCase(),
                 })
               }>
               <FontAwesomeIcon
