@@ -58,7 +58,7 @@ export const Nav = () => {
     if (data) {
       setPodcastResult(data.feeds);
     }
-  }, [data, setPodcastResult]);
+  }, [data]);
 
   const clearCardResult = () => {
     inputRef.current!.value = '';
