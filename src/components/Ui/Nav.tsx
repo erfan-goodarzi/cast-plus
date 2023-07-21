@@ -11,13 +11,13 @@ import {
   FormElement,
   Card,
   Grid,
-  Badge,
 } from '@nextui-org/react';
 import { Link, useLocation } from '@tanstack/react-location';
 import { useSearchPodcasts } from '../../api';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { useStore } from '../../store';
 import { Loader } from './Loader';
+import { Badge } from './Badge';
 
 export interface NavLinkItems {
   label: string;
@@ -121,9 +121,7 @@ export const Nav = () => {
             }}
             to={item.path}>
             {item.label === 'Trending' ? (
-              <Badge size='xs' variant='default' isSquared>
-                CS
-              </Badge>
+              <Badge content='CS' size='xs' />
             ) : null}
             {item.label}
           </Link>

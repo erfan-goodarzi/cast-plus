@@ -1,5 +1,4 @@
 import {
-  Badge,
   Button,
   Col,
   Container,
@@ -13,6 +12,7 @@ import { useMatch } from '@tanstack/react-location';
 import { useState } from 'react';
 import { useGeEpisodeById, useGetPodcastById } from '../api';
 import {
+  Badge,
   EpisodeBox,
   Loader,
   ShareButton,
@@ -56,20 +56,12 @@ export const PodcastDetails = () => {
             }}>
             {podcast?.feed.title}
           </Text>
-          <Text size='larger' css={{ color: '#b6b6b6', lineHeight: '2.1' }}>
-            Made By
-            <Badge
-              css={{
-                ml: 10,
-                fontSize: 16,
-                background: 'transparent',
-                color: 'rgb(255 214 10)',
-              }}
-              isSquared
-              variant='bordered'>
-              {podcast?.feed.author}
-            </Badge>
-          </Text>
+          <Row align='center' css={{ gap: 10 }}>
+            <Text size='larger' css={{ color: '#b6b6b6', lineHeight: '2.1' }}>
+              Made By
+            </Text>
+            <Badge content={podcast?.feed.author!} />
+          </Row>
           <Text
             css={{
               width: '95%',

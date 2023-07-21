@@ -1,17 +1,9 @@
-import {
-  Badge,
-  Button,
-  Card,
-  Col,
-  Grid,
-  Row,
-  Text,
-} from '@nextui-org/react';
+import { Button, Card, Col, Grid, Row, Text } from '@nextui-org/react';
 import { Link, useNavigate } from '@tanstack/react-location';
 import { PIApiCategory } from 'podcastindexjs/lib/types';
 import { useGetTopPodcasts } from '../../api';
 import DefaultImg from '../../assets/default-img.jpg';
-import { Loader } from '../Ui';
+import { Badge, Loader } from '../Ui';
 
 interface Props {
   category: PIApiCategory;
@@ -37,16 +29,7 @@ export const CategoryResult = ({ category }: Props) => {
           </Text>
         </Grid>
         <Grid>
-          <Badge
-            css={{
-              fontSize: 14,
-              background: 'transparent',
-              color: 'rgb(255 214 10)',
-            }}
-            isSquared
-            variant='bordered'>
-            {category.name}
-          </Badge>
+          <Badge content={category.name} />
         </Grid>
       </Grid.Container>
       <Row wrap='wrap' css={{ gap: 40 }}>
