@@ -2,7 +2,7 @@ import Player from 'react-material-music-player';
 import { GlobalStyles } from './style';
 import { useStore } from './store';
 import { Routes } from './Routes';
-import { ScrollToTop } from './components/Ui';
+import { ScrollToTop } from './components';
 
 function App() {
   const { isEpisodePlay } = useStore();

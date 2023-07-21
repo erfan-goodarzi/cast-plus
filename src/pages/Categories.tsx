@@ -13,7 +13,7 @@ import { useNavigate } from '@tanstack/react-location';
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useGetCategories } from '../api';
-import { CategoryResult } from '../components/Main';
+import { CategoryResult } from '../components';
 
 export const Categories = () => {
   const { data, isLoading } = useGetCategories();

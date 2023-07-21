@@ -1,5 +1,3 @@
-import { faBell } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Badge,
   Button,
@@ -15,8 +13,7 @@ import {
 import { useMatch } from '@tanstack/react-location';
 import { useState } from 'react';
 import { useGeEpisodeById, useGetPodcastById } from '../api';
-import { EpisodeBox } from '../components/Main';
-import { ShareButton, SubscribeButton } from '../components/Ui';
+import { EpisodeBox, ShareButton, SubscribeButton } from '../components';
 
 export const PodcastDetails = () => {
   const [showMore, setShowMore] = useState<boolean>(false);

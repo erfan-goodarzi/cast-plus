@@ -1,5 +1,4 @@
-import Header from '../components/Header/Header';
-import { TodayEpisodes, TopEpisode } from '../components/Main';
+import { Header, TodayEpisodes, TopEpisode } from '../components';
 
 export const Home = () => {
   return (

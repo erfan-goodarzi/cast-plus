@@ -5,7 +5,7 @@ import {
   ReactLocation,
   Router,
 } from '@tanstack/react-location';
-import { AppLayout } from './components/Layout';
+import { AppLayout } from './components';
 import { type Route as LocationRoute } from '@tanstack/react-location';
 import { Categories, Explore, Home, PodcastDetails } from './pages';
 

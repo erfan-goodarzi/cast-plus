@@ -3,7 +3,7 @@ import HeaderDetails from './HeaderDetails';
 import BackgroundImg from '../../assets/mic-min.jpg';
 import { Nav } from '../Ui';
 
-const Header = () => {
+export const Header = () => {
   // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   return (
@@ -35,5 +35,3 @@ const Header = () => {
     </Container>
   );
 };
-
-export default Header;

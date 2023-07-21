@@ -1,10 +1,6 @@
 import { Card, Grid, Spacer } from '@nextui-org/react';
 import { Outlet, useMatches } from '@tanstack/react-location';
-import {
-  CategoriesCard,
-  TopThisWeek,
-  TrendingPodcasts,
-} from '../components/Main';
+import { CategoriesCard, TopThisWeek, TrendingPodcasts } from '../components';
 
 export const Explore = () => {
   const data = useMatches();
