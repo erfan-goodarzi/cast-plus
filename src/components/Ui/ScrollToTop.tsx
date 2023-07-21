@@ -1,7 +1,7 @@
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, keyframes } from '@nextui-org/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const scaleUp = keyframes({
   '0%': { transform: 'translateY(0px)' },
@@ -13,13 +13,10 @@ const scaleUp = keyframes({
 export const ScrollToTop = () => {
   const [showGoTop, setShowGoTop] = useState<boolean>(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      window.pageYOffset > 3000 ? setShowGoTop(true) : setShowGoTop(false);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleScroll = () => {
+    window.pageYOffset > 3000 ? setShowGoTop(true) : setShowGoTop(false);
+  };
+  window.addEventListener('scroll', handleScroll);
 
   const handleClick = () => {
     window.scrollTo({

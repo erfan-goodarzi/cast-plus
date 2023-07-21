@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '@nextui-org/react';
 import { PlayerInterface, Track } from 'react-material-music-player';
 import { useStore } from '../../store';
-import { useLocalStorageState } from 'ahooks';
-import { useEffect } from 'react';
 
 interface PlayButtonProps {
   id: number | undefined;
@@ -21,16 +19,7 @@ export const PlayButton = ({
   feedTitle,
   url,
 }: PlayButtonProps) => {
-  const [recentPlayedEpisodes, setRecentPlayedEpisodes] = useLocalStorageState<
-    string[]
-  >('recent-played-episodes', {
-    defaultValue: [],
-  });
   const enablePlayer = useStore((state) => state.enablePlayer);
-  const recentPlayed = useStore((state) => state.setRecentPlayed);
-  useEffect(() => {
-    recentPlayed(recentPlayedEpisodes);
-  }, [recentPlayedEpisodes]);
 
   return (
     <>
@@ -40,12 +29,6 @@ export const PlayButton = ({
         onClick={() => {
           PlayerInterface.play([
             new Track(`${id}`, image, title, feedTitle, url),
-          ]);
-          setRecentPlayedEpisodes([
-            ...recentPlayedEpisodes,
-            title,
-            feedTitle,
-            image,
           ]);
           enablePlayer();
         }}
