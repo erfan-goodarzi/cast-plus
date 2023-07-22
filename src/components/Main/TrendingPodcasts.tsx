@@ -3,7 +3,7 @@ import { useGetTopPodcasts } from '../../api';
 import { EmblaCarousel } from './EmblaCarousel';
 
 export const TrendingPodcasts = () => {
-  const { data, isLoading } = useGetTopPodcasts({ max: 15 });
+  const { data, isLoading } = useGetTopPodcasts({ max: 30 });
 
   return (
     <Container>

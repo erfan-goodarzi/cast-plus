@@ -43,7 +43,7 @@ export const CategoryList = () => {
             style={{
               flexDirection: 'column',
               justifyContent: 'center',
-              padding: '15px 15px',
+              padding: '10px 15px',
             }}>
             <Card.Body
               css={{
