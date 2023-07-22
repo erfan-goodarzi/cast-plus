@@ -71,6 +71,7 @@ export const EpisodeBox = ({
               borderRadius: 4,
             }}>
             <Image
+              loading='lazy'
               css={{
                 objectFit: 'cover',
                 height: '219px',

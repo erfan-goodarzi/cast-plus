@@ -1,10 +1,4 @@
-import {
-  Container,
-  Grid,
-  Image,
-  Spacer,
-  Text,
-} from '@nextui-org/react';
+import { Container, Grid, Image, Spacer, Text } from '@nextui-org/react';
 import { useGetTopEpisode } from '../../api';
 import { removeHtmlTag } from '../../utils';
 import { BadgeInfo, Loader, PlayButton } from '../Ui';
@@ -24,7 +18,7 @@ export const TopEpisode = () => {
       <Grid.Container gap={4}>
         <Grid xs={12} lg={6} sm={6}>
           {isLoading ? (
-            <Loader size="xl" />
+            <Loader size='xl' />
           ) : (
             <Image
               css={{

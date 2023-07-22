@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from '@tanstack/react-location';
 import { Loader } from '../Ui';
+import DefaultImg from '../../assets/default-img.jpg';
 
-export const EmblaCarousel = ({
-  isLoad,
-  slides,
-}: {
+interface Props {
   slides: PIApiFeed[];
   isLoad: boolean;
-}) => {
+}
+
+export const EmblaCarousel = ({ isLoad, slides }: Props) => {
   const [viewportRef, embla] = useEmblaCarousel({
     dragFree: true,
     containScroll: 'trimSnaps',
@@ -48,7 +48,7 @@ export const EmblaCarousel = ({
                               borderRadius: '10px',
                               height: '150px',
                             }}
-                            src={pod.image}
+                            src={pod.image || DefaultImg}
                           />
                           <Text
                             css={{ fontSize: 16, fontWeight: 'bold', ml: 3 }}>

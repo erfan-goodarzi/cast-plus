@@ -43,6 +43,7 @@ export const CategoryResult = ({ category }: Props) => {
                   <Card css={{ bg: 'none', borderRadius: '$xs' }}>
                     <Card.Body css={{ p: 0 }}>
                       <Card.Image
+                        loading='lazy'
                         className='hovered-img'
                         onError={handleImgError}
                         css={{
