@@ -3,7 +3,7 @@ import { Link, useNavigate } from '@tanstack/react-location';
 import type { PIApiCategory } from 'podcastindexjs/lib/types';
 
 import { useGetTopPodcasts } from '../../api';
-import DefaultImg from '../../assets/default-img.jpg';
+import { defaultImg } from '../../Images';
 import { Badge, Loader } from '../Ui';
 
 interface Props {
@@ -18,7 +18,7 @@ export const CategoryResult = ({ category }: Props) => {
   const navigate = useNavigate();
 
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = DefaultImg;
+    e.currentTarget.src = defaultImg;
   };
 
   return (

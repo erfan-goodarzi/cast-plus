@@ -8,7 +8,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import type { PIApiFeed } from 'podcastindexjs/lib/types';
 import { useCallback } from 'react';
 
-import DefaultImg from '../../assets/default-img.jpg';
+import { defaultImg } from '../../Images';
 import { Loader } from '../Ui';
 
 interface Props {
@@ -49,7 +49,7 @@ export const EmblaCarousel = ({ isLoad, slides }: Props) => {
                           borderRadius: '10px',
                           height: '150px',
                         }}
-                        src={pod.image || DefaultImg}
+                        src={pod.image || defaultImg}
                       />
                       <Text css={{ fontSize: 16, fontWeight: 'bold', ml: 3 }}>
                         {pod.title.substring(0, 19)}

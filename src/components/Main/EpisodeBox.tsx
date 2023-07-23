@@ -12,7 +12,7 @@ import {
 } from '@nextui-org/react';
 import { useState } from 'react';
 
-import DefaultImg from '../../assets/default-img.jpg';
+import { defaultImg } from '../../Images';
 import { removeHtmlTag } from '../../utils';
 import { BadgeInfo, PlayButton, ShareButton } from '../Ui';
 
@@ -81,7 +81,7 @@ export const EpisodeBox = ({
                 height: '219px',
                 borderRadius: 3,
               }}
-              src={image || DefaultImg}
+              src={image || defaultImg}
               alt={title}
               objectFit="cover"
             />
@@ -131,7 +131,7 @@ export const EpisodeBox = ({
               <Grid>
                 <PlayButton
                   id={id}
-                  image={image || DefaultImg}
+                  image={image || defaultImg}
                   title={title}
                   feedTitle={feedTitle}
                   url={audioUrl}

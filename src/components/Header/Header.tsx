@@ -1,6 +1,6 @@
 import { Container, Spacer } from '@nextui-org/react';
 
-import BackgroundImg from '../../assets/mic-min.jpg';
+import { backgroundImg } from '../../Images';
 import { Nav } from '../Ui';
 import { HeaderDetails } from './HeaderDetails';
 
@@ -11,7 +11,7 @@ export const Header = () => {
     <Container
       xl
       css={{
-        'background': `linear-gradient(rgba(0, 29, 61 ,0.9), rgba(255, 214, 10, .5)), url(${BackgroundImg})`,
+        'background': `linear-gradient(rgba(0, 29, 61 ,0.9), rgba(255, 214, 10, .5)), url(${backgroundImg})`,
         'backgroundSize': 'auto',
         'backgroundPosition': 'center',
         'position': 'relative',

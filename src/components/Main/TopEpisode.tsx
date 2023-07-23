@@ -1,7 +1,7 @@
 import { Container, Grid, Image, Spacer, Text } from '@nextui-org/react';
 
 import { useGetTopEpisode } from '../../api';
-import DefaultImg from '../../assets/default-img.jpg';
+import { defaultImg } from '../../Images';
 import { removeHtmlTag } from '../../utils';
 import { BadgeInfo, Loader, PlayButton } from '../Ui';
 
@@ -38,7 +38,7 @@ export const TopEpisode = () => {
                   width: '528px',
                 },
               }}
-              src={topEpisode.image || DefaultImg}
+              src={topEpisode.image || defaultImg}
               alt="Default Image"
               objectFit="cover"
             />
@@ -94,7 +94,7 @@ export const TopEpisode = () => {
           <PlayButton
             id={topEpisode.id}
             title={topEpisode.title}
-            image={topEpisode.image || DefaultImg}
+            image={topEpisode.image || defaultImg}
             feedTitle={topEpisode.feedTitle}
             url={topEpisode.enclosureUrl}
           />
