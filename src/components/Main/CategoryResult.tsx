@@ -1,6 +1,7 @@
 import { Button, Card, Col, Grid, Row, Text } from '@nextui-org/react';
 import { Link, useNavigate } from '@tanstack/react-location';
-import { PIApiCategory } from 'podcastindexjs/lib/types';
+import type { PIApiCategory } from 'podcastindexjs/lib/types';
+
 import { useGetTopPodcasts } from '../../api';
 import DefaultImg from '../../assets/default-img.jpg';
 import { Badge, Loader } from '../Ui';
@@ -24,7 +25,7 @@ export const CategoryResult = ({ category }: Props) => {
     <>
       <Grid.Container css={{ gap: 12, mb: 20 }}>
         <Grid>
-          <Text h4 color='#fff'>
+          <Text h4 color="#fff">
             All Podcasts About :
           </Text>
         </Grid>
@@ -32,7 +33,7 @@ export const CategoryResult = ({ category }: Props) => {
           <Badge content={category.name} />
         </Grid>
       </Grid.Container>
-      <Row wrap='wrap' css={{ gap: 40 }}>
+      <Row wrap="wrap" css={{ gap: 40 }}>
         {isLoading ? (
           <Loader />
         ) : (
@@ -43,21 +44,21 @@ export const CategoryResult = ({ category }: Props) => {
                   <Card css={{ bg: 'none', borderRadius: '$xs' }}>
                     <Card.Body css={{ p: 0 }}>
                       <Card.Image
-                        loading='lazy'
-                        className='hovered-img'
+                        loading="lazy"
+                        className="hovered-img"
                         onError={handleImgError}
                         css={{
-                          transition: 'all .2s ease-in-out',
-                          cursor: 'pointer',
+                          'transition': 'all .2s ease-in-out',
+                          'cursor': 'pointer',
                           '&:hover': {
                             transition: 'all .2s ease-in-out',
                             transform: 'scale(1.2)',
                           },
                         }}
                         src={pod.image}
-                        objectFit='cover'
-                        width='100%'
-                        height='100%'
+                        objectFit="cover"
+                        width="100%"
+                        height="100%"
                         alt={pod.title}
                       />
                     </Card.Body>
@@ -70,34 +71,37 @@ export const CategoryResult = ({ category }: Props) => {
                         borderTop: '$borderWeights$light solid $gray800',
                         bottom: -2,
                         zIndex: 1,
-                      }}>
-                      <Row align='baseline'>
+                      }}
+                    >
+                      <Row align="baseline">
                         <Col span={8}>
-                          <Text color='#fff' weight='bold' size={14}>
+                          <Text color="#fff" weight="bold" size={14}>
                             {pod.title.substring(0, 20)}
                           </Text>
                         </Col>
                         <Col span={4}>
-                          <Row justify='flex-end'>
+                          <Row justify="flex-end">
                             <Button
                               onClick={() => {
                                 navigate({ to: `/explore/${pod.id}` });
                               }}
-                              size='sm'
+                              size="sm"
                               auto
                               bordered
                               css={{
                                 bg: '$primaryLight',
                                 borderRadius: '$xs',
-                              }}>
+                              }}
+                            >
                               <Text
                                 css={{
                                   letterSpacing: 0.4,
                                   color: '$primary',
                                 }}
-                                weight='bold'
+                                weight="bold"
                                 size={13}
-                                transform='uppercase'>
+                                transform="uppercase"
+                              >
                                 Listen
                               </Text>
                             </Button>
@@ -108,7 +112,7 @@ export const CategoryResult = ({ category }: Props) => {
                   </Card>
                 </Link>
               </Col>
-            )
+            ),
           )
         )}
       </Row>

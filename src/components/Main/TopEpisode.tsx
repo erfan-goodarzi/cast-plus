@@ -1,8 +1,9 @@
 import { Container, Grid, Image, Spacer, Text } from '@nextui-org/react';
+
 import { useGetTopEpisode } from '../../api';
+import DefaultImg from '../../assets/default-img.jpg';
 import { removeHtmlTag } from '../../utils';
 import { BadgeInfo, Loader, PlayButton } from '../Ui';
-import DefaultImg from '../../assets/default-img.jpg';
 
 export const TopEpisode = () => {
   const { data, isLoading } = useGetTopEpisode();
@@ -14,17 +15,18 @@ export const TopEpisode = () => {
       css={{
         background: '#0F172B',
         height: 'auto',
-      }}>
+      }}
+    >
       <Grid.Container gap={4}>
         <Grid xs={12} lg={6} sm={6}>
           {isLoading ? (
-            <Loader size='xl' />
+            <Loader size="xl" />
           ) : (
             <Image
               css={{
-                clipPath: 'inset(5% 6% 7% 7% round 40% 3px 40% 3px)',
-                height: '285px',
-                width: '528px',
+                'clipPath': 'inset(5% 6% 7% 7% round 40% 3px 40% 3px)',
+                'height': '285px',
+                'width': '528px',
                 '@xs': {
                   width: '336px',
                 },
@@ -37,8 +39,8 @@ export const TopEpisode = () => {
                 },
               }}
               src={topEpisode.image || DefaultImg}
-              alt='Default Image'
-              objectFit='cover'
+              alt="Default Image"
+              objectFit="cover"
             />
           )}
         </Grid>
@@ -46,43 +48,46 @@ export const TopEpisode = () => {
           xs={12}
           lg={6}
           sm={6}
-          css={{ display: 'block !important', mt: 7 }}>
+          css={{ display: 'block !important', mt: 7 }}
+        >
           <BadgeInfo
             channel={topEpisode.feedTitle}
             time={topEpisode.datePublishedPretty}
             path={topEpisode.feedId}
           />
           <Text
-            color='#fff'
+            color="#fff"
             css={{
-              mt: 13,
-              width: '100%',
-              textAlign: 'center',
-              fontSize: '27px',
-              letterSpacing: '1px',
-              lineHeight: '1.2',
+              'mt': 13,
+              'width': '100%',
+              'textAlign': 'center',
+              'fontSize': '27px',
+              'letterSpacing': '1px',
+              'lineHeight': '1.2',
               '@lg': {
                 fontSize: '46px',
                 width: '78%',
                 textAlign: 'left',
               },
-            }}>
+            }}
+          >
             {topEpisode.title}
           </Text>
           <Text
-            color='#d6d6d6'
+            color="#d6d6d6"
             css={{
-              mt: 23,
-              width: '100%',
-              textAlign: 'center',
-              fontSize: '15px',
-              lineHeight: '1.i5',
+              'mt': 23,
+              'width': '100%',
+              'textAlign': 'center',
+              'fontSize': '15px',
+              'lineHeight': '1.i5',
               '@lg': {
                 fontSize: '18px',
                 width: '78%',
                 textAlign: 'left',
               },
-            }}>
+            }}
+          >
             {removeHtmlTag(topEpisode.description)}
           </Text>
           <Spacer />

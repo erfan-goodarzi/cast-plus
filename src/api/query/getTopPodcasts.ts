@@ -1,5 +1,6 @@
-import { client } from '..';
 import { useQuery } from 'react-query';
+
+import { client } from '../Client';
 
 interface TopPodcastsArgs {
   cat?: string;
@@ -7,12 +8,11 @@ interface TopPodcastsArgs {
 }
 
 const getTopPodcasts = ({ cat, max }: TopPodcastsArgs): Promise<TopPodcast> => {
-  return client.raw('/podcasts/trending', { max: max, cat: cat });
+  return client.raw('/podcasts/trending', { max, cat });
 };
 
 export const useGetTopPodcasts = ({ cat, max }: TopPodcastsArgs) => {
-  return useQuery<TopPodcast>(
-    [`Podcast`, cat, max],
-    async () => await getTopPodcasts({ cat: cat, max: max })
+  return useQuery<TopPodcast>([`Podcast`, cat, max], async () =>
+    getTopPodcasts({ cat, max }),
   );
 };

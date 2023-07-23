@@ -1,10 +1,10 @@
-import { Avatar, Button, Container, Spacer, Text } from '@nextui-org/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
-import { useMediaQuery } from 'react-responsive';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Avatar, Button, Container, Spacer, Text } from '@nextui-org/react';
 import { Link } from '@tanstack/react-location';
+import { useMediaQuery } from 'react-responsive';
 
-const HeaderDetails = () => {
+export const HeaderDetails = () => {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   const pictureUsers = [
@@ -19,13 +19,13 @@ const HeaderDetails = () => {
     <Container css={{ paddingTop: '5.5rem' }}>
       <Text
         h1
-        color='#fff'
+        color="#fff"
         css={{
-          marginInline: 'auto',
-          fontSize: '28px',
-          width: '100%',
-          textAlign: 'center',
-          lineHeight: '1.2',
+          'marginInline': 'auto',
+          'fontSize': '28px',
+          'width': '100%',
+          'textAlign': 'center',
+          'lineHeight': '1.2',
           '@xs': {
             fontSize: '45px',
           },
@@ -37,17 +37,18 @@ const HeaderDetails = () => {
             width: '54%',
             fontSize: '56px',
           },
-        }}>
+        }}
+      >
         Discover better insight every single day.
       </Text>
       <Spacer />
       <Text
-        color='#c4c4c4'
+        color="#c4c4c4"
         css={{
-          marginInline: 'auto',
-          width: '100%',
-          textAlign: 'center',
-          fontSize: '15px',
+          'marginInline': 'auto',
+          'width': '100%',
+          'textAlign': 'center',
+          'fontSize': '15px',
           '@sm': {
             width: '51%',
           },
@@ -55,39 +56,41 @@ const HeaderDetails = () => {
             width: '54%',
             fontSize: '21px',
           },
-        }}>
+        }}
+      >
         Discovered latest top-notch stories from world wide community. quality
         informative podcast and verified creators.
       </Text>
       <Button
         css={{
-          marginInline: 'auto',
-          color: '$accents0',
-          mt: 22,
-          background: '#0F172B',
-          border: 'none',
-          borderRadius: '3px',
-          padding: '12px 13px',
-          fontSize: '12px',
+          'marginInline': 'auto',
+          'color': '$accents0',
+          'mt': 22,
+          'background': '#0F172B',
+          'border': 'none',
+          'borderRadius': '3px',
+          'padding': '12px 13px',
+          'fontSize': '12px',
           '@lg': {
             fontSize: '16px',
             padding: '22px 28px',
           },
         }}
         auto
-        iconRight={<FontAwesomeIcon icon={faAnglesRight} />}>
-        <Link to='/explore'>Browse Podcast</Link>
+        iconRight={<FontAwesomeIcon icon={faAnglesRight} />}
+      >
+        <Link to="/explore">Browse Podcast</Link>
       </Button>
       {isTabletOrMobile ? <Spacer y={6} /> : <Spacer y={9} />}
       <Avatar.Group css={{ position: 'absolute', bottom: '3rem' }}>
-        {pictureUsers.map((url, index) => (
+        {pictureUsers.map(url => (
           <Avatar
-            key={index}
-            size='lg'
+            key={Object.values(url).join('-')}
+            size="lg"
             pointer
             src={url}
             bordered
-            color='gradient'
+            color="gradient"
             stacked
           />
         ))}
@@ -100,5 +103,3 @@ const HeaderDetails = () => {
     </Container>
   );
 };
-
-export default HeaderDetails;

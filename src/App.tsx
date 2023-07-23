@@ -1,10 +1,11 @@
 import Player from 'react-material-music-player';
-import { GlobalStyles } from './style';
-import { useStore } from './store';
-import { Routes } from './Routes';
-import { ScrollToTop } from './components';
 
-function App() {
+import { ScrollToTop } from './components';
+import { Routes } from './Routes';
+import { useStore } from './store';
+import { GlobalStyles } from './style';
+
+const App = () => {
   const { isEpisodePlay } = useStore();
 
   GlobalStyles();
@@ -25,6 +26,6 @@ function App() {
       <Routes />
     </>
   );
-}
+};
 
 export default App;

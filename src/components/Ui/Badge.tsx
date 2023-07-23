@@ -1,4 +1,5 @@
-import { Badge as NextBadge, NormalSizes } from '@nextui-org/react';
+import type { NormalSizes } from '@nextui-org/react';
+import { Badge as NextBadge } from '@nextui-org/react';
 
 interface Props {
   content: string;
@@ -15,7 +16,8 @@ export const Badge = ({ content, size }: Props) => {
         fontSize: 13,
       }}
       isSquared
-      variant='bordered'>
+      variant="bordered"
+    >
       {content}
     </NextBadge>
   );

@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+
 import { client } from '../Client';
 
 const searchPodcasts = (query: string) => {
@@ -6,11 +7,7 @@ const searchPodcasts = (query: string) => {
 };
 
 export const useSearchPodcasts = (query: string) => {
-  return useQuery(
-    ['searchPodcast', query],
-    async () => await searchPodcasts(query),
-    {
-      enabled: !!query,
-    }
-  );
+  return useQuery(['searchPodcast', query], async () => searchPodcasts(query), {
+    enabled: !!query,
+  });
 };

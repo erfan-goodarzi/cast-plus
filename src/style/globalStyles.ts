@@ -1,7 +1,7 @@
 import { globalCss } from '@nextui-org/react';
 
 export const GlobalStyles = globalCss({
-  body: {
+  'body': {
     color: '#fff',
     boxSizing: 'border-box',
     margin: 0,
@@ -18,7 +18,7 @@ export const GlobalStyles = globalCss({
   '::-webkit-scrollbar-thumb:hover': {
     backgroundColor: 'rgb(103 103 103)',
   },
-  a: { color: '#fff !important' },
+  'a': { color: '#fff !important' },
 
   '.MuiSlider-thumb': {
     color: '#000',
@@ -37,8 +37,8 @@ export const GlobalStyles = globalCss({
     fontWeight: '700',
   },
   '.hovered-img': {
-    position: 'relative',
-    cursor: 'pointer',
+    'position': 'relative',
+    'cursor': 'pointer',
     '&::before': {
       transition: 'opacity 0.3s ease-in-out',
       opacity: 0,
@@ -66,16 +66,16 @@ export const GlobalStyles = globalCss({
   // tab styles
   '.react-tabs__tab-list': { margin: '0', padding: '0' },
   '.react-tabs__tab': {
-    display: 'flex',
-    outline: 'none',
-    padding: '10px 21px',
-    color: '#fff',
-    fontSize: '16px',
-    fontWeight: 600,
-    cursor: 'pointer',
-    border: 'none',
-    backgroundColor: 'transparent',
-    transition: 'all 0.2s ease-in-out 0s',
+    'display': 'flex',
+    'outline': 'none',
+    'padding': '10px 21px',
+    'color': '#fff',
+    'fontSize': '16px',
+    'fontWeight': 600,
+    'cursor': 'pointer',
+    'border': 'none',
+    'backgroundColor': 'transparent',
+    'transition': 'all 0.2s ease-in-out 0s',
     '&:hover': {
       background: '#ffd60a',
       color: '#00254d',

@@ -1,6 +1,7 @@
 import { Container, Grid } from '@nextui-org/react';
 import { Outlet } from '@tanstack/react-location';
 import { useMediaQuery } from 'react-responsive';
+
 import { MobileNav, Nav } from '../Ui';
 
 export const AppLayout = () => {
@@ -14,7 +15,8 @@ export const AppLayout = () => {
       css={{
         background: 'rgb(15, 23, 43)',
         minHeight: '100vh',
-      }}>
+      }}
+    >
       {isTabletOrMobile ? <MobileNav /> : <Nav />}
       <Grid.Container style={{ padding: '30px 30px' }}>
         <Outlet />

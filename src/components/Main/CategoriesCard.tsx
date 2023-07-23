@@ -1,4 +1,5 @@
 import { Card, Container, Text } from '@nextui-org/react';
+
 import { CategoryList } from '../Ui';
 
 export const CategoriesCard = () => {
@@ -6,14 +7,15 @@ export const CategoriesCard = () => {
     <Container>
       <Text
         h2
-        color='#fff'
+        color="#fff"
         css={{
           '@lg': {
             fontSize: '29px',
             fontWeight: 'bold',
             margin: '4px 8px',
           },
-        }}>
+        }}
+      >
         All Categories
       </Text>
       <Card
@@ -26,7 +28,8 @@ export const CategoriesCard = () => {
           height: '70vh',
           overflowY: 'scroll',
           width: '85%',
-        }}>
+        }}
+      >
         <CategoryList />
       </Card>
     </Container>

@@ -23,7 +23,7 @@ interface ShareButtonProps {
 
 export const ShareButton = ({ podcastTitle, shareUrl }: ShareButtonProps) => {
   return (
-    <Popover isBordered placement='top'>
+    <Popover isBordered placement="top">
       <Popover.Trigger>
         <Button
           bordered
@@ -34,17 +34,18 @@ export const ShareButton = ({ podcastTitle, shareUrl }: ShareButtonProps) => {
             p: '2px 24px',
             borderRadius: 3,
           }}
-          auto>
+          auto
+        >
           Share
         </Button>
       </Popover.Trigger>
       <Popover.Content css={{ p: '10px 21px', width: '20%' }}>
-        <Text size='$lg'>
+        <Text size="$lg">
           Share <span style={{ fontWeight: 900 }}>{podcastTitle}</span> Podcast
           With Your Friend
         </Text>
         <Row css={{ gap: 25, pt: 10 }}>
-          {/*FIXME: this part should change later. it's a shit code.*/}
+          {/* FIXME: this part should change later. it's a shit code.*/}
           <FacebookShareButton url={shareUrl} quote={`Title: ${podcastTitle}`}>
             <FacebookIcon size={32} round />
           </FacebookShareButton>

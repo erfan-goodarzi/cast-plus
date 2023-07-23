@@ -1,12 +1,11 @@
 import { Text } from '@nextui-org/react';
-import {
+import type {
   MakeGenerics,
-  Navigate,
-  ReactLocation,
-  Router,
+  Route as LocationRoute,
 } from '@tanstack/react-location';
+import { Navigate, ReactLocation, Router } from '@tanstack/react-location';
+
 import { AppLayout } from './components';
-import { type Route as LocationRoute } from '@tanstack/react-location';
 import { Categories, Explore, Home, PodcastDetails } from './pages';
 
 export interface Route extends Omit<LocationRoute<LocationGenerics>, 'path'> {
@@ -29,7 +28,7 @@ const routes: Route[] = [
         element: <Explore />,
         children: [{ path: ':podcastId', element: <PodcastDetails /> }],
       },
-      { element: <Navigate to='/home' /> },
+      { element: <Navigate to="/home" /> },
     ],
   },
   {
@@ -41,7 +40,7 @@ const routes: Route[] = [
     element: <Text>This is podcast page</Text>,
   },
   {
-    element: <Navigate to='/home' />,
+    element: <Navigate to="/home" />,
   },
 ];
 

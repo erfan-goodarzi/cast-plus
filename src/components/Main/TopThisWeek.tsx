@@ -1,12 +1,7 @@
-import {
-  Card,
-  Container,
-  Grid,
-  Spacer,
-  Text,
-} from '@nextui-org/react';
-import { useGetTopThisWeek } from '../../api';
+import { Card, Container, Grid, Spacer, Text } from '@nextui-org/react';
 import { Link } from '@tanstack/react-location';
+
+import { useGetTopThisWeek } from '../../api';
 import { Loader } from '../Ui';
 
 export const TopThisWeek = () => {
@@ -15,12 +10,12 @@ export const TopThisWeek = () => {
     <Container>
       <Card
         css={{
-          background: 'transparent',
-          zIndex: 1,
-          width: 'auto',
-          height: 'auto',
-          padding: '15px 5px',
-          transition: 'all 0.2s ease-in-out',
+          'background': 'transparent',
+          'zIndex': 1,
+          'width': 'auto',
+          'height': 'auto',
+          'padding': '15px 5px',
+          'transition': 'all 0.2s ease-in-out',
           '&:hover': {
             transition: 'all 0.4s ease-in-out',
             padding: '24px 29px',
@@ -28,22 +23,25 @@ export const TopThisWeek = () => {
             cursor: 'pointer',
             boxShadow: ' 7px 7px 14px 2px #a7a7a7',
           },
-        }}>
+        }}
+      >
         <Text
           h1
           css={{
             '@lg': {
               fontSize: '29px',
             },
-          }}>
+          }}
+        >
           Trending This Week
         </Text>
-        {isLoading && <Loader />}
-        {data?.feeds.map((item) => (
+        {isLoading ? <Loader /> : null}
+        {data?.feeds.map(item => (
           <Grid.Container key={item.id}>
             <Grid lg={3}>
               <Link to={item.id}>
                 <img
+                  alt={item.title}
                   src={item.image}
                   width={243}
                   height={250}
@@ -54,11 +52,11 @@ export const TopThisWeek = () => {
               </Link>
             </Grid>
             <Grid lg={8} css={{ display: 'inline-block !important' }}>
-              <Text size='$lg' b>
+              <Text size="$lg" b>
                 {item.title}
               </Text>
               <Spacer y={1} />
-              <Text color='gray' size='$md'>
+              <Text color="gray" size="$md">
                 {item.description.substring(0, 600)}
               </Text>
             </Grid>

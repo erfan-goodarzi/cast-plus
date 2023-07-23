@@ -1,4 +1,4 @@
-import { PIApiFeed } from 'podcastindexjs/lib/types';
+import type { PIApiFeed } from 'podcastindexjs/lib/types';
 import create from 'zustand';
 
 interface PlayerState {
@@ -8,9 +8,9 @@ interface PlayerState {
   setSearchResult: (v: PIApiFeed[] | null) => void;
 }
 
-export const useStore = create<PlayerState>((set) => ({
+export const useStore = create<PlayerState>(set => ({
   isEpisodePlay: false,
   enablePlayer: () => set(() => ({ isEpisodePlay: true })),
   searchResult: null,
-  setSearchResult: (v) => set(() => ({ searchResult: v })),
+  setSearchResult: v => set(() => ({ searchResult: v })),
 }));

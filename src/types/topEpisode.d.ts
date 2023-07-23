@@ -1,5 +1,5 @@
 interface TopPodcast {
-  feeds: SetStateAction<Array>;
+  feeds: SetStateAction<any[]>;
   podcasts: {
     data: feeds[];
   };
@@ -7,7 +7,7 @@ interface TopPodcast {
 
 interface Categories {
   status: ApiResponse.Status;
-  feeds: Array<PIApiCategory>;
+  feeds: PIApiCategory[];
   count: number;
   description: string;
 }

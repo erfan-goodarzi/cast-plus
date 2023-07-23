@@ -16,11 +16,13 @@ export const ScrollToTop = () => {
   const debounce = useDebounce(showGoTop, { wait: 200 });
 
   const handleScroll = () => {
-    window.pageYOffset > 3000 ? setShowGoTop(true) : setShowGoTop(false);
+    const goTop = window.scrollY > 2000;
+    setShowGoTop(goTop);
   };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -33,24 +35,20 @@ export const ScrollToTop = () => {
     });
   };
 
-  return (
-    <>
-      {debounce ? (
-        <Button
-          onClick={handleClick}
-          css={{
-            position: 'fixed',
-            bottom: 20,
-            right: 30,
-            '&:hover': {
-              animation: `${scaleUp} 600ms infinite`,
-            },
-          }}
-          auto
-          color='primary'
-          icon={<FontAwesomeIcon icon={faAngleUp} />}
-        />
-      ) : null}
-    </>
-  );
+  return debounce ? (
+    <Button
+      onClick={handleClick}
+      css={{
+        'position': 'fixed',
+        'bottom': 20,
+        'right': 30,
+        '&:hover': {
+          animation: `${scaleUp()} 600ms infinite`,
+        },
+      }}
+      auto
+      color="primary"
+      icon={<FontAwesomeIcon icon={faAngleUp} />}
+    />
+  ) : null;
 };

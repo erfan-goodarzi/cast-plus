@@ -1,5 +1,6 @@
-import { client } from '..';
 import { useQuery } from 'react-query';
+
+import { client } from '../Client';
 
 export const getPodcastById = (id: number) => {
   return client.podcastById(id);

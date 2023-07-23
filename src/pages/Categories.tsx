@@ -1,16 +1,11 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  Button,
-  Card,
-  Container,
-  FormElement,
-  Grid,
-  Input,
-} from '@nextui-org/react';
+import type { FormElement } from '@nextui-org/react';
+import { Button, Card, Container, Grid, Input } from '@nextui-org/react';
 import { useNavigate } from '@tanstack/react-location';
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+
 import { useGetCategories } from '../api';
 import { CategoryResult, Loader } from '../components';
 
@@ -24,7 +19,8 @@ export const Categories = () => {
 
   useEffect(() => {
     const hash = location.hash.substr(1);
-    const index = data?.feeds.findIndex((c) => c.name.toLowerCase() === hash);
+    const index = data?.feeds.findIndex(c => c.name.toLowerCase() === hash);
+
     if (index !== undefined && index >= 0) {
       setSelectedTab(index);
     }
@@ -35,12 +31,12 @@ export const Categories = () => {
     setSearchTerm(e.target.value.toLowerCase());
   };
 
-  const filteredCategories = data?.feeds.filter((category) =>
-    category.name.toLowerCase().includes(searchTerm)
+  const filteredCategories = data?.feeds.filter(category =>
+    category.name.toLowerCase().includes(searchTerm),
   );
 
   const onLoadMore = () => {
-    setItemsToShow((prevState) => prevState + ITEMS_INCREMENT);
+    setItemsToShow(prevState => prevState + ITEMS_INCREMENT);
   };
 
   if (isLoading) return <Loader />;
@@ -48,9 +44,10 @@ export const Categories = () => {
     <Container css={{ mt: 30, height: '81vh', overflowX: 'hidden' }}>
       <Tabs
         selectedIndex={selectedTab}
-        onSelect={(index) => setSelectedTab(index)}
-        className='react-tabs'>
-        <Grid.Container css={{ gap: 70, width: '100%' }} wrap='nowrap'>
+        onSelect={index => setSelectedTab(index)}
+        className="react-tabs"
+      >
+        <Grid.Container css={{ gap: 70, width: '100%' }} wrap="nowrap">
           <Grid>
             <Card
               css={{
@@ -61,25 +58,26 @@ export const Categories = () => {
                 position: 'sticky',
                 zIndex: 1,
                 top: 0,
-              }}>
+              }}
+            >
               <Input
-                aria-label='search'
+                aria-label="search"
                 onChange={handleSearchInputChange}
-                width='190px'
+                width="190px"
                 underlined
-                status='primary'
-                placeholder='Explore categories'
-                size='md'
+                status="primary"
+                placeholder="Explore categories"
+                size="md"
                 css={{
-                  mb: 15,
+                  'mb': 15,
                   '::placeholder': {
                     color: '#fff',
                   },
                 }}
-                contentLeft={<FontAwesomeIcon size='xs' icon={faSearch} />}
+                contentLeft={<FontAwesomeIcon size="xs" icon={faSearch} />}
               />
               <TabList>
-                {filteredCategories?.slice(0, itemsToShow).map((c) => (
+                {filteredCategories?.slice(0, itemsToShow).map(c => (
                   <Tab
                     onClick={() =>
                       navigate({
@@ -87,7 +85,8 @@ export const Categories = () => {
                         hash: c.name.toLowerCase(),
                       })
                     }
-                    key={c.id}>
+                    key={c.id}
+                  >
                     {c.name}
                   </Tab>
                 ))}
@@ -98,14 +97,15 @@ export const Categories = () => {
                     background: 'transparent',
                     color: '$primary',
                     borderTop: '1px solid #fff',
-                  }}>
+                  }}
+                >
                   See More
                 </Button>
               </TabList>
             </Card>
           </Grid>
           <Grid>
-            {filteredCategories?.slice(0, itemsToShow).map((c) => (
+            {filteredCategories?.slice(0, itemsToShow).map(c => (
               <TabPanel key={c.id}>
                 <CategoryResult category={c} />
               </TabPanel>

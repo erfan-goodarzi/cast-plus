@@ -1,5 +1,5 @@
+import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import {
-  IconDefinition,
   faBook,
   faBriefcase,
   faBrush,

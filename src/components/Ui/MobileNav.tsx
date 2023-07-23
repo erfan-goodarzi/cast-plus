@@ -5,7 +5,8 @@ export const MobileNav = () => {
   return (
     <Grid.Container
       gap={3}
-      css={{ justifyContent: 'space-around', height: '100px' }}>
+      css={{ justifyContent: 'space-around', height: '100px' }}
+    >
       <Grid xs={12}>
         <Text
           h1
@@ -15,7 +16,8 @@ export const MobileNav = () => {
             padding: '3px 6px',
             ml: '7.5rem',
           }}
-          weight='bold'>
+          weight="bold"
+        >
           Cast
         </Text>
         <Text
@@ -24,23 +26,25 @@ export const MobileNav = () => {
           css={{
             color: '#FFD60A',
           }}
-          weight='bold'>
+          weight="bold"
+        >
           +
         </Text>
       </Grid>
       <Grid xs={12}>
-        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/home'>
+        <Link style={{ fontSize: '14px', padding: '0 11px' }} to="/home">
           Home
         </Link>
-        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/explore'>
+        <Link style={{ fontSize: '14px', padding: '0 11px' }} to="/explore">
           Explore
         </Link>
-        <Link style={{ fontSize: '14px', padding: '0 11px' }} to='/trending'>
+        <Link style={{ fontSize: '14px', padding: '0 11px' }} to="/trending">
           Trending
         </Link>
         <Link
           style={{ fontSize: '14px', padding: '0 11px', width: '120%' }}
-          to='/podcasts'>
+          to="/podcasts"
+        >
           Podcasts
         </Link>
       </Grid>

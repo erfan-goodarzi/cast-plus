@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+
 import { client } from '../Client';
 
 export const geEpisodeById = (id: number) => {

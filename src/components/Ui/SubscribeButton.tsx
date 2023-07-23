@@ -2,7 +2,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, keyframes } from '@nextui-org/react';
 import { useLocalStorageState, useToggle } from 'ahooks';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const bellAnimation = keyframes({
   '0%': { transform: 'rotate(0deg)' },
@@ -28,22 +28,21 @@ export const SubscribeButton = ({ podcastId }: Props) => {
   const [isToggled, { toggle: toggleSubscription }] = useToggle();
   const [localStorageData, setLocalStorageData] = useLocalStorageState<Storage>(
     'SubscribedPodcasts',
-    { defaultValue: { podcast: { isSubscribed: false, id: [] } } }
+    { defaultValue: { podcast: { isSubscribed: false, id: [] } } },
   );
-
-  let didInit = false; // Prevent running twice.
+  const didInit = useRef(false); // Prevent running twice.
 
   useEffect(() => {
-    if (!didInit) {
-      didInit = true;
-      setLocalStorageData((prevState) => ({
+    if (!didInit.current) {
+      didInit.current = true;
+      setLocalStorageData(prevState => ({
         podcast: {
           ...prevState!.podcast,
           isSubscribed: localStorageData.podcast.id.includes(podcastId),
         },
       }));
     }
-  }, []);
+  }, [localStorageData.podcast.id, podcastId, setLocalStorageData]);
 
   const labels = ['subscribe', 'unsubscribe'];
   const isPodSubscribed = localStorageData.podcast.isSubscribed;
@@ -51,12 +50,12 @@ export const SubscribeButton = ({ podcastId }: Props) => {
   return (
     <Button
       bordered
-      onPress={(e) => {
+      onPress={e => {
         toggleSubscription();
-        setLocalStorageData((prevState) => {
+        setLocalStorageData(prevState => {
           const updatedIds = prevState?.podcast.id.includes(podcastId)
-            ? prevState?.podcast.id.filter((id) => id !== podcastId)
-            : [...(prevState?.podcast.id || []), podcastId];
+            ? prevState.podcast.id.filter(id => id !== podcastId)
+            : [...(prevState?.podcast.id ?? []), podcastId];
 
           return {
             podcast: {
@@ -66,7 +65,7 @@ export const SubscribeButton = ({ podcastId }: Props) => {
           };
         });
         const bellIcon = e.target.querySelector('svg');
-        bellIcon!.style.animation = `${bellAnimation} .7s`;
+        bellIcon!.style.animation = `${bellAnimation()} .7s`;
         bellIcon!.style.animationIterationCount = '2';
         // reset the animation trigger
         bellIcon!.addEventListener('animationend', () => {
@@ -79,7 +78,8 @@ export const SubscribeButton = ({ podcastId }: Props) => {
         borderColor: isPodSubscribed ? '$primary' : '#fff',
         borderRadius: 3,
       }}
-      auto>
+      auto
+    >
       {labels[Number(isPodSubscribed)]}
     </Button>
   );
