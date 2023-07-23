@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+import { useGeEpisodeById, useGetPodcastById } from '@cast/api';
 import {
   Button,
   Col,
@@ -12,7 +13,6 @@ import {
 import { useMatch } from '@tanstack/react-location';
 import { useState } from 'react';
 
-import { useGeEpisodeById, useGetPodcastById } from '../api';
 import {
   Badge,
   EpisodeBox,

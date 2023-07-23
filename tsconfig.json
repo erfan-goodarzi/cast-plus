@@ -5,7 +5,7 @@
     "target": "ESNext",
     "esModuleInterop": true,
     "paths": {
-      "@camp/api-client": ["./libs/api-client/index.ts"]
+      "@cast/api": ["./src/api/query/index.ts"]
     }
   },
   "include": ["src"],

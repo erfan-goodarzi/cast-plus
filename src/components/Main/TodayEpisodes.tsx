@@ -1,6 +1,6 @@
+import { useGetTopEpisode } from '@cast/api';
 import { Container, Grid, Text } from '@nextui-org/react';
 
-import { useGetTopEpisode } from '../../api';
 import { Loader } from '../Ui';
 import { EpisodeBox } from './EpisodeBox';
 

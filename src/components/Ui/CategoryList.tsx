@@ -1,3 +1,4 @@
+import { useGetCategories } from '@cast/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { SimpleColors } from '@nextui-org/react';
 import { Badge, Card, Grid, simpleColors } from '@nextui-org/react';
@@ -5,7 +6,6 @@ import { useNavigate } from '@tanstack/react-location';
 import type { PIApiCategory } from 'podcastindexjs/lib/types';
 import { useEffect, useState } from 'react';
 
-import { useGetCategories } from '../../api';
 import type { IconList } from '../../Icons';
 import { iconList } from '../../Icons';
 import { Loader } from './Loader';

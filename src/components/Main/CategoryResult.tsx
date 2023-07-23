@@ -1,8 +1,8 @@
+import { useGetTopPodcasts } from '@cast/api';
 import { Button, Card, Col, Grid, Row, Text } from '@nextui-org/react';
 import { Link, useNavigate } from '@tanstack/react-location';
 import type { PIApiCategory } from 'podcastindexjs/lib/types';
 
-import { useGetTopPodcasts } from '../../api';
 import { defaultImg } from '../../Images';
 import { Badge, Loader } from '../Ui';
 

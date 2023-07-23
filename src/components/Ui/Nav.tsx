@@ -1,4 +1,5 @@
 /* eslint-disable max-lines-per-function */
+import { useSearchPodcasts } from '@cast/api';
 import {
   faHeadphonesSimple,
   faSearch,
@@ -10,7 +11,6 @@ import { Link, useLocation } from '@tanstack/react-location';
 import type { ChangeEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-import { useSearchPodcasts } from '../../api';
 import { useStore } from '../../store';
 import { Badge } from './Badge';
 import { Loader } from './Loader';

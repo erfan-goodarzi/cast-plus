@@ -1,7 +1,7 @@
+import { useGetTopThisWeek } from '@cast/api';
 import { Card, Container, Grid, Spacer, Text } from '@nextui-org/react';
 import { Link } from '@tanstack/react-location';
 
-import { useGetTopThisWeek } from '../../api';
 import { Loader } from '../Ui';
 
 export const TopThisWeek = () => {

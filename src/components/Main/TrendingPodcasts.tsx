@@ -1,6 +1,6 @@
+import { useGetTopPodcasts } from '@cast/api';
 import { Container, Text } from '@nextui-org/react';
 
-import { useGetTopPodcasts } from '../../api';
 import { EmblaCarousel } from './EmblaCarousel';
 
 export const TrendingPodcasts = () => {

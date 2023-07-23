@@ -1,6 +1,6 @@
+import { useGetTopEpisode } from '@cast/api';
 import { Container, Grid, Image, Spacer, Text } from '@nextui-org/react';
 
-import { useGetTopEpisode } from '../../api';
 import { defaultImg } from '../../Images';
 import { removeHtmlTag } from '../../utils';
 import { BadgeInfo, Loader, PlayButton } from '../Ui';
