@@ -1,18 +1,15 @@
-/* eslint-disable max-lines-per-function */
 import { useSearchPodcasts } from '@cast/api';
-import { Badge, Loader } from '@cast/design';
-import {
-  faHeadphonesSimple,
-  faSearch,
-} from '@fortawesome/free-solid-svg-icons';
+import { Badge, Brand, SearchInput } from '@cast/design';
+import { faHeadphonesSimple } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { FormElement } from '@nextui-org/react';
-import { Button, Card, Grid, Input, Navbar, Text } from '@nextui-org/react';
+import { Button, Navbar } from '@nextui-org/react';
 import { Link, useLocation } from '@tanstack/react-location';
 import type { ChangeEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 import { useStore } from '../../store';
+import { SearchResult } from '../Search';
 
 export interface NavLinkItems {
   label: string;
@@ -78,34 +75,9 @@ export const Nav = () => {
         backdropFilter: 'unset !important',
       }}
     >
+      <Navbar.Toggle showIn="xs" />
       <Link to="/">
-        <Navbar.Brand>
-          <Text
-            h1
-            size={24}
-            css={{
-              'color': '#fff',
-              'marginLeft': '0rem',
-              'padding': '3px 6px',
-              '@lg': {
-                marginLeft: '2rem',
-              },
-            }}
-            weight="bold"
-          >
-            Cast
-          </Text>
-          <Text
-            h1
-            size={28}
-            css={{
-              color: '#FFD60A',
-            }}
-            weight="bold"
-          >
-            +
-          </Text>
-        </Navbar.Brand>
+        <Brand />
       </Link>
       <Navbar.Content
         hideIn="sm"
@@ -134,78 +106,24 @@ export const Nav = () => {
           position: 'relative',
           display: 'inline',
           pt: '1.3rem',
+          width: 300,
         }}
       >
         <Navbar.Item>
-          <Input
-            ref={inputRef}
-            aria-label="search"
-            onChange={handleChange}
-            clearable
-            underlined
-            status="primary"
-            color="primary"
-            placeholder="Search for Podcasts"
+          <SearchInput
             width="300px"
+            ref={inputRef}
+            changeHandler={handleChange}
+            placeholder="Search for Podcasts"
             size="lg"
-            css={{
-              'fontSize': '40xp',
-              '::placeholder': {
-                color: '#fff',
-              },
-            }}
-            contentLeft={
-              isLoading ? (
-                <Loader size="xs" />
-              ) : (
-                <FontAwesomeIcon icon={faSearch} />
-              )
-            }
+            isLoading={isLoading}
           />
         </Navbar.Item>
-        <Card
-          css={{
-            display: isVisible ? 'block' : 'none',
-            position: 'absolute',
-            height: '53vh',
-            overflowY: 'scroll',
-            mt: 20,
-            width: '145%',
-            borderRadius: 3,
-          }}
-        >
-          {searchResult?.map(({ title, ownerName, image, id }) => (
-            <Link to={`/explore/${id}`} replace key={id}>
-              <Card.Header
-                onClick={() => clearCardResult()}
-                css={{
-                  'border': '1px solid #ddd',
-                  'transition': 'all 0.3s ease-in-out',
-                  '&:hover': {
-                    boxShadow: '-1px 3px 16px 13px #ddd',
-                  },
-                }}
-              >
-                <img alt={title} src={image} width="70px" height="70px" />
-                <Grid.Container
-                  direction="column"
-                  css={{
-                    pl: 12,
-                  }}
-                >
-                  <Grid xs={12}>
-                    <Text size="$lg">{title}</Text>
-                  </Grid>
-                  <Grid xs={12}>
-                    <Text css={{ color: '$accents8' }}>
-                      Made By: {ownerName.substring(0, 30)}
-                    </Text>
-                  </Grid>
-                </Grid.Container>
-              </Card.Header>
-            </Link>
-          ))}
-        </Card>
+        <SearchResult
+          isVisible={isVisible}
+          clearHandler={clearCardResult}
+          result={searchResult}
+        />
       </Navbar.Content>
       <Navbar.Content
         css={{
@@ -238,20 +156,6 @@ export const Nav = () => {
           <Link to="/explore"> Start Listening</Link>
         </Button>
       </Navbar.Content>
-      <Navbar.Collapse>
-        {links.map((item, index) => (
-          <Navbar.CollapseItem
-            key={item.label}
-            activeColor="warning"
-            css={{
-              color: index === item.label.length - 1 ? '$error' : '',
-            }}
-            isActive={index === 2}
-          >
-            <Link color="inherit">{item.label}</Link>
-          </Navbar.CollapseItem>
-        ))}
-      </Navbar.Collapse>
     </Navbar>
   );
 };

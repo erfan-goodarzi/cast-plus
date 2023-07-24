@@ -1,5 +1,5 @@
 import { useGetCategories } from '@cast/api';
-import { Loader } from '@cast/design';
+import { Loader, SearchInput } from '@cast/design';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { FormElement } from '@nextui-org/react';
@@ -61,21 +61,12 @@ export const Categories = () => {
                 top: 0,
               }}
             >
-              <Input
-                aria-label="search"
-                onChange={handleSearchInputChange}
+              <SearchInput
+                changeHandler={handleSearchInputChange}
                 width="190px"
-                underlined
-                status="primary"
                 placeholder="Explore categories"
                 size="md"
-                css={{
-                  'mb': 15,
-                  '::placeholder': {
-                    color: '#fff',
-                  },
-                }}
-                contentLeft={<FontAwesomeIcon size="xs" icon={faSearch} />}
+                isLoading={isLoading}
               />
               <TabList>
                 {filteredCategories?.slice(0, itemsToShow).map(c => (
