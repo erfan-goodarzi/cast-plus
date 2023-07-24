@@ -1,6 +1,6 @@
 import { Card, Container, Text } from '@nextui-org/react';
 
-import { CategoryList } from '../Ui';
+import { CategoryList } from './CategoryList';
 
 export const CategoriesCard = () => {
   return (

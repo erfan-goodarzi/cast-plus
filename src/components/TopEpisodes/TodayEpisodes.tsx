@@ -1,8 +1,8 @@
 import { useGetTopEpisode } from '@cast/api';
+import { Loader } from '@cast/design';
 import { Container, Grid, Text } from '@nextui-org/react';
 
-import { Loader } from '../Ui';
-import { EpisodeBox } from './EpisodeBox';
+import { EpisodeDetail } from '../Main';
 
 export const TodayEpisodes = () => {
   const { data, isLoading } = useGetTopEpisode();
@@ -90,7 +90,7 @@ export const TodayEpisodes = () => {
                 datePublishedPretty,
                 description,
               }) => (
-                <EpisodeBox
+                <EpisodeDetail
                   key={id}
                   id={id}
                   feedId={feedId}

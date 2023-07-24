@@ -1,9 +1,8 @@
 import { useGetTopEpisode } from '@cast/api';
+import { BadgeInfo, Loader, PlayButton } from '@cast/design';
+import { defaultImg } from '@cast/img';
+import { removeHtmlTag } from '@cast/utils';
 import { Container, Grid, Image, Spacer, Text } from '@nextui-org/react';
-
-import { defaultImg } from '../../Images';
-import { removeHtmlTag } from '../../utils';
-import { BadgeInfo, Loader, PlayButton } from '../Ui';
 
 export const TopEpisode = () => {
   const { data, isLoading } = useGetTopEpisode();

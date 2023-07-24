@@ -1,5 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import { useSearchPodcasts } from '@cast/api';
+import { Badge, Loader } from '@cast/design';
 import {
   faHeadphonesSimple,
   faSearch,
@@ -12,8 +13,6 @@ import type { ChangeEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 import { useStore } from '../../store';
-import { Badge } from './Badge';
-import { Loader } from './Loader';
 
 export interface NavLinkItems {
   label: string;

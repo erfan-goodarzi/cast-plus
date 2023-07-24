@@ -1,8 +1,7 @@
+import { MobileNav, Nav } from '@cast/design';
 import { Container, Grid } from '@nextui-org/react';
 import { Outlet } from '@tanstack/react-location';
 import { useMediaQuery } from 'react-responsive';
-
-import { MobileNav, Nav } from '../Ui';
 
 export const AppLayout = () => {
   const isTabletOrMobile = useMediaQuery({

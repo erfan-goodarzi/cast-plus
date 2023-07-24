@@ -1,4 +1,5 @@
 import { useGetCategories } from '@cast/api';
+import { Loader } from '@cast/design';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { FormElement } from '@nextui-org/react';
@@ -7,7 +8,7 @@ import { useNavigate } from '@tanstack/react-location';
 import React, { useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
-import { CategoryResult, Loader } from '../components';
+import { CategoryResult } from '../components';
 
 export const Categories = () => {
   const { data, isLoading } = useGetCategories();

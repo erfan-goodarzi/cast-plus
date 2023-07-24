@@ -1,4 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+import { BadgeInfo, PlayButton, ShareButton } from '@cast/design';
+import { defaultImg } from '@cast/img';
+import { removeHtmlTag } from '@cast/utils';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,10 +15,6 @@ import {
 } from '@nextui-org/react';
 import { useState } from 'react';
 
-import { defaultImg } from '../../Images';
-import { removeHtmlTag } from '../../utils';
-import { BadgeInfo, PlayButton, ShareButton } from '../Ui';
-
 interface Props {
   id: number;
   feedId: number;
@@ -27,7 +26,7 @@ interface Props {
   audioUrl: string;
 }
 
-export const EpisodeBox = ({
+export const EpisodeDetail = ({
   id,
   title,
   image,

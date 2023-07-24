@@ -1,7 +1,7 @@
 import { useGetTopPodcasts } from '@cast/api';
 import { Container, Text } from '@nextui-org/react';
 
-import { EmblaCarousel } from './EmblaCarousel';
+import { TrendingCarousel } from './TrendingCarousel';
 
 export const TrendingPodcasts = () => {
   const { data, isLoading } = useGetTopPodcasts({ max: 30 });
@@ -29,7 +29,7 @@ export const TrendingPodcasts = () => {
       >
         A suggestion based on the most popular podcasts.
       </Text>
-      <EmblaCarousel isLoad={isLoading} slides={data?.feeds} />
+      <TrendingCarousel isLoad={isLoading} slides={data?.feeds} />
     </Container>
   );
 };

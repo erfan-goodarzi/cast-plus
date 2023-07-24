@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useGeEpisodeById, useGetPodcastById } from '@cast/api';
+import { Badge, Loader, ShareButton, SubscribeButton } from '@cast/design';
 import {
   Button,
   Col,
@@ -13,13 +14,7 @@ import {
 import { useMatch } from '@tanstack/react-location';
 import { useState } from 'react';
 
-import {
-  Badge,
-  EpisodeBox,
-  Loader,
-  ShareButton,
-  SubscribeButton,
-} from '../components';
+import { EpisodeDetail } from '../components';
 
 export const PodcastDetails = () => {
   const [showMore, setShowMore] = useState<boolean>(false);
@@ -114,7 +109,7 @@ export const PodcastDetails = () => {
             feedId,
           }) => (
             <Grid xs={12} key={episodeId}>
-              <EpisodeBox
+              <EpisodeDetail
                 feedId={feedId}
                 id={episodeId}
                 title={title}

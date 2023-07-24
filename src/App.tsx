@@ -1,6 +1,6 @@
+import { ScrollToTop } from '@cast/design';
 import Player from 'react-material-music-player';
 
-import { ScrollToTop } from './components';
 import { Routes } from './Routes';
 import { useStore } from './store';
 import { GlobalStyles } from './style';

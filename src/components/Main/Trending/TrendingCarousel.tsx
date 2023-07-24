@@ -1,5 +1,7 @@
-import '../../style/embla.css';
+import '../../../style/embla.css';
 
+import { Loader } from '@cast/design';
+import { defaultImg } from '@cast/img';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Grid, Text } from '@nextui-org/react';
@@ -8,15 +10,12 @@ import useEmblaCarousel from 'embla-carousel-react';
 import type { PIApiFeed } from 'podcastindexjs/lib/types';
 import { useCallback } from 'react';
 
-import { defaultImg } from '../../Images';
-import { Loader } from '../Ui';
-
 interface Props {
   slides: PIApiFeed[];
   isLoad: boolean;
 }
 
-export const EmblaCarousel = ({ isLoad, slides }: Props) => {
+export const TrendingCarousel = ({ isLoad, slides }: Props) => {
   const [viewportRef, embla] = useEmblaCarousel({
     dragFree: true,
     containScroll: 'trimSnaps',

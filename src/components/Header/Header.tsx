@@ -1,7 +1,7 @@
+import { backgroundImg } from '@cast/img';
 import { Container, Spacer } from '@nextui-org/react';
 
-import { backgroundImg } from '../../Images';
-import { Nav } from '../Ui';
+import { Nav } from '../Layout';
 import { HeaderDetails } from './HeaderDetails';
 
 export const Header = () => {

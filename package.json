@@ -22,7 +22,7 @@
     "graphql-request": "^4.3.0",
     "podcastindexjs": "^1.0.4",
     "process": "^0.11.10",
-    "react": "^18.0.0",
+    "react": "^18.2.0",
     "react-dom": "^18.0.0",
     "react-material-music-player": "^1.1.9",
     "react-query": "^3.39.2",
@@ -43,7 +43,7 @@
     "eslint": "^8.45.0",
     "prettier": "^3.0.0",
     "react-error-overlay": "^6.0.9",
-    "typescript": "^4.9.5",
+    "typescript": "^5.1.6",
     "vite": "^2.9.15",
     "vite-tsconfig-paths": "^4.2.0",
     "webpack-cli": "^4.10.0"
