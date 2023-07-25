@@ -1,9 +1,8 @@
 import { useGetCategories } from '@cast/api';
 import { Loader, SearchInput } from '@cast/design';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FailureNotif } from '@cast/notification';
 import type { FormElement } from '@nextui-org/react';
-import { Button, Card, Container, Grid, Input } from '@nextui-org/react';
+import { Button, Card, Container, Grid } from '@nextui-org/react';
 import { useNavigate } from '@tanstack/react-location';
 import React, { useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
@@ -11,7 +10,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { CategoryResult } from '../components';
 
 export const Categories = () => {
-  const { data, isLoading } = useGetCategories();
+  const { data, isLoading, isError } = useGetCategories();
   const navigate = useNavigate();
   const ITEMS_INCREMENT = 15;
   const [itemsToShow, setItemsToShow] = useState(ITEMS_INCREMENT);
@@ -41,6 +40,12 @@ export const Categories = () => {
   };
 
   if (isLoading) return <Loader />;
+
+  if (isError) {
+    FailureNotif();
+    return null;
+  }
+
   return (
     <Container css={{ mt: 30, height: '81vh', overflowX: 'hidden' }}>
       <Tabs

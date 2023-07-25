@@ -1,6 +1,7 @@
 import { useGetCategories } from '@cast/api';
 import type { IconList } from '@cast/design';
 import { iconList, Loader } from '@cast/design';
+import { FailureNotif } from '@cast/notification';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { SimpleColors } from '@nextui-org/react';
 import { Badge, Card, Grid, simpleColors } from '@nextui-org/react';
@@ -9,7 +10,7 @@ import type { PIApiCategory } from 'podcastindexjs/lib/types';
 import { useEffect, useState } from 'react';
 
 export const CategoryList = () => {
-  const { data, isLoading } = useGetCategories();
+  const { data, isLoading, isError } = useGetCategories();
   const navigate = useNavigate();
   const [categoryList, setCategoryList] =
     useState<(IconList & PIApiCategory)[][]>();
@@ -26,6 +27,11 @@ export const CategoryList = () => {
     const randomColor = Math.floor(Math.random() * simpleColors.length);
     setBadgeColors(simpleColors[randomColor]);
   }, [data]);
+
+  if (isError) {
+    FailureNotif();
+    return null;
+  }
 
   return (
     <Grid.Container>

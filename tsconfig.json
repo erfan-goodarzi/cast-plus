@@ -8,7 +8,8 @@
       "@cast/api": ["./src/api-client/query/index.ts"],
       "@cast/img": ["./src/Images/index.ts"],
       "@cast/design": ["./src/lib/Design/index.ts"],
-      "@cast/utils": ["./src/utils/index.ts"]
+      "@cast/utils": ["./src/utils/index.ts"],
+      "@cast/notification": ["./src/lib/Notification/index.ts"]
     }
   },
   "include": ["src"],

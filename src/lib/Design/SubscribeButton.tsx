@@ -4,7 +4,7 @@ import { Button, keyframes } from '@nextui-org/react';
 import { useLocalStorageState, useToggle } from 'ahooks';
 import { useEffect, useRef } from 'react';
 
-import { SuccessNotif } from './Notification';
+import { SuccessNotif } from '../Notification';
 
 const bellAnimation = keyframes({
   '0%': { transform: 'rotate(0deg)' },

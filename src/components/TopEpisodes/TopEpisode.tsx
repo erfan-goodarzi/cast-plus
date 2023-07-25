@@ -1,12 +1,18 @@
 import { useGetTopEpisode } from '@cast/api';
 import { BadgeInfo, Loader, PlayButton } from '@cast/design';
 import { defaultImg } from '@cast/img';
+import { FailureNotif } from '@cast/notification';
 import { removeHtmlTag } from '@cast/utils';
 import { Container, Grid, Image, Spacer, Text } from '@nextui-org/react';
 
 export const TopEpisode = () => {
-  const { data, isLoading } = useGetTopEpisode();
+  const { data, isLoading, isError } = useGetTopEpisode();
   const topEpisode = data?.items[0];
+
+  if (isError) {
+    FailureNotif();
+    return null;
+  }
 
   return topEpisode ? (
     <Container

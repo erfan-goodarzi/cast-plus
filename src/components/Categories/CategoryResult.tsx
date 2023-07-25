@@ -1,6 +1,7 @@
 import { useGetTopPodcasts } from '@cast/api';
 import { Badge, Loader } from '@cast/design';
 import { defaultImg } from '@cast/img';
+import { FailureNotif } from '@cast/notification';
 import { Button, Card, Col, Grid, Row, Text } from '@nextui-org/react';
 import { Link, useNavigate } from '@tanstack/react-location';
 import type { PIApiCategory } from 'podcastindexjs/lib/types';
@@ -10,7 +11,7 @@ interface Props {
 }
 
 export const CategoryResult = ({ category }: Props) => {
-  const { data, isLoading } = useGetTopPodcasts({
+  const { data, isLoading, isError } = useGetTopPodcasts({
     cat: category.name,
     max: 30,
   });
@@ -19,6 +20,11 @@ export const CategoryResult = ({ category }: Props) => {
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = defaultImg;
   };
+
+  if (isError) {
+    FailureNotif();
+    return null;
+  }
 
   return (
     <>

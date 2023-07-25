@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useGeEpisodeById, useGetPodcastById } from '@cast/api';
 import { Badge, Loader, ShareButton, SubscribeButton } from '@cast/design';
+import { FailureNotif } from '@cast/notification';
 import {
   Button,
   Col,
@@ -22,10 +23,15 @@ export const PodcastDetails = () => {
     params: { podcastId },
   } = useMatch();
   const id = parseInt(podcastId!, 10);
-  const { data: podcast } = useGetPodcastById(id);
+  const { data: podcast, isError } = useGetPodcastById(id);
   const { data: episodes, isLoading } = useGeEpisodeById(id);
 
   if (isLoading) return <Loader size="lg" />;
+
+  if (isError) {
+    FailureNotif();
+    return null;
+  }
 
   return podcast ? (
     <Container gap={8} css={{ mb: 40 }}>
