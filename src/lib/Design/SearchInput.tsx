@@ -41,9 +41,27 @@ export const SearchInput = React.forwardRef<FormElement, Props>(
         size={size}
         placeholder={placeholder}
         css={{
-          'fontSize': '40xp',
+          '@xs': {
+            pl: 80,
+          },
+          '@sm': {
+            pl: 0,
+          },
+          '@lg': {
+            pl: 0,
+          },
+          'input': {
+            'fontSize': 16,
+            '@lg': {
+              fontSize: 18,
+            },
+          },
           '::placeholder': {
-            color: '#fff',
+            'color': '#fff',
+            'fontSize': 14,
+            '@lg': {
+              fontSize: 16,
+            },
           },
         }}
         contentLeft={

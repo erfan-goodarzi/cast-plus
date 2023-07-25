@@ -7,9 +7,11 @@ import { Button, Navbar } from '@nextui-org/react';
 import { Link, useLocation } from '@tanstack/react-location';
 import type { ChangeEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { useStore } from '../../store';
 import { SearchResult } from '../Search';
+import { MobileNav } from './MobileNav';
 
 export interface NavLinkItems {
   label: string;
@@ -45,6 +47,7 @@ export const Nav = () => {
   const setPodcastResult = useStore(state => state.setSearchResult);
   const { data, isLoading, error } = useSearchPodcasts(searchQuery!);
   const inputRef = useRef<FormElement>(null);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   useEffect(() => {
     if (data) {
@@ -75,22 +78,31 @@ export const Nav = () => {
         backdropFilter: 'unset !important',
       }}
     >
-      <Navbar.Toggle showIn="xs" />
       <Link to="/">
         <Brand />
       </Link>
       <Navbar.Content
         hideIn="sm"
         variant="default"
-        css={{ ml: '22rem', pt: 13 }}
+        css={{
+          'a': {
+            fontSize: '16px',
+          },
+          '@sm': {
+            ml: '5rem',
+          },
+          '@lg': {
+            ml: '22rem',
+            pt: 13,
+          },
+        }}
       >
         {links.map(item => (
           <Link
             key={item.path}
             activeOptions={{ exact: pathname === item.path }}
             style={{
-              padding: '8px 22px',
-              fontSize: '16px',
+              padding: '8px 25px',
             }}
             to={item.path}
           >
@@ -109,13 +121,13 @@ export const Nav = () => {
           width: 300,
         }}
       >
-        <Navbar.Item>
+        <Navbar.Item css={{ ml: 18 }}>
           <SearchInput
-            width="300px"
+            width={isTabletOrMobile ? '190px' : '280px'}
             ref={inputRef}
             changeHandler={handleChange}
             placeholder="Search for Podcasts"
-            size="lg"
+            size={isTabletOrMobile ? 'sm' : 'lg'}
             isLoading={isLoading}
           />
         </Navbar.Item>
@@ -141,12 +153,9 @@ export const Nav = () => {
             'color': '#fff',
             'borderColor': '#fff',
             'borderRadius': 3,
-            '@xs': {
-              marginLeft: '-4rem',
-              fontSize: '12px',
-              padding: '0px 13px',
-            },
+            'display': 'none',
             '@lg': {
+              display: 'flex',
               fontSize: '15px',
               padding: '1.25rem 1.25rem',
             },
@@ -156,6 +165,18 @@ export const Nav = () => {
           <Link to="/explore"> Start Listening</Link>
         </Button>
       </Navbar.Content>
+      <Navbar.Toggle
+        showIn="sm"
+        css={{
+          'span.line': {
+            background: '$primary',
+            height: 2,
+          },
+        }}
+      />
+      <Navbar.Collapse transitionTime={800} css={{ background: 'transparent' }}>
+        <MobileNav links={links} pathname={pathname} />
+      </Navbar.Collapse>
     </Navbar>
   );
 };

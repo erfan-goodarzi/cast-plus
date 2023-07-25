@@ -13,13 +13,23 @@ export const SearchResult = ({ isVisible, result, clearHandler }: Props) => {
   return (
     <Card
       css={{
-        display: isVisible ? 'block' : 'none',
-        position: 'absolute',
-        height: '53vh',
-        overflowY: 'scroll',
-        mt: 20,
-        width: '145%',
-        borderRadius: 3,
+        'borderRadius': 8,
+        'position': 'absolute',
+        'height': '53vh',
+        'overflowY': 'scroll',
+        'width': '145%',
+        'right': -35,
+        'display': isVisible ? 'block' : 'none',
+        'mt': 20,
+        '@xs': {
+          left: 0,
+        },
+        '@sm': {
+          left: -110,
+        },
+        '@lg': {
+          right: 0,
+        },
       }}
     >
       {result?.map(({ title, ownerName, image, id }) => (
@@ -47,7 +57,15 @@ export const SearchResult = ({ isVisible, result, clearHandler }: Props) => {
               }}
             >
               <Grid xs={12}>
-                <Text size="$lg">{title}</Text>
+                <Text
+                  css={{
+                    '@lg': {
+                      fontSize: 18,
+                    },
+                  }}
+                >
+                  {title}
+                </Text>
               </Grid>
               <Grid xs={12}>
                 <Text css={{ color: '$accents8' }}>

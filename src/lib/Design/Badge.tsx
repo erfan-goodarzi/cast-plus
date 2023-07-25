@@ -13,7 +13,7 @@ export const Badge = ({ content, size }: Props) => {
       css={{
         background: 'transparent',
         color: '$primary',
-        fontSize: 13,
+        fontSize: 12,
       }}
       isSquared
       variant="bordered"

@@ -5,13 +5,13 @@ export const Brand = () => {
     <Navbar.Brand>
       <Text
         h1
-        size={24}
         css={{
           'color': '#fff',
-          'marginLeft': '0rem',
-          'padding': '3px 6px',
+          'fontSize': 20,
+          'padding': 4,
           '@lg': {
             marginLeft: '2rem',
+            fontSize: 24,
           },
         }}
         weight="bold"
@@ -20,9 +20,12 @@ export const Brand = () => {
       </Text>
       <Text
         h1
-        size={28}
         css={{
-          color: '#FFD60A',
+          'color': '#FFD60A',
+          'fontSize': '19px',
+          '@lg': {
+            fontSize: 28,
+          },
         }}
         weight="bold"
       >

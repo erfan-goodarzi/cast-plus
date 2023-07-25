@@ -5,23 +5,26 @@ import type { NavLinkItems } from './Nav';
 
 interface Props {
   links: NavLinkItems[];
+  pathname: string;
 }
 
-export const MobileNav = ({ links }: Props) => {
+export const MobileNav = ({ links, pathname }: Props) => {
   return (
-    <Navbar.Collapse transitionTime={800}>
-      {links.map((item, index) => (
-        <Navbar.CollapseItem
-          key={item.label}
-          activeColor="warning"
-          css={{
-            color: index === item.label.length - 1 ? '$error' : '',
-          }}
-          isActive={index === 2}
-        >
-          <Link color="inherit">{item.label}</Link>
+    <>
+      {links.map(item => (
+        <Navbar.CollapseItem key={item.path}>
+          <Link
+            activeOptions={{ exact: pathname === item.path }}
+            style={{
+              padding: '8px 22px',
+              fontSize: '16px',
+            }}
+            to={item.path}
+          >
+            {item.label}
+          </Link>
         </Navbar.CollapseItem>
       ))}
-    </Navbar.Collapse>
+    </>
   );
 };
