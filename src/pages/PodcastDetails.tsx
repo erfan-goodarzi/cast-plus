@@ -23,7 +23,7 @@ export const PodcastDetails = () => {
   } = useMatch();
   const id = parseInt(podcastId!, 10);
   const { data: podcast } = useGetPodcastById(id);
-  const { data: episode, isLoading } = useGeEpisodeById(id);
+  const { data: episodes, isLoading } = useGeEpisodeById(id);
 
   if (isLoading) return <Loader size="lg" />;
 
@@ -98,30 +98,11 @@ export const PodcastDetails = () => {
         <Text size="$4xl" color="white">
           Available Episodes
         </Text>
-        {episode?.items.map(
-          ({
-            id: episodeId,
-            title,
-            enclosureUrl,
-            datePublishedPretty,
-            description,
-            image,
-            feedId,
-          }) => (
-            <Grid xs={12} key={episodeId}>
-              <EpisodeDetail
-                feedId={feedId}
-                id={episodeId}
-                title={title}
-                feedTitle={podcast.feed.title}
-                audioUrl={enclosureUrl}
-                datePublished={datePublishedPretty}
-                description={description}
-                image={image}
-              />
-            </Grid>
-          ),
-        )}
+        {episodes?.items.map(episode => (
+          <Grid xs={12} key={episode.id}>
+            <EpisodeDetail episodes={episode} feedTitle={podcast.feed.title} />
+          </Grid>
+        ))}
         <Button
           bordered
           as={Link}

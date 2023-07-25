@@ -13,29 +13,37 @@ import {
   Text,
   Tooltip,
 } from '@nextui-org/react';
+import type {
+  PIApiEpisodeInfo,
+  PIApiRecentEpisode,
+} from 'podcastindexjs/lib/types';
 import { useState } from 'react';
 
 interface Props {
-  id: number;
-  feedId: number;
-  title: string;
-  image: string;
+  episodes: Pick<
+    PIApiEpisodeInfo & PIApiRecentEpisode,
+    | 'datePublishedPretty'
+    | 'description'
+    | 'enclosureUrl'
+    | 'feedId'
+    | 'id'
+    | 'image'
+    | 'title'
+  >;
   feedTitle: string;
-  datePublished: string;
-  description: string;
-  audioUrl: string;
 }
 
-export const EpisodeDetail = ({
-  id,
-  title,
-  image,
-  feedTitle,
-  datePublished,
-  description,
-  feedId,
-  audioUrl,
-}: Props) => {
+export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
+  const {
+    id,
+    title,
+    image,
+    feedId,
+    enclosureUrl,
+    datePublishedPretty,
+    description,
+  } = episodes;
+
   const [showMore, setShowMore] = useState<boolean>(false);
   const episodeDesc = removeHtmlTag(description);
   return (
@@ -103,7 +111,11 @@ export const EpisodeDetail = ({
             >
               {title}
             </Text>
-            <BadgeInfo path={feedId} channel={feedTitle} time={datePublished} />
+            <BadgeInfo
+              path={feedId}
+              channel={feedTitle}
+              time={datePublishedPretty}
+            />
             <Text
               color="#d6d6d6"
               css={{
@@ -133,11 +145,11 @@ export const EpisodeDetail = ({
                   image={image || defaultImg}
                   title={title}
                   feedTitle={feedTitle}
-                  url={audioUrl}
+                  url={enclosureUrl}
                 />
               </Grid>
               <Grid>
-                <ShareButton podcastTitle={title} shareUrl={audioUrl} />
+                <ShareButton podcastTitle={title} shareUrl={enclosureUrl} />
               </Grid>
               <Grid>
                 <Tooltip content="Not implemented yet">

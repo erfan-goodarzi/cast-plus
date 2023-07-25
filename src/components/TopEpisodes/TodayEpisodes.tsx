@@ -5,7 +5,7 @@ import { Container, Grid, Text } from '@nextui-org/react';
 import { EpisodeDetail } from '../Main';
 
 export const TodayEpisodes = () => {
-  const { data, isLoading } = useGetTopEpisode();
+  const { data: episodes, isLoading } = useGetTopEpisode();
 
   return (
     <div>
@@ -79,30 +79,13 @@ export const TodayEpisodes = () => {
           {isLoading ? (
             <Loader size="xl" />
           ) : (
-            data?.items.map(
-              ({
-                id,
-                feedId,
-                image,
-                title,
-                feedTitle,
-                enclosureUrl,
-                datePublishedPretty,
-                description,
-              }) => (
-                <EpisodeDetail
-                  key={id}
-                  id={id}
-                  feedId={feedId}
-                  title={title}
-                  feedTitle={feedTitle}
-                  image={image}
-                  datePublished={datePublishedPretty}
-                  description={description}
-                  audioUrl={enclosureUrl}
-                />
-              ),
-            )
+            episodes?.items.map(episode => (
+              <EpisodeDetail
+                episodes={episode}
+                key={episode.id}
+                feedTitle={episode.feedTitle}
+              />
+            ))
           )}
         </Grid.Container>
       </Container>
