@@ -3,6 +3,7 @@ export * from './BadgeInfo';
 export * from './Brand';
 export * from './Icons';
 export * from './Loader';
+export * from './Notification';
 export * from './PlayButton';
 export * from './ScrollToTop';
 export * from './SearchInput';
