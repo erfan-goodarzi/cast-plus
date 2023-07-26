@@ -82,6 +82,7 @@ export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
               loading="lazy"
               css={{
                 objectFit: 'cover',
+                border: '1px solid #7c7c7c',
                 height: '219px',
                 borderRadius: 3,
               }}
