@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useGeEpisodeById, useGetPodcastById } from '@cast/api';
 import { Badge, Loader, ShareButton, SubscribeButton } from '@cast/design';
@@ -14,6 +15,7 @@ import {
 } from '@nextui-org/react';
 import { useMatch } from '@tanstack/react-location';
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { EpisodeDetail } from '../components';
 
@@ -25,6 +27,7 @@ export const PodcastDetails = () => {
   const id = parseInt(podcastId!, 10);
   const { data: podcast, isError } = useGetPodcastById(id);
   const { data: episodes, isLoading } = useGeEpisodeById(id);
+  const isMobileOrIpad = useMediaQuery({ query: '(max-width: 1024px)' });
 
   if (isLoading) return <Loader size="lg" />;
 
@@ -34,9 +37,18 @@ export const PodcastDetails = () => {
   }
 
   return podcast ? (
-    <Container gap={8} css={{ mb: 40 }}>
-      <Row>
-        <Col span={2}>
+    <Container gap={isMobileOrIpad ? 0 : 8} css={{ mb: 40 }}>
+      <Row wrap={isMobileOrIpad ? 'wrap' : 'nowrap'} justify="center">
+        <Col
+          span={isMobileOrIpad ? 12 : 2}
+          css={{
+            'width': 'auto',
+            'mx': 'auto',
+            '@lg': {
+              marginLeft: '0%',
+            },
+          }}
+        >
           <img
             alt={podcast.feed.title}
             style={{
@@ -46,33 +58,45 @@ export const PodcastDetails = () => {
             src={podcast.feed.artwork}
           />
         </Col>
-        <Col span={10}>
+        <Col span={isMobileOrIpad ? 12 : 10}>
           <Text
             css={{
-              'fontSize': '32px',
+              'fontSize': 25,
               'color': '#fff',
               'fontWeight': 'bold',
               'mx': 'auto',
               'textAlign': 'center',
               '@lg': {
                 mx: 'unset',
+                fontSize: 32,
                 textAlign: 'left',
               },
             }}
           >
             {podcast.feed.title}
           </Text>
-          <Row align="center" css={{ gap: 10 }}>
+          <Row
+            align="center"
+            css={{ gap: 10 }}
+            justify={isMobileOrIpad ? 'center' : 'flex-start'}
+          >
             <Text size="larger" css={{ color: '#b6b6b6', lineHeight: '2.1' }}>
-              Made By
+              Made By:
             </Text>
             <Badge content={podcast.feed.author} />
           </Row>
           <Text
             css={{
-              width: '95%',
-              color: '#d1d1d1',
-              fontWeight: 600,
+              'width': '95%',
+              'color': '#d1d1d1',
+              'fontWeight': 400,
+              'textAlign': 'center',
+              'mx': 'auto',
+              '@lg': {
+                fontWeight: 600,
+                mx: 'unset',
+                textAlign: 'left',
+              },
             }}
           >
             {showMore
@@ -86,7 +110,10 @@ export const PodcastDetails = () => {
             </span>
           </Text>
           <Spacer />
-          <Grid.Container css={{ columnGap: 26 }}>
+          <Grid.Container
+            css={{ columnGap: 26 }}
+            justify={isMobileOrIpad ? 'center' : 'flex-start'}
+          >
             <Grid>
               <SubscribeButton podcastId={podcast.feed.id} />
             </Grid>
@@ -100,8 +127,11 @@ export const PodcastDetails = () => {
         </Col>
       </Row>
       <Spacer y={4} />
-      <Grid.Container css={{ width: '96%', gap: 40 }}>
-        <Text size="$4xl" color="white">
+      <Grid.Container
+        css={{ '@lg': { width: '95%' }, 'gap': 40 }}
+        justify={isMobileOrIpad ? 'center' : 'flex-start'}
+      >
+        <Text size={isMobileOrIpad ? '$3xl' : '$4xl'} color="white">
           Available Episodes
         </Text>
         {episodes?.items.map(episode => (
