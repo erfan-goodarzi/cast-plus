@@ -34,10 +34,16 @@ export const PlayButton = ({
       }}
       iconRight={<FontAwesomeIcon icon={faPlay} />}
       css={{
-        color: '#fff',
-        borderColor: '#fff',
-        pr: 20,
-        borderRadius: 3,
+        'color': '#fff',
+        'borderColor': '#fff',
+        'borderRadius': 3,
+        'mx': 'auto',
+        'width': '100%',
+        '@lg': {
+          px: 20,
+          marginRight: '2rem',
+          width: 'auto',
+        },
       }}
       auto
     >

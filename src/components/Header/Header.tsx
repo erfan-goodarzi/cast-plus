@@ -15,7 +15,7 @@ export const Header = () => {
         'backgroundSize': 'auto',
         'backgroundPosition': 'center',
         'position': 'relative',
-        'height': '106vh',
+        'height': '76vh',
         'marginBottom': '1rem',
         '@xs': {
           height: '73vh',

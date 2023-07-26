@@ -16,13 +16,20 @@ export const HeaderDetails = () => {
   ];
 
   return (
-    <Container css={{ paddingTop: '5.5rem' }}>
+    <Container
+      css={{
+        '@sm': {
+          paddingTop: '5.5rem',
+        },
+      }}
+    >
       <Text
         h1
         color="#fff"
         css={{
           'marginInline': 'auto',
-          'fontSize': '28px',
+          'fontSize': 24,
+
           'width': '100%',
           'textAlign': 'center',
           'lineHeight': '1.2',
@@ -31,15 +38,15 @@ export const HeaderDetails = () => {
           },
           '@sm': {
             width: '75%',
+            fontSize: 29,
           },
-          '@md': {},
           '@lg': {
             width: '54%',
             fontSize: '56px',
           },
         }}
       >
-        Discover better insight every single day.
+        Discover better insight every single day and expand your horizons.
       </Text>
       <Spacer />
       <Text
@@ -50,16 +57,15 @@ export const HeaderDetails = () => {
           'textAlign': 'center',
           'fontSize': '15px',
           '@sm': {
-            width: '51%',
+            padding: '0 80px',
           },
           '@lg': {
-            width: '54%',
             fontSize: '21px',
           },
         }}
       >
-        Discovered latest top-notch stories from world wide community. quality
-        informative podcast and verified creators.
+        Discovered the latest top-notch stories from the worldwide community.
+        quality informative podcasts and verified creators.
       </Text>
       <Button
         css={{
@@ -81,8 +87,7 @@ export const HeaderDetails = () => {
       >
         <Link to="/explore">Browse Podcast</Link>
       </Button>
-      {isTabletOrMobile ? <Spacer y={6} /> : <Spacer y={9} />}
-      <Avatar.Group css={{ position: 'absolute', bottom: '3rem' }}>
+      <Avatar.Group css={{ position: 'absolute', bottom: '2rem' }}>
         {pictureUsers.map(url => (
           <Avatar
             key={Object.values(url).join('-')}

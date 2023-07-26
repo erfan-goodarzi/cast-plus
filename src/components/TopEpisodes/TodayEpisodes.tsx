@@ -9,36 +9,33 @@ export const TodayEpisodes = () => {
 
   return (
     <Container
-      xl
       css={{
-        background: '#0F172B',
-        height: 'auto',
+        'height': 'auto',
+        '@lg': {
+          mx: '95px',
+        },
+        'py': 70,
+        'width': '90%',
       }}
     >
       <Grid.Container
-        gap={8}
+        justify="space-between"
         css={{
-          'width': '92%',
-          '@lg': { marginLeft: '3rem !important', width: '100%' },
+          gap: 90,
         }}
       >
-        <Grid lg={6} md={6} xs={12}>
+        <Grid lg={6} md={6} xs={12} justify="center">
           <Text
             css={{
-              'minWidth': '197%',
-              'fontSize': '31px',
+              'fontSize': 30,
               'color': '#fff',
               'fontWeight': 'bold',
               '@xs': {
-                minWidth: 'auto',
                 mx: 'auto',
-                ml: '12rem',
               },
               '@sm': {
                 mx: 'auto',
-                minWidth: 'auto',
-                fontSize: '49px',
-                ml: '18rem',
+                fontSize: 40,
               },
               '@lg': {
                 minWidth: 'auto',
@@ -50,14 +47,13 @@ export const TodayEpisodes = () => {
             Today Episodes
           </Text>
         </Grid>
-        <Grid lg={6} md={6} xs={12}>
+        <Grid lg={4} md={6} xs={12}>
           <Text
             css={{
               'fontSize': '18px',
               'color': '#a1a1a1',
               'mt': '-4rem',
               'textAlign': 'center',
-              'minWidth': '146%',
               '@xs': {
                 minWidth: '108%',
               },
@@ -75,17 +71,19 @@ export const TodayEpisodes = () => {
             learning that shaped.
           </Text>
         </Grid>
-        {isLoading ? (
-          <Loader size="xl" />
-        ) : (
-          episodes?.items.map(episode => (
-            <EpisodeDetail
-              episodes={episode}
-              key={episode.id}
-              feedTitle={episode.feedTitle}
-            />
-          ))
-        )}
+        <Grid direction="column" xs={12} css={{ rowGap: 50 }}>
+          {isLoading ? (
+            <Loader size="xl" />
+          ) : (
+            episodes?.items.map(episode => (
+              <EpisodeDetail
+                episodes={episode}
+                key={episode.id}
+                feedTitle={episode.feedTitle}
+              />
+            ))
+          )}
+        </Grid>
       </Grid.Container>
     </Container>
   );

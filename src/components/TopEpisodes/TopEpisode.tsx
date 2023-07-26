@@ -18,7 +18,6 @@ export const TopEpisode = () => {
     <Container
       xl
       css={{
-        background: '#0F172B',
         height: 'auto',
       }}
     >

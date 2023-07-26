@@ -29,10 +29,16 @@ export const ShareButton = ({ podcastTitle, shareUrl }: ShareButtonProps) => {
           bordered
           iconRight={<FontAwesomeIcon icon={faShareAlt} />}
           css={{
-            color: '#fff',
-            borderColor: '#fff',
-            p: '2px 24px',
-            borderRadius: 3,
+            'color': '#fff',
+            'borderColor': '#fff',
+            'p': '2px 24px',
+            'borderRadius': 3,
+            'mx': 'auto',
+            'width': '100%',
+            '@lg': {
+              width: 'auto',
+              mx: 40,
+            },
           }}
           auto
         >

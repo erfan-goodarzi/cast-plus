@@ -40,6 +40,7 @@ export const ScrollToTop = () => {
       onClick={handleClick}
       css={{
         'position': 'fixed',
+        'zIndex': 2,
         'bottom': 20,
         'right': 30,
         '&:hover': {

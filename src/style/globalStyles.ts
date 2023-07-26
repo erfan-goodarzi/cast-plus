@@ -3,10 +3,16 @@ import { globalCss } from '@nextui-org/react';
 export const GlobalStyles = globalCss({
   'body': {
     color: '#fff',
+    background: '#0F172B',
     boxSizing: 'border-box',
     margin: 0,
     fontFamily: "'Quicksand', sans-serif !important",
   },
+  '.nextui-tooltip-button': {
+    mx: 'auto',
+    width: '100% !important',
+  },
+
   '::-webkit-scrollbar': { width: 8 },
   '::-webkit-scrollbar-track': {
     background: '#fff',

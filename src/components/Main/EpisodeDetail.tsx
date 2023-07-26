@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { BadgeInfo, PlayButton, ShareButton } from '@cast/design';
 import { defaultImg } from '@cast/img';
@@ -51,23 +52,19 @@ export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
       <Card
         variant="bordered"
         css={{
-          'mw': 'auto',
           'width': '100%',
           'borderRadius': '3px',
           'background': '#0000003b',
           'padding': '27px 20px',
           'borderColor': '#838383',
-          'minWidth': '221%',
-          'margin': '0rem -3rem',
           '@xs': {
-            minWidth: '130%',
+            minWidth: 'auto',
           },
           '@sm': {
-            minWidth: '121%',
+            minWidth: 'auto',
           },
           '@lg': {
             minWidth: 'auto',
-            margin: '0',
           },
         }}
       >
@@ -97,13 +94,14 @@ export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
           <Grid xs={12} lg={8} css={{ display: 'block !important' }}>
             <Text
               css={{
-                'fontSize': '23px',
+                'fontSize': '19px',
                 'color': '#fff',
                 'fontWeight': 'bold',
                 'mx': 'auto',
                 'textAlign': 'center',
                 'mb': 9,
                 '@lg': {
+                  fontSize: '23px',
                   mx: 'unset',
                   textAlign: 'left',
                 },
@@ -120,12 +118,13 @@ export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
               color="#d6d6d6"
               css={{
                 'mt': 23,
-                'width': '101%',
+                'width': '100%',
                 'textAlign': 'center',
-                'fontSize': '17px',
+                'fontSize': '15px',
                 'lineHeight': '1.9',
                 '@lg': {
                   textAlign: 'left',
+                  fontSize: '17px',
                   width: '120%',
                 },
               }}
@@ -138,8 +137,19 @@ export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
                 ...
               </span>
             </Text>
-            <Grid.Container css={{ gap: 25, pt: 30 }} justify="flex-start">
-              <Grid>
+            <Grid.Container
+              css={{
+                'gap': 35,
+                'pt': 30,
+
+                'justifyContent': 'center',
+
+                '@lg': {
+                  justifyContent: 'flex-start',
+                },
+              }}
+            >
+              <Grid xs={12} sm={3} lg={1}>
                 <PlayButton
                   id={id}
                   image={image || defaultImg}
@@ -148,19 +158,24 @@ export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
                   url={enclosureUrl}
                 />
               </Grid>
-              <Grid>
+              <Grid xs={12} sm={3} lg={1}>
                 <ShareButton podcastTitle={title} shareUrl={enclosureUrl} />
               </Grid>
-              <Grid>
+              <Grid xs={12} sm={3} lg={1}>
                 <Tooltip content="Not implemented yet">
                   <Button
                     bordered
                     iconRight={<FontAwesomeIcon icon={faDownload} />}
                     css={{
-                      color: '#fff',
-                      borderColor: '#fff',
-                      p: '2px 24px',
-                      borderRadius: 3,
+                      'color': '#fff',
+                      'mr': 'auto',
+                      'borderColor': '#fff',
+                      'p': '2px 24px',
+                      'width': '100%',
+                      '@lg': {
+                        mx: 45,
+                      },
+                      'borderRadius': 3,
                     }}
                     auto
                   >
