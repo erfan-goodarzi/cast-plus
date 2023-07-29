@@ -16,9 +16,7 @@ export const CategoryList = () => {
   const [categoryList, setCategoryList] =
     useState<(IconList & PIApiCategory)[][]>();
   const [badgeColors, setBadgeColors] = useState<SimpleColors>();
-  const isTabletOrMobile = useMediaQuery({
-    query: '(max-width: 767px)',
-  });
+  const isIpad = useMediaQuery({ query: '(min-width: 768px)' });
 
   useEffect(() => {
     if (data) {
@@ -44,7 +42,7 @@ export const CategoryList = () => {
       ) : (
         categoryList?.map(category => (
           <Grid
-            xs={6}
+            xs={isIpad ? 3 : 6}
             lg={4}
             key={category[0]!.id}
             style={{
@@ -74,7 +72,7 @@ export const CategoryList = () => {
             >
               <FontAwesomeIcon
                 color="#2c2c2c"
-                size={isTabletOrMobile ? 'lg' : '2x'}
+                size="2x"
                 icon={category[1]!.icon}
               />
               <Badge

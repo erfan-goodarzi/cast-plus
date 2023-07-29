@@ -7,13 +7,13 @@ export const Explore = () => {
   const data = useMatches();
 
   return data.length === 1 ? ( // Check that the explore route has params
-    <>
-      <Grid lg={8} css={{ display: 'block !important' }}>
-        <TrendingPodcasts />
+    <Grid.Container css={{ 'gap': 50, '@lg': { gap: '0 !important' } }}>
+      <Grid lg={8} sm={12} xs={12} css={{ display: 'block !important' }}>
+        {/* <TrendingPodcasts />   */}
         <Spacer y={1} />
         <TopThisWeek />
       </Grid>
-      <Grid lg={4}>
+      <Grid lg={4} sm={12} xs={12}>
         <CategoriesCard />
       </Grid>
       <Card
@@ -36,7 +36,7 @@ export const Explore = () => {
           }}
         />
       </Card>
-    </>
+    </Grid.Container>
   ) : (
     <Outlet />
   );

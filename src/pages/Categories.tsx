@@ -20,6 +20,7 @@ export const Categories = () => {
   const isTabletOrMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
+  const isIpad = useMediaQuery({ query: '(min-width: 768px)' });
 
   useEffect(() => {
     const hash = location.hash.substr(1);
@@ -69,7 +70,7 @@ export const Categories = () => {
           css={{ gap: 70, width: '100%' }}
           wrap={isTabletOrMobile ? 'wrap' : 'nowrap'}
         >
-          <Grid xs={12} sm={3} lg={2}>
+          <Grid xs={isIpad ? 4 : 12} sm={3} lg={2}>
             <Card
               css={{
                 'borderRadius': 0,
