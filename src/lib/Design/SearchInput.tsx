@@ -41,15 +41,7 @@ export const SearchInput = React.forwardRef<FormElement, Props>(
         size={size}
         placeholder={placeholder}
         css={{
-          '@xs': {
-            pl: 80,
-          },
-          '@sm': {
-            pl: 0,
-          },
-          '@lg': {
-            pl: 0,
-          },
+          'mb': 10,
           'input': {
             'fontSize': 16,
             '@lg': {
@@ -60,7 +52,7 @@ export const SearchInput = React.forwardRef<FormElement, Props>(
             'color': '#fff',
             'fontSize': 14,
             '@lg': {
-              fontSize: 16,
+              fontSize: 15,
             },
           },
         }}

@@ -121,7 +121,9 @@ export const Nav = () => {
           width: 300,
         }}
       >
-        <Navbar.Item css={{ ml: 18 }}>
+        <Navbar.Item
+          css={{ 'ml': 20, '@xs': { ml: '7rem' }, '@lg': { ml: 18 } }}
+        >
           <SearchInput
             width={isTabletOrMobile ? '190px' : '280px'}
             ref={inputRef}

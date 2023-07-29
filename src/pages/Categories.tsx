@@ -5,6 +5,7 @@ import type { FormElement } from '@nextui-org/react';
 import { Button, Card, Container, Grid } from '@nextui-org/react';
 import { useNavigate } from '@tanstack/react-location';
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import { CategoryResult } from '../components';
@@ -16,6 +17,9 @@ export const Categories = () => {
   const [itemsToShow, setItemsToShow] = useState(ITEMS_INCREMENT);
   const [selectedTab, setSelectedTab] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
+  const isTabletOrMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   useEffect(() => {
     const hash = location.hash.substr(1);
@@ -47,28 +51,40 @@ export const Categories = () => {
   }
 
   return (
-    <Container css={{ mt: 30, height: '81vh', overflowX: 'hidden' }}>
+    <Container
+      css={{
+        'mt': 30,
+        'height': 'fit-content',
+        'overflowX': 'hidden',
+        '@xs': { height: '81vh' },
+        '@lg': { height: '81vh' },
+      }}
+    >
       <Tabs
         selectedIndex={selectedTab}
         onSelect={index => setSelectedTab(index)}
         className="react-tabs"
       >
-        <Grid.Container css={{ gap: 70, width: '100%' }} wrap="nowrap">
-          <Grid>
+        <Grid.Container
+          css={{ gap: 70, width: '100%' }}
+          wrap={isTabletOrMobile ? 'wrap' : 'nowrap'}
+        >
+          <Grid xs={12} sm={3} lg={2}>
             <Card
               css={{
-                borderRadius: 0,
-                overflowY: 'scroll',
-                height: '81vh',
-                background: 'transparent',
-                position: 'sticky',
-                zIndex: 1,
-                top: 0,
+                'borderRadius': 0,
+                'overflowY': 'scroll',
+                'height': '81vh',
+                'background': 'transparent',
+                'position': 'sticky',
+                'zIndex': 1,
+                'top': 0,
+                '@lg': { width: '90%' },
               }}
             >
               <SearchInput
                 changeHandler={handleSearchInputChange}
-                width="190px"
+                width="300px"
                 placeholder="Explore categories"
                 size="md"
                 isLoading={isLoading}
@@ -91,6 +107,7 @@ export const Categories = () => {
                   onClick={onLoadMore}
                   css={{
                     borderRadius: 1,
+                    width: '100%',
                     background: 'transparent',
                     color: '$primary',
                     borderTop: '1px solid #fff',
@@ -101,7 +118,7 @@ export const Categories = () => {
               </TabList>
             </Card>
           </Grid>
-          <Grid>
+          <Grid xs={12} sm={9}>
             {filteredCategories?.slice(0, itemsToShow).map(c => (
               <TabPanel key={c.id}>
                 <CategoryResult category={c} />

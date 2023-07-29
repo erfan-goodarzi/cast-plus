@@ -5,6 +5,7 @@ import { FailureNotif } from '@cast/notification';
 import { Button, Card, Col, Grid, Row, Text } from '@nextui-org/react';
 import { Link, useNavigate } from '@tanstack/react-location';
 import type { PIApiCategory } from 'podcastindexjs/lib/types';
+import { useMediaQuery } from 'react-responsive';
 
 interface Props {
   category: PIApiCategory;
@@ -16,6 +17,12 @@ export const CategoryResult = ({ category }: Props) => {
     max: 30,
   });
   const navigate = useNavigate();
+  const isTabletOrMobile = useMediaQuery({
+    query: '(max-width: 768px)',
+  });
+  const isIpad = useMediaQuery({
+    query: '(max-width: 1024px)',
+  });
 
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = defaultImg;
@@ -30,7 +37,7 @@ export const CategoryResult = ({ category }: Props) => {
     <>
       <Grid.Container css={{ gap: 12, mb: 20 }}>
         <Grid>
-          <Text h4 color="#fff">
+          <Text color="#fff" css={{ 'fontSize': 16, '@lg': { fontSize: 19 } }}>
             All Podcasts About :
           </Text>
         </Grid>
@@ -44,7 +51,7 @@ export const CategoryResult = ({ category }: Props) => {
         ) : (
           data?.feeds.map(
             (pod: { id: number; image: string; title: string }) => (
-              <Col span={2} key={pod.id}>
+              <Col span={isTabletOrMobile ? 12 : isIpad ? 5 : 2} key={pod.id}>
                 <Link to={`/explore/${pod.id}`}>
                   <Card css={{ bg: 'none', borderRadius: '$xs' }}>
                     <Card.Body css={{ p: 0 }}>
@@ -80,7 +87,11 @@ export const CategoryResult = ({ category }: Props) => {
                     >
                       <Row align="baseline">
                         <Col span={8}>
-                          <Text color="#fff" weight="bold" size={14}>
+                          <Text
+                            color="#fff"
+                            weight="bold"
+                            css={{ 'fontSize': 12, '@lg': { fontSize: 14 } }}
+                          >
                             {pod.title.substring(0, 20)}
                           </Text>
                         </Col>
@@ -100,11 +111,12 @@ export const CategoryResult = ({ category }: Props) => {
                             >
                               <Text
                                 css={{
-                                  letterSpacing: 0.4,
-                                  color: '$primary',
+                                  'letterSpacing': 0.4,
+                                  'color': '$primary',
+                                  'fontSize': 11,
+                                  '@lg': { fontSize: 13 },
                                 }}
                                 weight="bold"
-                                size={13}
                                 transform="uppercase"
                               >
                                 Listen
