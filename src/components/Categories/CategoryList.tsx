@@ -8,6 +8,7 @@ import { Badge, Card, Grid, simpleColors } from '@nextui-org/react';
 import { useNavigate } from '@tanstack/react-location';
 import type { PIApiCategory } from 'podcastindexjs/lib/types';
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 export const CategoryList = () => {
   const { data, isLoading, isError } = useGetCategories();
@@ -15,6 +16,9 @@ export const CategoryList = () => {
   const [categoryList, setCategoryList] =
     useState<(IconList & PIApiCategory)[][]>();
   const [badgeColors, setBadgeColors] = useState<SimpleColors>();
+  const isTabletOrMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   useEffect(() => {
     if (data) {
@@ -40,7 +44,8 @@ export const CategoryList = () => {
       ) : (
         categoryList?.map(category => (
           <Grid
-            xs={4}
+            xs={6}
+            lg={4}
             key={category[0]!.id}
             style={{
               flexDirection: 'column',
@@ -69,7 +74,7 @@ export const CategoryList = () => {
             >
               <FontAwesomeIcon
                 color="#2c2c2c"
-                size="2x"
+                size={isTabletOrMobile ? 'lg' : '2x'}
                 icon={category[1]!.icon}
               />
               <Badge

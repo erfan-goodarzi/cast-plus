@@ -18,11 +18,13 @@ export const Explore = () => {
       </Grid>
       <Card
         css={{
-          'position': 'fixed',
-          'bottom': '2rem',
-          'background': '#D2D6D9',
+          'display': 'none',
           '@lg': {
+            position: 'fixed',
             height: '64vh',
+            background: '#D2D6D9',
+            display: 'block',
+            bottom: '2rem',
             left: 27,
             width: '97%',
           },
