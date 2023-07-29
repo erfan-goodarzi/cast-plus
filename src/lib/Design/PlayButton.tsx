@@ -41,7 +41,7 @@ export const PlayButton = ({
         'width': '100%',
         '@lg': {
           px: 20,
-          marginRight: '2rem',
+          mx: 'unset',
           width: 'auto',
         },
       }}

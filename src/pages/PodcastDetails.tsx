@@ -111,7 +111,7 @@ export const PodcastDetails = () => {
           </Text>
           <Spacer />
           <Grid.Container
-            css={{ columnGap: 26 }}
+            css={{ 'columnGap': 26, '@lg': { columnGap: '0 !important' } }}
             justify={isMobileOrIpad ? 'center' : 'flex-start'}
           >
             <Grid>
