@@ -76,3 +76,27 @@
 .embla__button--next {
   right: -21px;
 }
+
+/* Mobile devices */
+@media (max-width: 767px) {
+  .embla {
+    height: 280px;
+  }
+  .embla__slide {
+    min-width: 100%;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+  .embla__slide {
+    min-width: 45%;
+  }
+}
+
+/* Small desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .embla__slide {
+    min-width: 27%;
+  }
+}

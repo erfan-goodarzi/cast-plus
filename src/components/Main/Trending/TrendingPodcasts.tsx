@@ -18,7 +18,10 @@ export const TrendingPodcasts = () => {
         h1
         color="#fff"
         css={{
+          'fontSize': 23,
+          'textAlign': 'center',
           '@lg': {
+            textAlign: 'left',
             fontSize: '29px',
           },
         }}
@@ -28,7 +31,9 @@ export const TrendingPodcasts = () => {
       <Text
         color="#fbfbfbbd"
         css={{
+          'textAlign': 'center',
           '@lg': {
+            textAlign: 'left',
             fontSize: '19px',
           },
         }}

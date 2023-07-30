@@ -9,7 +9,7 @@ export const Explore = () => {
   return data.length === 1 ? ( // Check that the explore route has params
     <Grid.Container css={{ 'gap': 50, '@lg': { gap: '0 !important' } }}>
       <Grid lg={8} sm={12} xs={12} css={{ display: 'block !important' }}>
-        {/* <TrendingPodcasts />   */}
+        <TrendingPodcasts />
         <Spacer y={1} />
         <TopThisWeek />
       </Grid>
