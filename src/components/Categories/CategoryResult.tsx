@@ -1,11 +1,12 @@
 import { useGetTopPodcasts } from '@cast/api';
 import { Badge, Loader } from '@cast/design';
-import { defaultImg } from '@cast/img';
 import { FailureNotif } from '@cast/notification';
 import { Button, Card, Col, Grid, Row, Text } from '@nextui-org/react';
 import { Link, useNavigate } from '@tanstack/react-location';
 import type { PIApiCategory } from 'podcastindexjs/lib/types';
 import { useMediaQuery } from 'react-responsive';
+
+import DefaultImg from '../../Images/default-img.jpg';
 
 interface Props {
   category: PIApiCategory;
@@ -25,7 +26,7 @@ export const CategoryResult = ({ category }: Props) => {
   });
 
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = defaultImg;
+    e.currentTarget.src = DefaultImg;
   };
 
   if (isError) {

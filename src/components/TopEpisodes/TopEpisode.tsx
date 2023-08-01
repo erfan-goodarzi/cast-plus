@@ -1,9 +1,10 @@
 import { useGetTopEpisode } from '@cast/api';
 import { BadgeInfo, Loader, PlayButton } from '@cast/design';
-import { defaultImg } from '@cast/img';
 import { FailureNotif } from '@cast/notification';
 import { removeHtmlTag } from '@cast/utils';
 import { Container, Grid, Image, Spacer, Text } from '@nextui-org/react';
+
+import DefaultImg from '../../Images/default-img.jpg';
 
 export const TopEpisode = () => {
   const { data, isLoading, isError } = useGetTopEpisode();
@@ -42,7 +43,7 @@ export const TopEpisode = () => {
                   width: '528px',
                 },
               }}
-              src={topEpisode.image || defaultImg}
+              src={topEpisode.image || DefaultImg}
               alt="Default Image"
               objectFit="cover"
             />
@@ -98,7 +99,7 @@ export const TopEpisode = () => {
           <PlayButton
             id={topEpisode.id}
             title={topEpisode.title}
-            image={topEpisode.image || defaultImg}
+            image={topEpisode.image || DefaultImg}
             feedTitle={topEpisode.feedTitle}
             url={topEpisode.enclosureUrl}
           />

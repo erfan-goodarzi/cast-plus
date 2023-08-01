@@ -1,7 +1,8 @@
-import { defaultImg } from '@cast/img';
 import { Card, Grid, Text } from '@nextui-org/react';
 import { Link } from '@tanstack/react-location';
 import type { PIApiFeed } from 'podcastindexjs/lib/types';
+
+import DefaultImg from '../../Images/default-img.jpg';
 
 interface Props {
   isVisible: boolean;
@@ -46,7 +47,7 @@ export const SearchResult = ({ isVisible, result, clearHandler }: Props) => {
           >
             <img
               alt={title}
-              src={image || defaultImg}
+              src={image || DefaultImg}
               width="70px"
               height="70px"
             />

@@ -1,7 +1,6 @@
 import '../../../style/embla.css';
 
 import { Loader } from '@cast/design';
-import { defaultImg } from '@cast/img';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Grid, Text } from '@nextui-org/react';
@@ -9,6 +8,8 @@ import { Link } from '@tanstack/react-location';
 import useEmblaCarousel from 'embla-carousel-react';
 import type { PIApiFeed } from 'podcastindexjs/lib/types';
 import { useCallback } from 'react';
+
+import DefaultImg from '../../../Images/default-img.jpg';
 
 interface Props {
   slides: PIApiFeed[];
@@ -48,7 +49,7 @@ export const TrendingCarousel = ({ isLoad, slides }: Props) => {
                           borderRadius: '10px',
                           height: '150px',
                         }}
-                        src={pod.image || defaultImg}
+                        src={pod.image || DefaultImg}
                       />
                       <Text css={{ fontSize: 16, fontWeight: 'bold', ml: 3 }}>
                         {pod.title.substring(0, 19)}

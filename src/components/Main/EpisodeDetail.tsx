@@ -1,7 +1,6 @@
 /* eslint-disable max-lines-per-function */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { BadgeInfo, PlayButton, ShareButton } from '@cast/design';
-import { defaultImg } from '@cast/img';
 import { removeHtmlTag } from '@cast/utils';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,6 +18,8 @@ import type {
   PIApiRecentEpisode,
 } from 'podcastindexjs/lib/types';
 import { useState } from 'react';
+
+import DefaultImg from '../../Images/default-img.jpg';
 
 interface Props {
   episodes: Pick<
@@ -86,7 +87,7 @@ export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
                 height: '219px',
                 borderRadius: 3,
               }}
-              src={image || defaultImg}
+              src={image || DefaultImg}
               alt={title}
               objectFit="cover"
             />
@@ -153,7 +154,7 @@ export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
               <Grid xs={12} sm={3} lg={1}>
                 <PlayButton
                   id={id}
-                  image={image || defaultImg}
+                  image={image || DefaultImg}
                   title={title}
                   feedTitle={feedTitle}
                   url={enclosureUrl}
