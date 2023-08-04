@@ -11,7 +11,7 @@ export const theme = createTheme({
       primary: '#ffd60a !important',
       primarySolidContrast: '#0f172b',
       primaryLightContrast: '#ffd60a',
-      primaryLight: '#00254d',
+      primaryLight: '#00254d !important',
     },
   },
 });

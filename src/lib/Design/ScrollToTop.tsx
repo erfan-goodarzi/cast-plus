@@ -43,13 +43,14 @@ export const ScrollToTop = () => {
         'zIndex': 2,
         'bottom': 20,
         'right': 30,
+        'color': '#0f172b',
         '&:hover': {
           animation: `${scaleUp()} 600ms infinite`,
         },
       }}
       auto
       color="primary"
-      icon={<FontAwesomeIcon color="#0f172b" icon={faAngleUp} />}
+      icon={<FontAwesomeIcon icon={faAngleUp} />}
     />
   ) : null;
 };
