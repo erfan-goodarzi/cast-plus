@@ -67,7 +67,16 @@ export const TrendingCarousel = ({ isLoad, slides }: Props) => {
       </div>
       <Button
         auto
-        className="embla__button embla__button--next"
+        css={{
+          position: 'absolute',
+          zIndex: 1,
+          top: '30%',
+          alignItems: 'center',
+          background: '#fff',
+          right: -20,
+          color: 'rgb(15, 23, 43)',
+          borderRadius: '50%',
+        }}
         icon={<FontAwesomeIcon icon={faArrowRight} />}
         onClick={scrollNext}
       />
