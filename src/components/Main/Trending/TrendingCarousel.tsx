@@ -1,5 +1,3 @@
-import '../../../style/embla.css';
-
 import { Loader } from '@cast/design';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
