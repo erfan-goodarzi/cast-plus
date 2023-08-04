@@ -57,7 +57,11 @@ export const SearchInput = React.forwardRef<FormElement, Props>(
           },
         }}
         contentLeft={
-          isLoading ? <Loader size="xs" /> : <FontAwesomeIcon icon={faSearch} />
+          isLoading ? (
+            <Loader size="xs" />
+          ) : (
+            <FontAwesomeIcon color="#ffd60a" icon={faSearch} />
+          )
         }
       />
     );

@@ -49,7 +49,7 @@ export const ScrollToTop = () => {
       }}
       auto
       color="primary"
-      icon={<FontAwesomeIcon icon={faAngleUp} />}
+      icon={<FontAwesomeIcon color="#0f172b" icon={faAngleUp} />}
     />
   ) : null;
 };
