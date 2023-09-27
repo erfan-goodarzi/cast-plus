@@ -78,7 +78,7 @@ export const Nav = () => {
         backdropFilter: 'unset !important',
       }}
     >
-      <Link to="/">
+      <Link style={{ flex: 0.5 }} to="/">
         <Brand />
       </Link>
       <Navbar.Content
@@ -90,10 +90,6 @@ export const Nav = () => {
           },
           '@sm': {
             ml: '5rem',
-          },
-          '@lg': {
-            ml: '22rem',
-            pt: 13,
           },
         }}
       >
