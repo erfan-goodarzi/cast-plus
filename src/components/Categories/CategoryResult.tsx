@@ -1,6 +1,6 @@
 import { useGetTopPodcasts } from '@cast/api';
 import { Badge, Loader } from '@cast/design';
-import { FailureNotif } from '@cast/notification';
+import { FailureNotification } from '@cast/notification';
 import { Button, Card, Col, Grid, Row, Text } from '@nextui-org/react';
 import { Link, useNavigate } from '@tanstack/react-location';
 import type { PIApiCategory } from 'podcastindexjs/lib/types';
@@ -30,7 +30,7 @@ export const CategoryResult = ({ category }: Props) => {
   };
 
   if (isError) {
-    FailureNotif();
+    FailureNotification();
     return null;
   }
 

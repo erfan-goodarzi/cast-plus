@@ -87,7 +87,7 @@ export const HeaderDetails = () => {
       >
         <Link to="/explore">Browse Podcast</Link>
       </Button>
-      <Avatar.Group css={{ position: 'absolute', bottom: '2rem' }}>
+      <Avatar.Group css={{ position: 'absolute', bottom: '2rem', left: 32 }}>
         {pictureUsers.map(url => (
           <Avatar
             key={Object.values(url).join('-')}

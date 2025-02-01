@@ -1,2 +1,2 @@
-export * from './FailureNotif';
-export * from './SuccessNotif';
+export * from './FailureNotification';
+export * from './SuccessNotification';

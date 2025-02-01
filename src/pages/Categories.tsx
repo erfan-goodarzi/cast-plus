@@ -1,6 +1,6 @@
 import { useGetCategories } from '@cast/api';
 import { Loader, SearchInput } from '@cast/design';
-import { FailureNotif } from '@cast/notification';
+import { FailureNotification } from '@cast/notification';
 import type { FormElement } from '@nextui-org/react';
 import { Button, Card, Container, Grid } from '@nextui-org/react';
 import { useNavigate } from '@tanstack/react-location';
@@ -47,7 +47,7 @@ export const Categories = () => {
   if (isLoading) return <Loader />;
 
   if (isError) {
-    FailureNotif();
+    FailureNotification();
     return null;
   }
 

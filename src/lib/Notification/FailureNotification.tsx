@@ -1,6 +1,6 @@
 import { Report } from 'notiflix';
 
-export const FailureNotif = () =>
+export const FailureNotification = () =>
   Report.failure(
     'Something Went Wrong',
     'There could be something wrong with the server or your network connection.',

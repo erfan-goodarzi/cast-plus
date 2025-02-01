@@ -5,8 +5,6 @@ import { Nav } from '../Layout';
 import { HeaderDetails } from './HeaderDetails';
 
 export const Header = () => {
-  // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' });
-
   return (
     <Container
       xl
@@ -15,24 +13,15 @@ export const Header = () => {
         'backgroundSize': 'auto',
         'backgroundPosition': 'center',
         'position': 'relative',
-        'height': '76vh',
+        'height': '80vh',
         'marginBottom': '1rem',
-        '@xs': {
-          height: '73vh',
-        },
-        '@sm': {
-          height: '53vh',
-        },
-        '@md': {
-          height: '106vh',
-        },
         '@lg': {
-          height: '100vh',
+          height: '95vh',
         },
       }}
     >
       <Nav />
-      <Spacer y={5} />
+      <Spacer y={3} />
       <HeaderDetails />
     </Container>
   );

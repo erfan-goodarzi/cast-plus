@@ -144,4 +144,7 @@ export const GlobalStyles = globalCss({
   '@media (min-width: 992px) and (max-width: 1199px)': {
     '.embla__slide': { minWidth: '27%' },
   },
+  '@media (min-width: 1411px) and (max-width: 1600px)': {
+    '.embla__slide': { minWidth: '30%' },
+  },
 });

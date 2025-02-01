@@ -1,24 +1,27 @@
 import { useGetTopThisWeek } from '@cast/api';
 import { Loader } from '@cast/design';
-import { FailureNotif } from '@cast/notification';
+import { FailureNotification } from '@cast/notification';
 import { removeHtmlTag } from '@cast/utils';
 import { Card, Container, Grid, Spacer, Text } from '@nextui-org/react';
 import { Link } from '@tanstack/react-location';
-import { useMediaQuery } from 'react-responsive';
 
 export const TopThisWeek = () => {
   const { data, isLoading, isError } = useGetTopThisWeek();
-  const isTabletOrMobile = useMediaQuery({
-    query: '(max-width: 1024px)',
-  });
 
   if (isError) {
-    FailureNotif();
+    FailureNotification();
     return null;
   }
 
   return (
-    <Container css={{ 'textAlign': 'center', '@lg': { textAlign: 'left' } }}>
+    <Container
+      css={{
+        '@xs': { paddingInline: 0 },
+        '@sm': { paddingInline: 'auto' },
+        'textAlign': 'center',
+        '@lg': { textAlign: 'left' },
+      }}
+    >
       <Card
         css={{
           'background': 'transparent',
@@ -57,7 +60,8 @@ export const TopThisWeek = () => {
           <Grid.Container
             css={{ gap: 20 }}
             key={item.id}
-            justify={isTabletOrMobile ? 'center' : 'flex-start'}
+            justify="center"
+            alignItems="center"
           >
             <Grid lg={3} sm={3}>
               <Link to={item.id}>

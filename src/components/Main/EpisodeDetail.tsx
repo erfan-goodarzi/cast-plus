@@ -141,12 +141,11 @@ export const EpisodeDetail = ({ episodes, feedTitle }: Props) => {
             </Text>
             <Grid.Container
               css={{
-                'gap': 35,
                 'pt': 30,
-
+                'gap': 20,
                 'justifyContent': 'center',
-
                 '@lg': {
+                  gap: '3rem !important',
                   justifyContent: 'flex-start',
                 },
               }}

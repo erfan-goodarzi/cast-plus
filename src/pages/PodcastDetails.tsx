@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useGeEpisodeById, useGetPodcastById } from '@cast/api';
 import { Badge, Loader, ShareButton, SubscribeButton } from '@cast/design';
-import { FailureNotif } from '@cast/notification';
+import { FailureNotification } from '@cast/notification';
 import {
   Button,
   Col,
@@ -32,13 +32,18 @@ export const PodcastDetails = () => {
   if (isLoading) return <Loader size="lg" />;
 
   if (isError) {
-    FailureNotif();
+    FailureNotification();
     return null;
   }
 
   return podcast ? (
     <Container gap={isMobileOrIpad ? 0 : 8} css={{ mb: 40 }}>
-      <Row wrap={isMobileOrIpad ? 'wrap' : 'nowrap'} justify="center">
+      <Row
+        wrap={isMobileOrIpad ? 'wrap' : 'nowrap'}
+        justify="center"
+        align="center"
+        gap={1}
+      >
         <Col
           span={isMobileOrIpad ? 12 : 2}
           css={{
@@ -66,7 +71,7 @@ export const PodcastDetails = () => {
               'fontWeight': 'bold',
               'mx': 'auto',
               'textAlign': 'center',
-              '@lg': {
+              '@md': {
                 mx: 'unset',
                 fontSize: 32,
                 textAlign: 'left',
@@ -92,7 +97,7 @@ export const PodcastDetails = () => {
               'fontWeight': 400,
               'textAlign': 'center',
               'mx': 'auto',
-              '@lg': {
+              '@md': {
                 fontWeight: 600,
                 mx: 'unset',
                 textAlign: 'left',

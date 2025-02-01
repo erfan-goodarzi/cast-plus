@@ -1,5 +1,5 @@
 import { useGetTopPodcasts } from '@cast/api';
-import { FailureNotif } from '@cast/notification';
+import { FailureNotification } from '@cast/notification';
 import { Container, Text } from '@nextui-org/react';
 
 import { TrendingCarousel } from './TrendingCarousel';
@@ -8,12 +8,14 @@ export const TrendingPodcasts = () => {
   const { data, isLoading, isError } = useGetTopPodcasts({ max: 30 });
 
   if (isError) {
-    FailureNotif();
+    FailureNotification();
     return null;
   }
 
   return (
-    <Container>
+    <Container
+      css={{ '@xs': { paddingInline: 0 }, '@sm': { paddingInline: 'auto' } }}
+    >
       <Text
         h1
         color="#fff"

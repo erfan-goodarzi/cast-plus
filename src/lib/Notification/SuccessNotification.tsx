@@ -3,7 +3,7 @@ import { Notify } from 'notiflix';
 interface Props {
   msg: string;
 }
-export const SuccessNotif = ({ msg }: Props) =>
+export const SuccessNotification = ({ msg }: Props) =>
   Notify.success(msg, {
     position: 'center-top',
     timeout: 2000,

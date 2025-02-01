@@ -1,7 +1,7 @@
 import { useGetCategories } from '@cast/api';
 import type { IconList } from '@cast/design';
 import { iconList, Loader } from '@cast/design';
-import { FailureNotif } from '@cast/notification';
+import { FailureNotification } from '@cast/notification';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { SimpleColors } from '@nextui-org/react';
 import { Badge, Card, Grid, simpleColors } from '@nextui-org/react';
@@ -31,7 +31,7 @@ export const CategoryList = () => {
   }, [data]);
 
   if (isError) {
-    FailureNotif();
+    FailureNotification();
     return null;
   }
 

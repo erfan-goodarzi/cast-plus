@@ -4,7 +4,9 @@ import { CategoryList } from './CategoryList';
 
 export const CategoriesCard = () => {
   return (
-    <Container>
+    <Container
+      css={{ '@xs': { paddingInline: 0 }, '@sm': { paddingInline: 40 } }}
+    >
       <Text
         h2
         color="#fff"
@@ -23,14 +25,11 @@ export const CategoriesCard = () => {
       </Text>
       <Card
         css={{
-          'zIndex': 1,
-          'background': '#fff',
-          'margin': '3rem 0',
-          'borderTopRightRadius': 0,
-          'borderBottomRightRadius': 0,
-          'height': '70vh',
-          'overflowY': 'scroll',
-          '@lg': { width: '85%' },
+          zIndex: 1,
+          background: '#fff',
+          margin: '3rem 0',
+          height: '70vh',
+          overflowY: 'scroll',
         }}
       >
         <CategoryList />

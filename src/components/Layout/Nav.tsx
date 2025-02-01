@@ -74,8 +74,13 @@ export const Nav = () => {
       maxWidth="fluid"
       css={{ boxShadow: 'unset', pt: 4 }}
       containerCss={{
-        background: 'unset !important',
-        backdropFilter: 'unset !important',
+        'background': 'unset !important',
+        'backdropFilter': 'unset !important',
+        'paddingInline': 0,
+        'alignItems': 'baseline',
+        '@md': {
+          paddingInline: 8,
+        },
       }}
     >
       <Link style={{ flex: 0.5 }} to="/">
@@ -117,11 +122,9 @@ export const Nav = () => {
           width: 300,
         }}
       >
-        <Navbar.Item
-          css={{ 'ml': 20, '@xs': { ml: '7rem' }, '@lg': { ml: 18 } }}
-        >
+        <Navbar.Item css={{ mx: 14 }}>
           <SearchInput
-            width={isTabletOrMobile ? '190px' : '280px'}
+            width={isTabletOrMobile ? '190px' : '230px'}
             ref={inputRef}
             changeHandler={handleChange}
             placeholder="Search for Podcasts"
@@ -137,9 +140,11 @@ export const Nav = () => {
       </Navbar.Content>
       <Navbar.Content
         css={{
-          '@xs': {
-            w: '12%',
-            jc: 'flex-end',
+          'display': 'none',
+          'w': '12%',
+          'jc': 'flex-end',
+          '@md': {
+            display: 'flex',
           },
         }}
       >
@@ -151,9 +156,7 @@ export const Nav = () => {
             'color': '#fff',
             'borderColor': '#fff',
             'borderRadius': 3,
-            'display': 'none',
-            '@lg': {
-              display: 'flex',
+            '@md': {
               fontSize: '15px',
               padding: '1.25rem 1.25rem',
             },
